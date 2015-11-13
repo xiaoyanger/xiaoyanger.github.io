@@ -3,21 +3,51 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | 小样儿-BLOG</title>
+  <title>Linux FTP的安装与配置 | 小样儿-BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="##Linux FTP的安装与配置
+1.安装
+# yum install vsftpd
+2.开启和关闭FTP
+开启：# service vsftpd start
+关闭：# service vsftpd stop
+3.在linux中添加ftp用户，并设置相应的权限，操作步骤如下
+3.1环境：
+
+ftp为vsftp 被限制用户名为test。被限制路径为/home/test
+
+3.2建用户：在root用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/11/06/hello-world/index.html">
+<meta property="og:title" content="Linux FTP的安装与配置">
+<meta property="og:url" content="http://yoursite.com/2015/11/06/linux_ftp的安装与配置/index.html">
 <meta property="og:site_name" content="小样儿-BLOG">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-11-06T05:50:48.717Z">
+<meta property="og:description" content="##Linux FTP的安装与配置
+1.安装
+# yum install vsftpd
+2.开启和关闭FTP
+开启：# service vsftpd start
+关闭：# service vsftpd stop
+3.在linux中添加ftp用户，并设置相应的权限，操作步骤如下
+3.1环境：
+
+ftp为vsftp 被限制用户名为test。被限制路径为/home/test
+
+3.2建用户：在root用">
+<meta property="og:updated_time" content="2015-11-06T10:01:17.843Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Linux FTP的安装与配置">
+<meta name="twitter:description" content="##Linux FTP的安装与配置
+1.安装
+# yum install vsftpd
+2.开启和关闭FTP
+开启：# service vsftpd start
+关闭：# service vsftpd stop
+3.在linux中添加ftp用户，并设置相应的权限，操作步骤如下
+3.1环境：
+
+ftp为vsftp 被限制用户名为test。被限制路径为/home/test
+
+3.2建用户：在root用">
   
     <link rel="alternative" href="/atom.xml" title="小样儿-BLOG" type="application/atom+xml">
   
@@ -63,10 +93,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="[layout]-linux_ftp的安装与配置" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/11/06/hello-world/" class="article-date">
-  <time datetime="2015-11-06T08:59:40.894Z" itemprop="datePublished">2015-11-06</time>
+    <a href="/2015/11/06/linux_ftp的安装与配置/" class="article-date">
+  <time datetime="2015-11-06T08:57:19.000Z" itemprop="datePublished">2015-11-06</time>
 </a>
     
   </div>
@@ -77,7 +107,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Linux FTP的安装与配置
     </h1>
   
 
@@ -85,32 +115,71 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>##Linux FTP的安装与配置</p>
+<p>1.安装</p>
+<pre><code><span class="preprocessor"># yum install vsftpd</span>
+</code></pre><p>2.开启和关闭FTP</p>
+<pre><code>开启：<span class="preprocessor"># service vsftpd start</span>
+关闭：<span class="preprocessor"># service vsftpd stop</span>
+</code></pre><p>3.在linux中添加ftp用户，并设置相应的权限，操作步骤如下</p>
+<pre><code>3.1环境：
 
+ftp为vsftp 被限制用户名为<span class="keyword">test</span>。被限制路径为/home/<span class="keyword">test</span>
+
+3.2建用户：在root用户下：
+
+# useradd -<span class="keyword">d</span> /home/<span class="keyword">test</span> <span class="keyword">test</span> <span class="comment">//增加用户test，并制定test用户的主目录为/home/test </span>
+# passwd <span class="keyword">test</span> <span class="comment">//为test设置密码</span>
+
+3.3更改用户相应的权限设置：
+
+# usermod -s /sbin/nologin <span class="keyword">test</span> <span class="comment">//限定用户test不能telnet，只能ftp </span>
+# usermod -s /sbin/bash <span class="keyword">test</span> <span class="comment">//用户test恢复正常 </span>
+# usermod -<span class="keyword">d</span> /<span class="keyword">test</span> <span class="keyword">test</span> <span class="comment">//更改用户test的主目录为/test</span>
+
+3.4限制用户只能访问/home/<span class="keyword">test</span>，不能访问其他路径
+修改 # /etc/vsftpd/vsftpd.<span class="keyword">conf</span> 如下：
+
+chroot_list_enable=YES <span class="comment">//限制访问自身目录</span>
+
+# (default follows)
+chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
+
+编辑 vsftpd.chroot_list文件，将受限制的用户添加进去，每个用户名一行
+
+改完配置文件，不要忘记重启vsFTPd服务器。
+
+# /etc/init.<span class="keyword">d</span>/vsftpd restart
+3.5如果需要允许用户修改密码，但是又没有telnet登录系统的权限
+# usermod -s /usr/bin/passwd <span class="keyword">test</span> <span class="comment">//用户telnet后将直接进入改密界面</span>
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/06/hello-world/" data-id="cigoq391q000k7ct4bzxjzl63" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/06/linux_ftp的安装与配置/" data-id="cigoq391m000g7ct4mo2d2pkb" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FTP/">FTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
+    <a href="/2015/11/06/linux，apache，php，mysql常用的查看版本信息的方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux，apache，php，mysql常用的查看版本信息的方法
+        
+      </div>
+    </a>
   
-    <a href="/2015/11/06/1337语言/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2015/11/06/HelloHexo/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">1337语言</div>
+      <div class="article-nav-title">初探hexo</div>
     </a>
   
 </nav>
