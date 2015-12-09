@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>小样儿-BLOG</title>
+  <title>Xiaoyanegr - Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="小样儿-BLOG">
+<meta property="og:title" content="Xiaoyanegr - Hexo">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="小样儿-BLOG">
+<meta property="og:site_name" content="Xiaoyanegr - Hexo">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小样儿-BLOG">
+<meta name="twitter:title" content="Xiaoyanegr - Hexo">
 <meta name="twitter:description">
   
-    <link rel="alternative" href="/atom.xml" title="小样儿-BLOG" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Xiaoyanegr - Hexo" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -33,7 +33,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">小样儿-BLOG</a>
+        <a href="/" id="logo">Xiaoyanegr - Hexo</a>
       </h1>
       
     </div>
@@ -61,10 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="[layout]-用队列的方式解决目录遍历问题" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/11/06/hello-world/" class="article-date">
-  <time datetime="2015-11-06T08:59:40.894Z" itemprop="datePublished">2015-11-06</time>
+    <a href="/2015/11/14/用队列的方式解决目录遍历问题/" class="article-date">
+  <time datetime="2015-11-13T16:00:00.000Z" itemprop="datePublished">2015-11-14</time>
 </a>
     
   </div>
@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/hello-world/">Hello World</a>
+      <a class="article-title" href="/2015/11/14/用队列的方式解决目录遍历问题/">用队列的方式解决目录遍历问题</a>
     </h1>
   
 
@@ -83,167 +83,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>&lt;?php<br>public function  getfiles($path=’.’){</p>
+<pre><code><span class="variable">$queue</span>=<span class="keyword">array</span>(<span class="variable">$path</span>);
+<span class="keyword">while</span> (!<span class="keyword">empty</span>(<span class="variable">$queue</span>)) {
+    <span class="variable">$currentPath</span>=array_shift(<span class="variable">$queue</span>);
+    <span class="variable">$currentDir</span> = dir(<span class="variable">$currentPath</span>);
+    while (false !== (<span class="variable">$filePath</span> = <span class="variable">$currentDir-</span>&gt;read())) {
+       if( <span class="string">'.'</span> == <span class="variable">$filePath</span> || <span class="string">'..'</span> == <span class="variable">$filePath</span> ){
+               continue;
+       }
+       if(is_dir(<span class="variable">$currentPath</span>.<span class="string">'/'</span>.<span class="variable">$filePath</span>)){
+              array_push(<span class="variable">$queue</span>, <span class="variable">$currentPath</span>.<span class="string">'/'</span>.<span class="variable">$filePath</span>);
+       }
+       echo <span class="variable">$currentPath</span>.<span class="string">'/'</span>.<span class="variable">$filePath</span>.<span class="string">"\n"</span>;
+    }
+    <span class="variable">$currentDir-</span>&gt;close();
+}
+</code></pre><p>}<br>getfiles(‘d:/software’);</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/06/hello-world/" data-id="cigoq391q000k7ct4bzxjzl63" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/14/用队列的方式解决目录遍历问题/" data-id="cihymbq4k000a08uhhtetbi3s" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="[layout]-1337语言" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/11/06/1337语言/" class="article-date">
-  <time datetime="2015-11-06T08:57:19.000Z" itemprop="datePublished">2015-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/1337语言/">1337语言</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##1337语言</p>
-<p>1.初级替换</p>
-<pre><code><span class="number">0</span>   <span class="number">1</span>    <span class="number">3</span>    <span class="number">4</span>    <span class="number">5</span>    <span class="number">6</span>    <span class="number">7</span>    |
-o   l    e    a    s    g    t    i
-</code></pre><p>2.二级加密</p>
-<pre><code><span class="constant">A</span> = @                               U = |_|
-
-<span class="constant">B</span> = |3                              V = \/
-
-<span class="constant">C</span> = (                               W = \/\/
-
-<span class="constant">D</span> = |)                              X = )(
-
-<span class="constant">E</span> = 3                               Y = '/
-
-<span class="constant">F</span> = |=                              Z = 2
-
-<span class="constant">G</span> = 6                               a = 4
-
-<span class="constant">H</span> = |-|                             b = 8
-
-<span class="constant">I</span> = |                               c = ©
-
-<span class="constant">J</span> = _|                              d = |&gt;
-
-<span class="constant">K</span> = |(                              e = 3
-
-<span class="constant">L</span> = |_                              f = #
-
-<span class="constant">M</span> = /\/\                            g = 9
-
-<span class="constant">N</span> = /\/                             h = h
-
-<span class="constant">O</span> = 0                               i = |
-
-<span class="constant">P</span> = |*                              j = j
-
-<span class="constant">Q</span> = 0,                              k = |&lt;
-
-<span class="constant">R</span> = |2                              l = 1
-
-<span class="constant">S</span> = $                               m = m
-
-<span class="constant">T</span> = 7                                n = n
-
-<span class="constant">o</span> = 0                                programs = progz
-
-<span class="constant">p</span> = |*                               god = r00t
-
-<span class="constant">q</span> = 0.                               fool = f00
-
-<span class="constant">r</span> = ®                                heart/love = &lt;3
-
-<span class="constant">s</span> = 5                                what's up = sup
-
-<span class="constant">t</span> = +                                that = dat
-
-<span class="constant">u</span> = 00                               look at = peep
-
-<span class="constant">v</span> = \/                               kill = frag
-
-<span class="constant">w</span> = \/\/                             sweet = schweet
-
-<span class="constant">x</span> = &gt;&lt;                               sleep = reboot
-
-<span class="constant">y</span> = j                                greater than = &gt;
-
-<span class="constant">z</span> = 2                                newbie = n00b
-
-<span class="constant">at</span> = @                               no = noes
-
-<span class="constant">ck</span> = x0r                             woo hoo = w00t
-
-<span class="constant">the</span> = teh                            why = y
-
-<span class="constant">you</span> = j00 or u                       be = b
-
-<span class="constant">own</span> = pwn                            are = r
-
-<span class="constant">dude</span> = d00d                          fear = ph34r
-
-<span class="constant">and</span> = &amp;                              super = uber
-
-blah/me = meh                        yo = j0
-
-<span class="constant">rock</span> = r0xx0r                        hacker = h4x0r
-
-<span class="constant">cool</span> = k3wl                          software = warez
-
-<span class="constant">computer</span> = pu73r                     chick = chix0r
-
-<span class="constant">good</span> = teh win                       bad = teh lose
-
-<span class="constant">loser</span> = l4m3r                        aol = uh, 14m3r
-
-<span class="constant">money</span> = monies                       bye = bai
-
-<span class="constant">kick</span> = punt                          porn = pr0n
-
-<span class="constant">skill</span> = m4d 5killz                   hello = ping
-
-<span class="constant">robot</span> = b0t                          naked = n3k3d
-
-<span class="constant">what</span> = wut                           whatever = wutev
-
-<span class="constant">cool</span> = c00                           to/two = 2
-
-<span class="constant">with</span> = wit                           sex = cyb3r
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/06/1337语言/" data-id="cigoq390b00007ct4fb8rzwue" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/语言/">语言</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
 
     </footer>
   </div>
@@ -252,10 +116,10 @@ blah/me = meh                        yo = j0
 
 
   
-    <article id="[layout]-使用charles_proxy_for_mac来抓取手机app的网络包" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-git使用操作整理" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/11/06/使用charles_proxy_for_mac来抓取手机app的网络包/" class="article-date">
-  <time datetime="2015-11-06T08:57:19.000Z" itemprop="datePublished">2015-11-06</time>
+    <a href="/2015/11/13/git使用操作整理/" class="article-date">
+  <time datetime="2015-11-12T16:00:00.000Z" itemprop="datePublished">2015-11-13</time>
 </a>
     
   </div>
@@ -266,7 +130,7 @@ blah/me = meh                        yo = j0
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/使用charles_proxy_for_mac来抓取手机app的网络包/">使用charles proxy for Mac来抓取手机App的网络包</a>
+      <a class="article-title" href="/2015/11/13/git使用操作整理/">git使用操作整理</a>
     </h1>
   
 
@@ -274,93 +138,107 @@ blah/me = meh                        yo = j0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##使用charles proxy for Mac来抓取手机App的网络包</p>
-<p>1.保证手机和Mac连接的是同一个无线局域网</p>
-<p>2.在Mac上打开Charles Proxy，菜单栏操作：Proxy→Proxy Setting，检查端口，一般保持默认，HTTP Proxy端口为8888</p>
-<p>3.查看Mac当前的IP地址，之后作为手机的Proxy IP用</p>
-<p>4.编辑手机的WIFI连接，长按当前连接的WIFI网络</p>
-<p>5.选择“修改网络”，进入网络连接的编辑模式（选择“显示高级选项”）并保存</p>
-<p>6.在手机App上随意进行一个操作</p>
-<p>这种可以抓HTTP包了，如果需要抓HTTPS包的话</p>
-<ul>
-<li>下载Charles证书<a href="http://www.charlesproxy.com/ssl.zip，解压后导入到iOS设备中（将crt文件作为邮件附件发给自己，再在iOS设备中点击附件即可安装）" target="_blank" rel="external">http://www.charlesproxy.com/ssl.zip，解压后导入到iOS设备中（将crt文件作为邮件附件发给自己，再在iOS设备中点击附件即可安装）</a></li>
-<li>在Charles的工具栏上点击设置按钮，选择Proxy Settings…</li>
-<li>切换到SSL选项卡，选中Enable SSL Proxying，别急，选完先别关掉，还有下一步</li>
-<li>在上一步的SSL选项卡的Locations表单填写要抓包的域名和端口，点击Add按钮，在弹出的表单中Host填写域名，比如填api.instagram.com，Port填443</li>
-</ul>
-<p>其它:</p>
-<p>1、如果没有设置ssl的话，那么你看到的ssl的接口中，会有一个报错:SSL Proxying not enabled for this host: enable in Proxy Settings, SSL locations，这个时候，在左侧的域名上点右键：enable ssl，就OK了。（其实就是上面的第4部，不过这个操作是简化操作，上面的第4步太麻烦了）</p>
-<p>2、如果这样还是不能抓包，那么官方有说明（<a href="http://www.charlesproxy.com/documentation/using-charles/ssl-certificates/）" target="_blank" rel="external">http://www.charlesproxy.com/documentation/using-charles/ssl-certificates/）</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/06/使用charles_proxy_for_mac来抓取手机app的网络包/" data-id="cigoq391a00037ct4hpt98ceu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抓包/">抓包</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="[layout]-linux，apache，php，mysql常用的查看版本信息的方法" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/11/06/linux，apache，php，mysql常用的查看版本信息的方法/" class="article-date">
-  <time datetime="2015-11-06T08:57:19.000Z" itemprop="datePublished">2015-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/linux，apache，php，mysql常用的查看版本信息的方法/">linux，apache，php，mysql常用的查看版本信息的方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="linux，apache，php，mysql常用的查看版本信息的方法">linux，apache，php，mysql常用的查看版本信息的方法</h3><ol>
-<li><p>查看linux的内核版本，系统信息，常用的有三种办法：</p>
-<pre><code>uname -a;//显示电脑以及操作系统的相关信息
-
-more /etc/issue;//显示的是发行版本信息
-
-cat /<span class="keyword">proc</span>/version;//显示正在运行的内核版本
+        <ol>
+<li><p>git基本概念<br> a. git跟踪并管理的是文件的修改，而非文件</p>
+<pre><code>修改就是：新增一行，删除一行，更改某个字符甚至创建新文件等
+每次的修改如果不 <span class="keyword">add </span>到暂存区，将不会被 commit 提交到仓库的
+</code></pre><p> b. 工作区(Working Directory)：就是当前你的版本库(.git文件夹)所在目录<br> c. 版本库(Repository)：工作区有个隐藏的”.git”目录，这个目录不算工作区，而是Git的版本库<br> d. 版本库：</p>
+<pre><code>暂存区：称为stage或index
+        git add file 即为将文件的修改添加到暂存区
+分支：称为branch，git为我们创建第一个分支是<span class="keyword">master</span>
+      <span class="title">git</span> commit 即为将文件提交到当前HEAD指向的分支
+HEAD: 指向当前分支版本的指针
+</code></pre><p> e. 自己本地创建的分支，别人是看不见的<br> f. 通常情况下合并分支，Git会用”Fast forward”模式，这种模式下被合并的删除分支后，会丢掉分支信息</p>
+<pre><code>如果，强制禁止<span class="string">"Fast forward"</span>模式，Git就会在<span class="keyword">merge</span>时生成一个新的commit,这样，从分支历史上就可以看出分支信息。
+强制禁止<span class="string">"Fast forward"</span>:
+     git <span class="keyword">merge</span> --<span class="keyword">no</span>-ff -<span class="keyword">m</span> '<span class="keyword">merge</span> info' branch_name
+</code></pre><p> g. git config –global core.autocrlf false    // 禁止GIT自动换行</p>
+<pre><code>git config --<span class="keyword">global</span> core.safecrlf <span class="keyword">true</span>     <span class="comment">// 提交时强制检测换行符</span>
 </code></pre></li>
-<li><p>查看apache的版本信息:</p>
-<p> 如果是通过yum，或者是rpm安装的，可以使用rpm -qa |gerp httpd 来查看；</p>
-<p> 还可以通过httpd -v来查询；</p>
-<p> 当然，安装好apache后，可以直接elink回环查看apache的信息。</p>
+<li><p>安装完成后的基本设置<br> git config –global user.name “Your Name”    设置全局的用户名<br> git config –global user.email “email@example.com”   设置全局的Email<br> git config –global color.ui true   让bash显示颜色<br> git config –global core.autocrlf true 提交时将CRLF转换为LF,迁出代码将LF转换为CRLF</p>
 </li>
-<li><p>查看php的版本信息:</p>
-<p>如果是通过yum，或者是rpm包安装的，可以使用rpm -qa |grep php来查看；</p>
-<p>同样，也可以使用php -v来查看php的版本信息；</p>
-<p>一般情况下，大多是通过安装lamp后，使用phpinfo的测试页来查看安装的php的信息；</p>
-</li>
-<li><p>查看mysql的版本信息，如果是通过yum安装的，或者是rpm包安装的，可以使用rpm -qa |grep mysql 来查看；</p>
-<p> 也可以使用mysql -v 或者是–help|grep Distrib来查看；</p>
-<p> 也可以进入mysql，然后通过命令select version（）；来查看；</p>
-<p> 或者是status；命令查看。</p>
-</li>
+<li>初始化版本库(仓库)<br> git init</li>
+<li>将文件的修改添加到版本库的暂存区(stage/index)<br> git add file_name.ext</li>
+<li>提交暂存区(stage/index)的所有修改内容到仓库(当前分支)<br> git commit -m “本次提交简介,最好是文件或功能的简介,因为会显示在github文件描述栏里”</li>
+<li>查看版本库的当前状态<br> git status</li>
+<li>diff 查看文件<br> git diff file_name.ext</li>
+<li>查看日志(历史记录)<br> git log<br> git log –pretty=online : 单行显示</li>
+<li>查看每一次提交或改变版本库的命令(查看历史提交版本)<br> git reflog</li>
+<li>Git版本号的表示<br> git用SHA1算法计算出来的非常大的数字,用16进制表示<br> git用HEAD表示当前最新提交的版本<br> git的上一个版本就是HEAD^,上上一个版本就是HEAD^^,依次类推<pre><code>也可这样表示往上<span class="number">100</span>个版本: HEAD~<span class="number">100</span>
+</code></pre></li>
+<li>版本回退(可以理解为重新设置HEAD指针的指向)<br>git reset –hard HEAD^<br>git reset –hard commit_id(版本号)</li>
+<li>丢弃工作区(所有文件或某文件)的修改<pre><code>分两种情况：
+    <span class="tag">a</span>. 修改未被提交到暂存区(stage/index)，撤销修改将回到和当前branch版本库一模一样的状态
+    <span class="tag">b</span>. 修改已经提交到暂存区(stage/index)后，又进行了部分修改(此修改未提交暂存区)，
+       撤销修改将回到添加暂存区后的状态
+    总之，就是让这个文件回到最近一次git commit 或 git add 后的状态，即，只是丢弃工作区的修改。其实就是用版本库或暂存区里的文件替换工作区的文件
+</code></pre>git checkout – file_name.ext</li>
+<li>撤销已经提交暂存区的更改，重新放回工作区。<br>其实就是将暂存区的文件用当前branch所在的版本库替换<br>用HEAD表示当前branch的最新版本<br>git reset HEAD file_name.ext</li>
+<li>删除文件(一般分三步)<br> step 1：在资源管理器下直接删除文件，或 rm file<br> step 2：git rm file<br> step 3：git commit -m ‘delete info’</li>
+<li>创建分支<br>a. git checkout -b branch_name        创建并切换到新建的分支<br>b. git branch branch_name             创建新分支，并未切换<br>注：<pre><code><span class="label">git</span> checkout -<span class="keyword">b </span><span class="keyword">branch_name </span>相当于 git <span class="keyword">branch </span><span class="keyword">branch_name </span>和 git checkout <span class="keyword">branch_name两条命令</span>
+</code></pre></li>
+<li>查看分支<br>git branch<br>git branch -a : -a参数将会同时列出远端和本地分支<br>注：当前分支前面会标一个星号(*)</li>
+<li>切换分支<br>git checkout branch_name    切换到branch_name分支</li>
+<li>合并分支<br>git marge branch_name   将branch_name分支合并到当前分支<br>注：合并模式分两种<pre><code><span class="tag">a</span>. 快进模式：直接将当前分支的指针指向branch_name分支的当前提交
+<span class="tag">b</span> TODO.....
+</code></pre></li>
+<li>删除分支<pre><code><span class="label">a.</span> 被删除分支已经被合并
+    git <span class="keyword">branch </span>-d <span class="keyword">branch_name
+</span><span class="keyword">b. </span>被删除分支未被合并(强行删除)
+    git <span class="keyword">branch </span>-D <span class="keyword">branch-name
+</span>    注：未合并分支删除后将丢失修改
+</code></pre></li>
+<li>解决冲突<br>a. 当合并分支时，会发生冲突，这样合并分支就不会是“快进模式”合并了<br>b. Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; branch_name 来标记出不同分支的内容<br>c. 然后手工编辑冲突<br>注：当Git无法自动合并分支时，就必须首先解决冲突，然后再提交，合并才能完成。</li>
+<li>查看分支合并情况<br>git log –graph –pretty=oneline –abbrev-commit<pre><code>注： <span class="comment">--graph 伪图形化查看分支合并图</span>
+     <span class="comment">--pretty=oneline 单行省略显示(将不显示提交者和提交时间信息)</span>
+     <span class="comment">--abbrev-commit  缩略显示版本ID</span>
+</code></pre></li>
+<li>保存当前工作现场(即,保存储藏)<br>当有其它分支需要马上开发(比如bug修复分支)，而当前的分支工作并未完成，不能提交时，可以使用保存工作现场，等以后恢复现场后再继续工作<br>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除<br>当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场<br>保存现场：git stash<br>查看现场：git stash list<br>恢复现场：a. git stash apply<pre><code>   此方法恢复现场后stash的内容并不会被删除，需要 git stash drop 手工删除
+<span class="keyword">b. </span>git stash <span class="keyword">pop
+</span>   恢复现场的同时删除stash内容
+</code></pre>删除现场：git stash drop<br>注：可多次stash，恢复的时候，先用 git stash list 查看，然后指定恢复的stash，用命令：<pre><code>git stash apply stash<span class="variable">@{0}</span>
+git stash <span class="keyword">pop</span> stash<span class="variable">@{0}</span>
+</code></pre></li>
+<li>本地仓库关联远程仓库<br> git remote add origin git@github.com:wangnanphp/learngit.git<br> 注：origin为远程库的名称，也可以叫别的名子，但origin更见名知意</li>
+<li>推送本地仓库指定分支到远程仓库<br> git push<br> git push &lt;远端仓库&gt; &lt;本地仓库的分支&gt;<br> git push -u orgin master<br> 注：git push 直接将当前分支推送到远程<pre><code>-u <span class="tag">&lt;远端&gt;</span> <span class="tag">&lt;分支&gt;</span>   (一般用于第一次推送,以后推送可以简化命令)
+   推送本地<span class="literal">master</span>分支的同时还将本地<span class="literal">master</span>和远程<span class="literal">master</span>关联
+</code></pre></li>
+<li>从远程库克隆<br>git clone git@github.com:wangnanphp/learngit.git<br>注：默认克隆远程库的情况下，只能看到克隆到的本地master分支<pre><code>如果要克隆其他分支，请看<span class="number">27</span>条(分支抓取)
+</code></pre></li>
+<li>查看远程库信息<br>git remote<br>git remote -v 显示详细信息<br>注：详细信息中显示的 “fetch” 代表可以拉取(抓取)的地址，”push” 代表可以推送的地址<pre><code>如果没有推送权限，将看不到 <span class="string">"push"</span> 的地址
+</code></pre></li>
+<li>推送本地分支<br>将指定分支上的所有本地提交(commit)，推送到远程库<br>git push origin_depository branch_name<pre><code><span class="label">orgin_depository</span>：远程库
+<span class="keyword">branch_name：本地分支
+</span><span class="label">eg</span>：git <span class="keyword">push </span>origin master
+</code></pre></li>
+<li>获取(抓取)远程分支修改<br>git pull<br>注：必须指定当前分支与远程分支的链接关系，否则 git pull 会失败<pre><code>git pull 回来的远端修改在没有冲突的情况下会自动合并到本地分支
+如果远端的内容和本地的内容有冲突，则需要手工解决冲突，再commit，再<span class="keyword">push</span>
+</code></pre></li>
+<li>创建远程分支到本地(分支抓取)<br>抓取远程分支到本地，并切换到<br>git checkout -b local_branch origin_depository/origin_branch<pre><code>eg：git checkout -b <span class="built_in">dev</span> origin/<span class="built_in">dev</span>
+</code></pre>注：此操作只会在本地创建和远程分支对应的分支，</li>
+<li>设置本地分支与远程分支之间的链接关系(注：此参数已经弃用，有两个替代参数)<br>git branch –set-upstream local_branch origin_depository/branch_name<pre><code>eg：git branch --<span class="built_in">set</span>-upstream <span class="built_in">dev</span> origin/<span class="built_in">dev</span>
+</code></pre>// 一个替代的：<br>git branch –set-upstream-to origin_depository/branch_name<br>关联本地当前分支到远端 origin_depository/branch_name 分支</li>
+<li>创建标签<br>git tag tag_name<pre><code>eg: git <span class="keyword">tag</span> <span class="title">v0</span>.<span class="number">1</span>
+</code></pre>git tag tag_name commit_id  用指定 commit_id 创建tag<br>git tag -a tag_name -m “tag info”   创建带说明信息的tag  -a：tag_name  -m “tag_info”<br>git tag -s tag_name -m “tag info” commit_id    -s 用私钥签名一个标签<br>注：默认标签是打在当前分支的最新commit上(HEAD)，也可以给指定commit_id打标签<pre><code>发布一个版本时，我们通常先在版本库中打一个标签，这样，就唯一确定了打标签时刻的版本。
+<span class="operator">-s</span> 签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错
+</code></pre></li>
+<li>查看所有标签<br>git tag<br>注：标签不是按时间顺序，而是按字母顺序排列的</li>
+<li>查看标签信息<br>git show tag_name</li>
+<li>删除标签<br>git tag -d tag_name<br>注：因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除</li>
+<li>推送本地标签<br>git push origin tag_name    推送单个标签<br>git push origin –tags      一次性推送全部尚未推送远程的本地标签</li>
+<li>推送过远程的标签删除<br>a. 先删除本地<pre><code>git <span class="keyword">tag</span> <span class="title">-d</span> tag_name
+</code></pre>b. 再删除远程<pre><code>git <span class="keyword">push</span> origin : refs<span class="regexp">/tags/</span>tag_name
+</code></pre></li>
+<li>别名配置<br>git config –global alias.st status</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/06/linux，apache，php，mysql常用的查看版本信息的方法/" data-id="cigoq391g00087ct4h39yolwu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/13/git使用操作整理/" data-id="cihym8cru000508uhunykb4a4" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
     </footer>
   </div>
@@ -369,10 +247,10 @@ cat /<span class="keyword">proc</span>/version;//显示正在运行的内核版�
 
 
   
-    <article id="[layout]-linux_ftp的安装与配置" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-在Linux中将php-fpm配置成服务的方法" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/11/06/linux_ftp的安装与配置/" class="article-date">
-  <time datetime="2015-11-06T08:57:19.000Z" itemprop="datePublished">2015-11-06</time>
+    <a href="/2015/11/12/在Linux中将php-fpm配置成服务的方法/" class="article-date">
+  <time datetime="2015-11-11T16:00:00.000Z" itemprop="datePublished">2015-11-12</time>
 </a>
     
   </div>
@@ -383,7 +261,7 @@ cat /<span class="keyword">proc</span>/version;//显示正在运行的内核版�
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/linux_ftp的安装与配置/">Linux FTP的安装与配置</a>
+      <a class="article-title" href="/2015/11/12/在Linux中将php-fpm配置成服务的方法/">在Linux中将php-fpm配置成服务的方法</a>
     </h1>
   
 
@@ -391,51 +269,19 @@ cat /<span class="keyword">proc</span>/version;//显示正在运行的内核版�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##Linux FTP的安装与配置</p>
-<p>1.安装</p>
-<pre><code><span class="preprocessor"># yum install vsftpd</span>
-</code></pre><p>2.开启和关闭FTP</p>
-<pre><code>开启：<span class="preprocessor"># service vsftpd start</span>
-关闭：<span class="preprocessor"># service vsftpd stop</span>
-</code></pre><p>3.在linux中添加ftp用户，并设置相应的权限，操作步骤如下</p>
-<pre><code>3.1环境：
+        <p>在Linux中将php-fpm配置成服务的方法</p>
+<p>1.配置php-fpm.conf<br>vi /usr/local/php/etc/php-fpm.conf<br>php-fpm.pid 目录必须指向：/usr/local/php/var/run/php-fpm.pid</p>
+<p>2.拷贝php-fpm脚本至/etc/init.d目录<br>cp /home/soft/php-5.3.15/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</p>
+<p>3.设置权限并启动php-fpm：<br>chmod 755 /etc/init.d/php-fpm<br>/etc/init.d/php-fpm start<br>chkconfig –add php-fpm</p>
+<p>4.最后，给出php-fpm以服务的方式启动、停止和重启：<br>service php-fpm start<br>service php-fpm stop<br>service php-fpm reload</p>
 
-ftp为vsftp 被限制用户名为<span class="keyword">test</span>。被限制路径为/home/<span class="keyword">test</span>
-
-3.2建用户：在root用户下：
-
-# useradd -<span class="keyword">d</span> /home/<span class="keyword">test</span> <span class="keyword">test</span> <span class="comment">//增加用户test，并制定test用户的主目录为/home/test </span>
-# passwd <span class="keyword">test</span> <span class="comment">//为test设置密码</span>
-
-3.3更改用户相应的权限设置：
-
-# usermod -s /sbin/nologin <span class="keyword">test</span> <span class="comment">//限定用户test不能telnet，只能ftp </span>
-# usermod -s /sbin/bash <span class="keyword">test</span> <span class="comment">//用户test恢复正常 </span>
-# usermod -<span class="keyword">d</span> /<span class="keyword">test</span> <span class="keyword">test</span> <span class="comment">//更改用户test的主目录为/test</span>
-
-3.4限制用户只能访问/home/<span class="keyword">test</span>，不能访问其他路径
-修改 # /etc/vsftpd/vsftpd.<span class="keyword">conf</span> 如下：
-
-chroot_list_enable=YES <span class="comment">//限制访问自身目录</span>
-
-# (default follows)
-chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
-
-编辑 vsftpd.chroot_list文件，将受限制的用户添加进去，每个用户名一行
-
-改完配置文件，不要忘记重启vsFTPd服务器。
-
-# /etc/init.<span class="keyword">d</span>/vsftpd restart
-3.5如果需要允许用户修改密码，但是又没有telnet登录系统的权限
-# usermod -s /usr/bin/passwd <span class="keyword">test</span> <span class="comment">//用户telnet后将直接进入改密界面</span>
-</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/06/linux_ftp的安装与配置/" data-id="cigoq391m000g7ct4mo2d2pkb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/12/在Linux中将php-fpm配置成服务的方法/" data-id="cihym0dc5000008uhav1p8jy8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FTP/">FTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
 
     </footer>
   </div>
@@ -444,10 +290,10 @@ chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
 
 
   
-    <article id="[layout]-HelloHexo" class="article article-type-[layout]" itemscope itemprop="blogPost">
+    <article id="[layout]-lnmp[基于contos]的服务器搭建" class="article article-type-[layout]" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/11/06/HelloHexo/" class="article-date">
-  <time datetime="2015-11-06T08:57:19.000Z" itemprop="datePublished">2015-11-06</time>
+    <a href="/2015/11/11/lnmp[基于contos]的服务器搭建/" class="article-date">
+  <time datetime="2015-11-10T16:00:00.000Z" itemprop="datePublished">2015-11-11</time>
 </a>
     
   </div>
@@ -458,7 +304,7 @@ chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/06/HelloHexo/">初探hexo</a>
+      <a class="article-title" href="/2015/11/11/lnmp[基于contos]的服务器搭建/">lnmp服务器搭建</a>
     </h1>
   
 
@@ -466,15 +312,33 @@ chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##初探hexo<br>作为一个资深小白，每每看到别人家的博客，只有羡慕的份，听别人说起了HEXO这个东西，一时间心血来潮，顺便搞搞，大家别吐槽啊</p>
+        <p>nginx+mysql+php<br><a href="http://www.lmyw.net.cn/?p=487" target="_blank" rel="external">[转自老马运维，十分感谢]</a><br>centos:7.1.1503 64位系统<br>nginx:1.8.0<br>mysql:5.6.24<br>php:5.6.8<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">根据生产环境安装操作系统（centos <span class="number">7.1</span><span class="number">.1503</span> <span class="number">64</span>位系统），安装完成后，使用Xshell通过ssh协议连接服务器。</span><br><span class="line">ssh 用户名<span class="annotation">@IP</span>+回车+输入密码后登录系统。</span><br><span class="line">$&amp;: mkdir -p <span class="regexp">/home/</span>tools</span><br><span class="line">$&amp;: cd <span class="regexp">/home/</span>tools</span><br><span class="line">将软件包上传到<span class="regexp">/home/</span>tools</span><br></pre></td></tr></table></figure></p>
+<p>修改网卡的配置文件<br>$&amp;: vim /etc/sysconfig/network-scripts/ifcfg-ens32 //ifcfg-ens32是网卡的设备名称，每个机器的设备名不一样，修改的时候改成自己机器的设备名称<br>HWADDR=00:1e:37:25:92:77 //改成自己机器的MAC地址<br>TYPE=Ethernet<br>BOOTPROTO=static<br>DEFROUTE=yes<br>PEERDNS=yes<br>PEERROUTES=yes<br>USERCTL=no<br>NM_CONTROLLED=no<br>IPV4_FAILURE_FATAL=no<br>IPV6INIT=yes<br>IPV6_AUTOCONF=yes<br>IPV6_DEFROUTE=yes<br>IPV6_PEERDNS=yes<br>IPV6_PEERROUTES=yes<br>IPV6_FAILURE_FATAL=no<br>NAME=eno16777736<br>ONBOOT=yes<br>IPADDR=192.168.1.91<br>NETMASK=255.255.255.0<br>GATEWAY=192.168.1.1<br>DNS1=202.106.0.20<br>$&amp;: systemctl -f restart NetworkManager<br>关键配置：<br>TYPE=Ethernet<br>BOOTPROTO=static<br>NAME=eno16777736<br>ONBOOT=yes<br>IPADDR=192.168.117.128<br>NETMASK=255.255.255.0<br>GATEWAY=192.168.117.2<br>DNS1=192.168.117.2<br>$&amp;: cat /etc/resolv.conf<br>nameserver 192.168.117.2<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">创建软件包存储目录</span><br><span class="line"><span class="variable">$&amp;</span>: cd /home/</span><br><span class="line"><span class="variable">$&amp;</span>: mkdir tools</span><br><span class="line"><span class="variable">$&amp;</span>: cd tools/</span><br></pre></td></tr></table></figure></p>
+<p>安装系统程序<br>$&amp;: yum -y install wget<br>$&amp;: yum -y install vim<em><br>$&amp;: yum -y install ntpdate<br>$&amp;: yum -y install mlocate<br>$&amp;: updatedb<br>$&amp;: yum -y install lrzsz</em> //可安装可不安装<br>$&amp;: yum -y install openssl*<br>$&amp;: yum -y install pcre-devel<br>$&amp;: yum -y install ncurses-devel<br>$&amp;: yum -y install gcc python-devel<br>$&amp;: service iptables stop<br>centos 7.0执行如下内容<br>$&amp;: systemctl start firewalld.service //启动firewall<br>$&amp;: systemctl stop firewalld.service //停止firewall<br>$&amp;: systemctl disable firewalld.service //禁止firewall开机启动<br>$&amp;: chmod +x /etc/rc.d/rc.local //设置开机启动项脚本权限<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">时间同步</span><br><span class="line"><span class="variable">$&amp;</span>: <span class="regexp">/usr/sbin</span><span class="regexp">/ntpdate us.pool.ntp.org | logger -t NTP /</span><span class="regexp">/ 0-59/</span><span class="number">10</span> * * * * <span class="regexp">/usr/sbin</span><span class="regexp">/ntpdate us.pool.ntp.org | logger -t NTP(每隔10分钟同步一下时钟)</span></span><br></pre></td></tr></table></figure></p>
+<p>下载nginx、pcre、zlib<br>$&amp;: wget <a href="http://nginx.org/download/nginx-1.8.0.tar.gz" target="_blank" rel="external">http://nginx.org/download/nginx-1.8.0.tar.gz</a><br>$&amp;: wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-10.00.tar.gz<br>$&amp;: wget <a href="http://zlib.net/zlib-1.2.8.tar.gz" target="_blank" rel="external">http://zlib.net/zlib-1.2.8.tar.gz</a><br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">安装pcre</span><br><span class="line"><span class="variable">$&amp;</span>: tar -zxvf pcre2-<span class="number">10.00</span>.tar.gz</span><br><span class="line"><span class="variable">$&amp;</span>: cd pcre2-<span class="number">10.00</span>/</span><br><span class="line"><span class="variable">$&amp;</span>: ./configure</span><br><span class="line"><span class="variable">$&amp;</span>: make</span><br><span class="line"><span class="variable">$&amp;</span>: make install</span><br><span class="line"><span class="variable">$&amp;</span>: cd /home/tools/</span><br></pre></td></tr></table></figure></p>
+<p>安装zlib<br>$&amp;: tar -zxvf zlib-1.2.8.tar.gz<br>$&amp;: cd zlib-1.2.8<br>$&amp;: ./configure<br>$&amp;: make<br>$&amp;: make install<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">安装第三方软件源</span><br><span class="line">$&amp;: wget http:<span class="comment">//packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm</span></span><br><span class="line">$&amp;: rpm -ivh rpmforge-release-<span class="number">0.5</span>.<span class="number">2</span>-<span class="number">2</span><span class="class">.el5</span><span class="class">.rf</span><span class="class">.x86_64</span><span class="class">.rpm</span></span><br></pre></td></tr></table></figure></p>
+<p>安装nginx</p>
+<p>$&amp;: cd /home/tools/<br>$&amp;: tar -zxvf nginx-1.8.0.tar.gz<br>$&amp;: cd nginx-1.8.0/<br>$&amp;: /usr/sbin/groupadd www<br>$&amp;: /usr/sbin/useradd -g www www<br>$&amp;: ./configure –user=www –group=www –with-http_stub_status_module –with-http_gzip_static_module –prefix=/usr/local/nginx<br>$&amp;: ./configure –user=www –group=www –with-http_stub_status_module –with-http_gzip_static_module –with-http_ssl_module –prefix=/usr/local/nginx //支持https<br>$&amp;: make<br>$&amp;: make install<br>$&amp;: mkdir -p /home/logs<br>$&amp;: mkdir -p /home/logs/api.m.woniuanjia.com<br>$&amp;: mkdir -p /home/logs/www.m.woniuanjia.com<br>$&amp;: mkdir -p /home/logs/demo.woniuanjia.com<br>$&amp;: mkdir -p /home/app/api.m.woniuanjia.com<br>$&amp;: mkdir -p /home/app/www.m.woniuanjia.com<br>$&amp;: mkdir -p /home/app/demo.woniuanjia.com<br>$&amp;: mkdir /home/logs/nginx-log/<br>$&amp;: chmod +w /home/logs<br>$&amp;: chmod +w /home/app/api.m.woniuanjia.com/<br>$&amp;: chmod +w /home/app/www.m.woniuanjia.com/<br>$&amp;: chmod +w /home/app/demo.woniuanjia.com/<br>$&amp;: chmod +w /home/logs/nginx-log/<br>$&amp;: chown -R www:www /home/logs/<br>$&amp;: chown -R www:www /home/app/<br>$&amp;: chown -R www:www /home/logs/nginx-log/<br>$&amp;: mkdir -p /home/nginx/logs/<br>$&amp;: vim /etc/passwd<br>www:x:500:500::/home/www:/sbin/nologin<br>$&amp;: cp /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf.bak<br>$&amp;: cat /dev/null &gt;/usr/local/nginx/conf/nginx.conf<br>$&amp;: vim /usr/local/nginx/conf/nginx.conf<br>user www www;<br>worker_processes 2;<br>worker_cpu_affinity 0101 1010;<br>error_log /home/logs/nginx-log/error.log crit;<br>pid /usr/local/nginx/logs/nginx.pid;<br>worker_rlimit_nofile 65535;<br>events {<br>use epoll;<br>worker_connections 65535;<br>}<br>http {<br>include mime.types;<br>default_type application/octet-stream;<br>charset utf-8;<br>log_format access ‘$remote_addr – $remote_user [$time_local] “$request” $status $body_bytes_sent “$http_referer” “$http_user_agent” “$http_x_forwarded_for” host’;<br>server_names_hash_bucket_size 128;<br>client_header_buffer_size 4k;<br>large_client_header_buffers 4 4k;<br>sendfile on;<br>tcp_nopush on;<br>tcp_nodelay on;<br>server_tokens off;<br>keepalive_timeout 60;<br>gzip on;<br>gzip_min_length 1k;<br>gzip_buffers 4 16k;<br>gzip_http_version 1.1;<br>gzip_comp_level 4;<br>$&amp;: gzip_types text/plain application/x-javascript text/css application/xml;<br>gzip_types text/plain application/x-javascript text/css;<br>gzip_vary on;<br>server {<br>listen 80 default;<br>return 200;<br>}<br>$&amp;: 以上为默认增加的nginx配置<br>$&amp;: 以下为蜗牛项目在线host配置<br>$&amp;:  host.woniu.com #<br>server {<br>listen 80;<br>server_name host.woniu.com 192.168.1.91;<br>root /home/app/host.woniu.com/;<br>}<br>$&amp;: 以下为新增的nginx配置<br>$&amp;: api.m.woniuanjia.com#<br>server {<br>listen 80;<br>server_name api.m.woniuanjia.com;<br>charset utf-8;<br>root /home/app/api.m.woniuanjia.com/v1.0/web/;<br>location / {<br>index index.php index.html index.htm;<br>}<br>location /v1.0/ {<br>index index.php;<br>alias /home/app/api.m.woniuanjia.com/v1.0/web/;<br>}<br>error_page 500 502 503 504 /50x.html;<br>location = /50x.html {<br>root html;<br>}<br>location ~ ^/v1.0/(.<em>.php)$ {<br>fastcgi_pass 127.0.0.1:9000;<br>fastcgi_index index.php;<br>fastcgi_param SCRIPT_FILENAME /home/app/api.m.woniuanjia.com/v1.0/web/$1;<br>include fastcgi_params;<br>}<br>location ~ .php$ {<br>fastcgi_pass 127.0.0.1:9000;<br>fastcgi_index index.php;<br>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>include fastcgi_params;<br>}<br>access_log /home/logs/api.m.woniuanjia.com/access.log access;<br>error_log /home/logs/api.m.woniuanjia.com/error.log info;<br>}<br>$&amp;: www.m.woniuanjia.com#<br>server {<br>listen 80;<br>server_name www.m.woniuanjia.com;<br>charset utf-8;<br>root /home/app/www.m.woniuanjia.com/v1.0/;<br>location / {<br>index index.php index.html index.htm;<br>}<br>location /v1.0/ {<br>index index.php;<br>alias /home/app/www.m.woniuanjia.com/v1.0/;<br>}<br>error_page 500 502 503 504 /50x.html;<br>location = /50x.html {<br>root html;<br>}<br>location ~ ^/v1.0/(.</em>.php)$ {<br>fastcgi_pass 127.0.0.1:9000;<br>fastcgi_index index.php;<br>fastcgi_param SCRIPT_FILENAME /home/app/www.m.woniuanjia.com/v1.0/$1;<br>include fastcgi_params;<br>}<br>location ~ .php$ {<br>fastcgi_pass 127.0.0.1:9000;<br>fastcgi_index index.php;<br>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>include fastcgi_params;<br>}<br>access_log /home/logs/www.m.woniuanjia.com/access.log access;<br>error_log /home/logs/www.m.woniuanjia.com/error.log info;<br>}<br>$&amp;: demo.woniuanjia.com#<br>server {<br>listen 80;<br>server_name demo.woniuanjia.com;<br>root /home/app/demo.woniuanjia.com/v1.0/;<br>location / {<br>index index.php index.html index.htm;<br>if (!-e $request_filename) {<br>rewrite ^/(.<em>)$ /index.php?$1 last;<br>break;<br>}<br>}<br>location ~ .php$ {<br>fastcgi_pass 127.0.0.1:9000;<br>fastcgi_index index.php;<br>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>include fastcgi_params;<br>}<br>access_log /home/logs/demo.woniuanjia.com/access.log access;<br>error_log /home/logs/demo.woniuanjia.com/error.log info;<br>}<br>$&amp;: img.woniuanjia.com#<br>server {<br>listen 80;<br>server_name img.m.woniuanjia.com;<br>root /home/app/img.m.woniuanjia.com/;<br>location / {<br>index index.php index.html index.htm;<br>if (!-e $request_filename) {<br>rewrite ^/(.</em>)$ /index.php?$1 last;<br>break;<br>}<br>}<br>}<br>$&amp;: finish<br>}<br>$&amp;: vim /etc/security/limits.conf</p>
+<ul>
+<li>soft    nproc   16384</li>
+<li>hard    nproc   16384</li>
+<li>soft    nofile  4096</li>
+<li>hard    nofile  65536</li>
+<li>soft    stack   10240<br>修改完之后退出重新登录生效<br>$&amp;: ulimit -n<br>$&amp;: ulimit -a<br>$&amp;: mkdir /home/crontab<br>$&amp;: vim /home/crontab/cut_nginx_log.sh<br>$&amp;: !/bin/bash<br>$&amp;: auth peter<br>$&amp;:  定时切割Nginx日志的脚本<br>$&amp;:  每小时生产一份日志<br>$&amp;:  如果是每月1号,则将上月日志归档<br>today=<code>date +%e</code><br>monthlog=<code>date -d ‘-1 month’ +%Y%m</code><br>hour=<code>date +%k</code><br>hour_accesslogname=<code>date +”%Y%m%d%H” –date=”-1 hour”</code><br>day_errorlogname=<code>date +”%Y%m%d” –date=”-1 day”</code><br>$&amp;:  The Nginx logs path<br>$&amp;: 切割api.m.woniuanjia.com日志<br>logs_path=”/home/logs/api.m.woniuanjia.com/”<br>mv ${logs_path}access.log ${logs_path}access-${hour_accesslogname}.log<br>if [ $hour -eq 0 ]; then<br>mv ${logs_path}error.log ${logs_path}error-${day_errorlogname}.log<br>fi<br>if [ $today -eq 1 ]; then<br>if [ ! -e ${logs_path}${monthlog} ]; then<br>mkdir ${logs_path}${monthlog}<br>fi<br>mv ${logs_path}access-${monthlog}<em>.log ${logs_path}${monthlog}<br>mv ${logs_path}error-${monthlog}</em>.log ${logs_path}${monthlog}<br>fi<br>$&amp;: 切割www.m.woniuanjia.com日志<br>logs_path=”/home/logs/www.m.woniuanjia.com/”<br>mv ${logs_path}access.log ${logs_path}access-${hour_accesslogname}.log<br>if [ $hour -eq 0 ]; then<br>mv ${logs_path}error.log ${logs_path}error-${day_errorlogname}.log<br>fi<br>if [ $today -eq 1 ]; then<br>if [ ! -e ${logs_path}${monthlog} ]; then<br>mkdir ${logs_path}${monthlog}<br>fi<br>mv ${logs_path}access-${monthlog}<em>.log ${logs_path}${monthlog}<br>mv ${logs_path}error-${monthlog}</em>.log ${logs_path}${monthlog}<br>fi<br>$&amp;: 切割demo.woniuanjia.com日志<br>logs_path=”/home/logs/demo.woniuanjia.com/”<br>mv ${logs_path}access.log ${logs_path}access-${hour_accesslogname}.log<br>if [ $hour -eq 0 ]; then<br>mv ${logs_path}error.log ${logs_path}error-${day_errorlogname}.log<br>fi<br>if [ $today -eq 1 ]; then<br>if [ ! -e ${logs_path}${monthlog} ]; then<br>mkdir ${logs_path}${monthlog}<br>fi<br>mv ${logs_path}access-${monthlog}<em>.log ${logs_path}${monthlog}<br>mv ${logs_path}error-${monthlog}</em>.log ${logs_path}${monthlog}<br>fi<br>kill -USR1 <code>cat /usr/local/nginx/logs/nginx.pid</code><br>$&amp;: chmod +x /home/crontab/cut_nginx_log.sh<br>$&amp;: chown www:www /home/crontab/cut_nginx_log.sh<br>$&amp;: crontab -e<br>00 10 <em> </em> * /bin/bash /home/crontab/cut_nginx_log.sh<br>$&amp;: vim /etc/rc.d/rc.local<br>/usr/local/nginx/sbin/nginx<br>$&amp;: /usr/local/nginx/sbin/nginx -t<br>$&amp;: /usr/local/nginx/sbin/nginx<br>$&amp;: /usr/local/nginx/sbin/nginx -s reload<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">安装mysql</span><br><span class="line">$&amp;: <span class="keyword">cd</span> /home/tools/</span><br><span class="line">$&amp;: wget http:<span class="comment">//dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.15.tar.gz</span></span><br><span class="line">$&amp;: wget http:<span class="comment">//www.cmake.org/files/v2.8/cmake-2.8.4.tar.gz</span></span><br><span class="line">$&amp;: wget http:<span class="comment">//ftp.gnu.org/gnu/bison/bison-3.0.4.tar.gz</span></span><br><span class="line">$&amp;: tar zxvf cmake-2.8.4.tar.gz</span><br><span class="line">$&amp;: <span class="keyword">cd</span> cmake-2.8.4</span><br><span class="line">$&amp;: ./<span class="keyword">bootstrap</span></span><br><span class="line">$&amp;: gmake</span><br><span class="line">$&amp;: gmake install</span><br><span class="line">$&amp;: <span class="keyword">cd</span> ..</span><br><span class="line">$&amp;: tar zxvf bison-3.0.4.tar.gz</span><br><span class="line">$&amp;: <span class="keyword">cd</span> bison-3.0.4/</span><br><span class="line">$&amp;: ./configure</span><br><span class="line">$&amp;: make</span><br><span class="line">$&amp;: make install</span><br><span class="line">$&amp;: <span class="keyword">cd</span> ..</span><br><span class="line">$&amp;: /usr/sbin/groupadd mysql</span><br><span class="line">$&amp;: /usr/sbin/useradd -<span class="keyword">g</span> mysql mysql</span><br><span class="line">$&amp;: vim /etc/passwd</span><br><span class="line">mysql:x:501:501::/home/mysql:/sbin/nologin</span><br><span class="line">$&amp;: tar -zxvf mysql-5.6.24.tar.gz</span><br><span class="line">$&amp;: <span class="keyword">cd</span> mysql-5.6.24</span><br><span class="line">$&amp;: cmake -DCMAKE_INSTALL_PREFIX=/usr/<span class="keyword">local</span>/mysql \</span><br><span class="line">-DMYSQL_UNIX_ADDR=/usr/<span class="keyword">local</span>/mysql/mysql.sock \</span><br><span class="line">-DDEFAULT_CHARSET=utf8 \</span><br><span class="line">-DDEFAULT_COLLATION=utf8_general_ci \</span><br><span class="line">-DWITH_EXTRA_CHARSETS:STRING=utf8,gbk \</span><br><span class="line">-DWITH_MYISAM_STORAGE_ENGINE=1 \</span><br><span class="line">-DWITH_INNOBASE_STORAGE_ENGINE=1 \</span><br><span class="line">-DENABLED_LOCAL_INFILE=1 \</span><br><span class="line">-DMYSQL_DATADIR=/usr/<span class="keyword">local</span>/mysql/data</span><br><span class="line">PS:</span><br><span class="line">以上参数等说明:</span><br><span class="line">DCMAKE_INSTALL_PREFIX=/usr/<span class="keyword">local</span>/mysql #mysql安装的主目录，默认为/usr/<span class="keyword">local</span>/mysql</span><br><span class="line">DMYSQL_DATADIR=/usr/<span class="keyword">local</span>/mysql/data #mysql数据库文件的存放目录，可以自定义</span><br><span class="line">DMYSQL_UNIX_ADDR=/usr/<span class="keyword">local</span>/mysql/mysql.sock #系统Socket文件（.sock）设置,基于该文件路径进行Socket链接，必须为绝对路径</span><br><span class="line">DSYSCONFDIR=/etc #mysql配置文件 my.cnf的存放地址，默认为/etc下</span><br><span class="line">DMYSQL_TCP_PORT=3306 #数据库服务器监听端口，默认为3306</span><br><span class="line">DENABLED_LOCAL_INFILE=1 #允许从本地导入数据</span><br><span class="line">DWITH_READLINE=1 #快捷键功能</span><br><span class="line">DWITH_SSL=yes #支持 SSL</span><br><span class="line">DMYSQL_USER=mysql #默认为mysql</span><br><span class="line"><span class="comment">//下面3个是数据库编码设置</span></span><br><span class="line">DEXTRA_CHARSETS=all #安装所有扩展字符集，默认为all</span><br><span class="line">DDEFAULT_CHARSET=utf8 #使用 utf8 字符</span><br><span class="line">DDEFAULT_COLLATION=utf8_general_ci #校验字符</span><br><span class="line"><span class="comment">//下面5个是数据库存储引擎设在</span></span><br><span class="line">DWITH_MYISAM_STORAGE_ENGINE=1 #安装 myisam 存储引擎</span><br><span class="line">DWITH_INNOBASE_STORAGE_ENGINE=1 #安装 innodb 存储引擎</span><br><span class="line">DWITH_ARCHIVE_STORAGE_ENGINE=1 #安装 archive 存储引擎</span><br><span class="line">DWITH_BLACKHOLE_STORAGE_ENGINE=1 #安装 blackhole 存储引擎</span><br><span class="line">DWITH_PARTITION_STORAGE_ENGINE=1 #安装数据库分区</span><br><span class="line"></span><br><span class="line">$&amp;: make</span><br><span class="line">--------------------------</span><br><span class="line">----可能报错</span><br><span class="line">          FATAL <span class="keyword">ERROR</span>: Could not find ./bin/my_print_defaults</span><br><span class="line">          <span class="keyword">If</span> you compiled from source, you need to <span class="keyword">run</span> 'make install' to</span><br><span class="line">          <span class="keyword">copy</span> the software into the correct location ready <span class="keyword">for</span> operation.</span><br><span class="line">          <span class="keyword">If</span> you are using a binary release, you must either be at the top</span><br><span class="line">          level of the extracted archive, or pass the --basedir option</span><br><span class="line">          pointing to that location.</span><br><span class="line"></span><br><span class="line">----解决方案</span><br><span class="line">-------- /usr/<span class="keyword">local</span>/bin/mysql_install_db --user=mysql --basedir=/usr/<span class="keyword">local</span>/ --datadir=/<span class="keyword">var</span>/<span class="keyword">db</span>/mysql &amp;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$&amp;: make install</span><br><span class="line">$&amp;: chmod +w /usr/<span class="keyword">local</span>/mysql</span><br><span class="line">$&amp;: chown -R mysql:mysql /usr/<span class="keyword">local</span>/mysql #改变目录拥有者与所属组</span><br><span class="line">$&amp;: ln -s /usr/<span class="keyword">local</span>/mysql/lib/libmysqlclient.<span class="keyword">so</span>.16 /usr/lib/libmysqlclient.<span class="keyword">so</span>.16</span><br><span class="line">$&amp;: ln -s /usr/<span class="keyword">local</span>/mysql/lib/libmysqlclient.<span class="keyword">so</span>.16 /usr/lib64/libmysqlclient.<span class="keyword">so</span>.16</span><br><span class="line">$&amp;: <span class="keyword">cd</span> support-files/</span><br><span class="line">$&amp;: cp my-default.cnf /etc/my.cnf #选择默认配置文件 适合大型服务器</span><br><span class="line">cp：是否覆盖”/etc/my.cnf”？ <span class="literal">y</span></span><br><span class="line">$&amp;: cp mysql.server /etc/init.<span class="keyword">d</span>/mysqld #复制启动文件</span><br><span class="line">$&amp;: vim /etc/my.cnf</span><br><span class="line">在[mysqld]下面添加</span><br><span class="line">basedir = /usr/<span class="keyword">local</span>/mysql/</span><br><span class="line">datadir = /usr/<span class="keyword">local</span>/mysql/data</span><br><span class="line"><span class="keyword">log</span>-<span class="keyword">error</span> = /usr/<span class="keyword">local</span>/mysql/mysql_error.<span class="literal">log</span></span><br><span class="line">pid-<span class="keyword">file</span> = /usr/<span class="keyword">local</span>/mysql/data/mysql.pid</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line">user = mysql</span><br><span class="line">$&amp;: /usr/<span class="keyword">local</span>/mysql/scripts/mysql_install_db \</span><br><span class="line">–basedir=/usr/<span class="keyword">local</span>/mysql \</span><br><span class="line">–datadir=/usr/<span class="keyword">local</span>/mysql/data \</span><br><span class="line">–user=mysql</span><br><span class="line">$&amp;: chmod +x /etc/init.<span class="keyword">d</span>/mysqld</span><br><span class="line">$&amp;: vim /etc/init.<span class="keyword">d</span>/mysqld（编辑此文件，查找并修改以下变量内容：）</span><br><span class="line">basedir=/usr/<span class="keyword">local</span>/mysql</span><br><span class="line">datadir=/usr/<span class="keyword">local</span>/mysql/data</span><br><span class="line">$&amp;: chkconfig –add mysqld</span><br><span class="line">$&amp;: chkconfig –level 345 mysqld <span class="keyword">on</span></span><br><span class="line">$&amp;: export PATH=/usr/<span class="keyword">local</span>/mysql/bin:<span class="label">$PATH</span> <span class="comment">//为MySQL配置环境变量，以后使用起来方便</span></span><br><span class="line">$&amp;: service mysqld start</span><br><span class="line">Starting MySQL. SUCCESS!</span><br><span class="line">$&amp;: mysql_secure_installation</span><br><span class="line"><span class="keyword">NOTE</span>: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED <span class="keyword">FOR</span> ALL MySQL</span><br><span class="line">SERVERS <span class="keyword">IN</span> PRODUCTION <span class="keyword">USE</span>! PLEASE <span class="keyword">READ</span> EACH STEP CAREFULLY!</span><br><span class="line"><span class="keyword">In</span> <span class="keyword">order</span> to <span class="keyword">log</span> into MySQL to secure it, we’ll need the current</span><br><span class="line">password <span class="keyword">for</span> the root user. <span class="keyword">If</span> you’ve just installed MySQL, and</span><br><span class="line">you haven’t <span class="keyword">set</span> the root password yet, the password will be blank,</span><br><span class="line"><span class="keyword">so</span> you should just press enter here.</span><br><span class="line">Enter current password <span class="keyword">for</span> root (enter <span class="keyword">for</span> none): 输入mysql的root密码，默认为空</span><br><span class="line">OK, successfully used password, moving <span class="keyword">on</span>…</span><br><span class="line">Setting the root password ensures that nobody can <span class="keyword">log</span> into the MySQL</span><br><span class="line">root user without the proper authorisation.</span><br><span class="line">You already have a root password <span class="keyword">set</span>, <span class="keyword">so</span> you can safely answer ‘<span class="keyword">n</span>’.</span><br><span class="line">Change the root password? [Y/<span class="keyword">n</span>] y <span class="comment">//是否修改mysql的密码，选择y</span></span><br><span class="line">New password: 输入mysql的密码</span><br><span class="line">Re-enter new password: 重复输入mysql的密码</span><br><span class="line">Password updated successfully!<span class="comment">//密码修改成功</span></span><br><span class="line">Reloading privilege tables..</span><br><span class="line">… Success!</span><br><span class="line"><span class="keyword">By</span> default, a MySQL installation has <span class="keyword">an</span> anonymous user, allowing anyone</span><br><span class="line">to <span class="keyword">log</span> into MySQL without having to have a user account created <span class="keyword">for</span></span><br><span class="line">them. This is intended only <span class="keyword">for</span> testing, and to make the installation</span><br><span class="line">go a bit smoother. You should remove them before moving into a</span><br><span class="line">production environment.</span><br><span class="line">Remove anonymous users? [Y/<span class="keyword">n</span>] y <span class="comment">//删除匿名用户</span></span><br><span class="line">… Success!</span><br><span class="line">Normally, root should only be allowed to connect from ‘localhost’. This</span><br><span class="line">ensures that someone cannot guess at the root password from the network.</span><br><span class="line">Disallow root login remotely? [Y/<span class="keyword">n</span>] y <span class="comment">//禁止root远程登录</span></span><br><span class="line">… skipping.</span><br><span class="line"><span class="keyword">By</span> default, MySQL comes with a database named ‘<span class="keyword">test</span>’ that anyone can</span><br><span class="line">access. This is also intended only <span class="keyword">for</span> testing, and should be removed</span><br><span class="line">before moving into a production environment.</span><br><span class="line">Remove <span class="keyword">test</span> database and access to it? [Y/<span class="keyword">n</span>] y <span class="comment">//删除测试数据库和访问它</span></span><br><span class="line">– Dropping <span class="keyword">test</span> database…</span><br><span class="line"><span class="keyword">ERROR</span> 1010 (HY000) at <span class="keyword">line</span> 1: <span class="keyword">Error</span> dropping database (can’t <span class="keyword">rmdir</span> ‘./<span class="keyword">test</span>/’, errno: 17)</span><br><span class="line">… Failed! Not critical, <span class="keyword">keep</span> moving…</span><br><span class="line">– Removing privileges <span class="keyword">on</span> <span class="keyword">test</span> database…</span><br><span class="line">… Success!</span><br><span class="line">Reloading the privilege tables will ensure that all changes made <span class="keyword">so</span> far</span><br><span class="line">will take effect immediately.</span><br><span class="line">Reload privilege tables now? [Y/<span class="keyword">n</span>] y <span class="comment">//现在重载授权表</span></span><br><span class="line">… Success!</span><br><span class="line">Cleaning up…</span><br><span class="line">All done! <span class="keyword">If</span> you’ve completed all of the above steps, your MySQL</span><br><span class="line">installation should now be secure.</span><br><span class="line"></span><br><span class="line">Thanks <span class="keyword">for</span> using MySQL</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">修改mysql密码-----<span class="keyword">SET</span> PASSWORD <span class="keyword">FOR</span> 'root'@'localhost' = PASSWORD('root123');</span><br><span class="line">查看及修改mysql最大连接数</span><br><span class="line">$&amp;: ps -axef | grep mysqld –c</span><br><span class="line">mysql&gt; show engines; <span class="comment">//看你的mysql现在已提供什么存储引擎:</span></span><br><span class="line">+——————–+———+—————————————————————-+————–+——+————+</span><br><span class="line">| Engine | Support | Comment | Transactions | XA | Savepoints |</span><br><span class="line">+——————–+———+—————————————————————-+————–+——+————+</span><br><span class="line">| MyISAM | YES | MyISAM storage engine | <span class="keyword">NO</span> | <span class="keyword">NO</span> | <span class="keyword">NO</span> |</span><br><span class="line">| CSV | YES | CSV storage engine | <span class="keyword">NO</span> | <span class="keyword">NO</span> | <span class="keyword">NO</span> |</span><br><span class="line">| MRG_MYISAM | YES | Collection of identical MyISAM tables | <span class="keyword">NO</span> | <span class="keyword">NO</span> | <span class="keyword">NO</span> |</span><br><span class="line">| BLACKHOLE | YES | /dev/null storage engine (anything you write to it disappears) | <span class="keyword">NO</span> | <span class="keyword">NO</span> | <span class="keyword">NO</span> |</span><br><span class="line">| <span class="keyword">MEMORY</span> | YES | Hash based, stored <span class="keyword">in</span> <span class="keyword">memory</span>, useful <span class="keyword">for</span> temporary tables | <span class="keyword">NO</span> | <span class="keyword">NO</span> | <span class="keyword">NO</span> |</span><br><span class="line">| FEDERATED | <span class="keyword">NO</span> | Federated MySQL storage engine | NULL | NULL | NULL |</span><br><span class="line">| ARCHIVE | YES | Archive storage engine | <span class="keyword">NO</span> | <span class="keyword">NO</span> | <span class="keyword">NO</span> |</span><br><span class="line">| PERFORMANCE_SCHEMA | YES | Performance Schema | <span class="keyword">NO</span> | <span class="keyword">NO</span> | <span class="keyword">NO</span> |</span><br><span class="line">| InnoDB | DEFAULT | Supports transactions, row-level locking, and foreign keys | YES | YES | YES |</span><br><span class="line">+——————–+———+—————————————————————-+————–+——+————+</span><br><span class="line">9 rows <span class="keyword">in</span> <span class="keyword">set</span> (0.00 sec)</span><br><span class="line">mysql&gt; show variables like ‘%storage_engine%’;<span class="comment">//看你的mysql当前默认的存储引擎:</span></span><br><span class="line">+—————————-+——–+</span><br><span class="line">| Variable_name | Value |</span><br><span class="line">+—————————-+——–+</span><br><span class="line">| default_storage_engine | InnoDB |</span><br><span class="line">| default_tmp_storage_engine | InnoDB |</span><br><span class="line">| storage_engine | InnoDB |</span><br><span class="line">+—————————-+——–+</span><br><span class="line">3 rows <span class="keyword">in</span> <span class="keyword">set</span> (0.00 sec)</span><br><span class="line">你要看某个表用了什么引擎(在显示结果里参数engine后面的就表示该表当前用的存储引擎):</span><br><span class="line">mysql&gt; show create <span class="keyword">table</span> 表名;</span><br><span class="line"> </span><br><span class="line">Mysql&gt;show variables like ‘max_connections’;</span><br><span class="line">Mysql&gt; <span class="keyword">set</span> <span class="keyword">GLOBAL</span> max_connections=2000;</span><br><span class="line">Mysql&gt; show variables like ‘max_connections’;</span><br><span class="line">Mysql&gt; show processlist;<span class="comment">//查看mysql的数据库连接</span></span><br><span class="line">$&amp;: Vim /etc/my.cnf <span class="comment">//在mysqld中增加如下内容：</span></span><br><span class="line">max_connections=500</span><br><span class="line">back_log=100</span><br><span class="line">$&amp;: <span class="keyword">mkdir</span> -p /<span class="keyword">var</span>/lib/mysql</span><br><span class="line">$&amp;: ln -s /usr/<span class="keyword">local</span>/mysql/mysql.sock /<span class="keyword">var</span>/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>安装php<br>$&amp;: cd /home/tools/<br>$&amp;: tar -zxvf php-5.6.8.tar.gz<br>$&amp;: yum -y install gd curl curl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel mysql mysql-devel<br>$&amp;: cd php-5.6.8<br>$&amp;: ./configure –prefix=/usr/local/php –enable-fpm –enable-debug –with-gd –with-jpeg-dir –with-png-dir –with-freetype-dir –enable-mbstring –with-curl –with-mysql=/usr/local/mysql/ –with-mysqli=/usr/local/mysql/bin/mysql_config<br>$&amp;: ./configure –prefix=/usr/local/php –enable-fpm –disable-debug –with-gd –with-jpeg-dir –with-png-dir –with-freetype-dir –enable-mbstring –with-curl –with-mysql=/usr/local/mysql/ –with-mysqli=/usr/local/mysql/bin/mysql_config<br>只有在开发php扩展库的时候需要开启–enable-debug，生产环境不需要，否则会影响性能。开发人员无法安装zend debug。<br>$&amp;: make<br>$&amp;: make install<br>$&amp;: cp php.ini-development /usr/local/php/lib/php.ini<br>$&amp;: cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf<br>$&amp;: vim /usr/local/php/lib/php.ini<br>修改927行，修改之后如下：date.timezone = Asia/Chongqing<br>$&amp;: vim /usr/local/php/etc/php-fpm.conf<br>修改;pid = run/php-fpm.pid 为pid = run/php-fpm.pid<br>$&amp;: /usr/local/php/sbin/php-fpm<br>验证php和nginx的安装<br>$&amp;: cd /home/app/api.m.woniuanjia.com/v1.0/web<br>$&amp;: vim a.php<br>&lt;?php<br>phpinfo();<br>?&gt;<br>在浏览器中输入 <a href="http://api.m.woniuanjia.com/a.php" target="_blank" rel="external">http://api.m.woniuanjia.com/a.php</a><br>看到PHPinfo页面，解析PHP正常<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$&amp;: ps aux | grep -c php-fpm <span class="comment">//查看php-fpm进程数</span></span><br><span class="line">$&amp;: /usr/bin/php -i|grep mem <span class="comment">//查看运行内存</span></span><br><span class="line">$&amp;: /etc/init.<span class="keyword">d</span>/php-fpm restart <span class="comment">//重启php-fpm</span></span><br><span class="line">$&amp;: vim /usr/<span class="keyword">local</span>/php/etc/php-fpm.<span class="keyword">conf</span></span><br><span class="line">pid = <span class="keyword">run</span>/php-fpm.pid <span class="comment">//把注释去掉</span></span><br><span class="line">$&amp;: /usr/<span class="keyword">local</span>/php/sbin/php-fpm <span class="comment">//php-fpm 启动php-fpm</span></span><br><span class="line">$&amp;: kill -INT `<span class="keyword">cat</span> /usr/<span class="keyword">local</span>/php/<span class="keyword">var</span>/<span class="keyword">run</span>/php-fpm.pid` <span class="comment">//关闭php-fpm</span></span><br><span class="line">$&amp;: kill -USR2 `<span class="keyword">cat</span> /usr/<span class="keyword">local</span>/php/<span class="keyword">var</span>/<span class="keyword">run</span>/php-fpm.pid` <span class="comment">//重启php-fpm</span></span><br><span class="line">$&amp;: ps aux | grep -c php-fpm <span class="comment">//查看php-fpm进程数</span></span><br></pre></td></tr></table></figure></p>
+<p>安装redis<br>$&amp;: cd /home/tools/<br>$&amp;: wget <a href="http://download.redis.io/releases/redis-3.0.1.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-3.0.1.tar.gz</a><br>$&amp;: tar -zxvf redis-3.0.1.tar.gz<br>$&amp;: cd redis-3.0.1/<br>$&amp;: make<br>make命令执行完成后，会在当前src目录下生成本个可执行文件，分别是redis-server、redis-cli、redis-benchmark、redis-stat，它们的作用如下：<br>redis-server：Redis服务器的daemon启动程序<br>redis-cli：Redis命令行操作工具。当然，你也可以用telnet根据其纯文本协议来操作<br>redis-benchmark：Redis性能测试工具，测试Redis在你的系统及你的配置下的读写性能<br>redis-stat：Redis状态检测工具，可以检测Redis当前状态参数及延迟状况。<br>$&amp;: cp redis.conf /etc/ //这个文件是redis启动的配置文件<br>$&amp;: cd src/<br>$&amp;: cp redis-benchmark redis-cli redis-server /usr/bin/ //这个倒是很有用，这样就不用再执行时加上./了，而且可以在任何地方执行<br>$&amp;: redis-server /etc/redis.conf //启动redis<br>$&amp;: vim /etc/redis.conf<br>将daemonize no修改为daemonize yes<br>保存退出<br>$&amp;: nohup redis-server /etc/redis.conf<br>$&amp;: redis-cli shutdown //关闭redis服务<br>redis服务关闭后，缓存数据会自动dump到硬盘上，硬盘地址为redis.conf中的配置项dbfilename dump.rdb所设定<br>$&amp;: redis-cli save 或者 redis-cli -p 6380 save（指定端口） //强制备份数据到磁盘，使用如下命令<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">安装redis.so模块</span><br><span class="line">$&amp;: cd <span class="regexp">/home/</span>tools/</span><br><span class="line">$&amp;: wget <span class="string">https:</span><span class="comment">//github.com/nicolasff/phpredis/archive/master.zip</span></span><br><span class="line">$&amp;: unzip master.zip</span><br><span class="line">$&amp;: cd phpredis-master/</span><br><span class="line">$&amp;: <span class="regexp">/usr/</span>local<span class="regexp">/php/</span>bin/phpize</span><br><span class="line">$&amp;: .<span class="regexp">/configure –with-php-config=/</span>usr<span class="regexp">/local/</span>php<span class="regexp">/bin/</span>php-config</span><br><span class="line">$&amp;: make</span><br><span class="line">$&amp;: make install</span><br><span class="line">Installing shared <span class="string">extensions:</span> <span class="regexp">/usr/</span>local<span class="regexp">/php/</span>lib<span class="regexp">/php/</span>extensions<span class="regexp">/debug-non-zts-20131226/</span></span><br><span class="line">注意redis.so的全路径是：</span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/php/</span>lib<span class="regexp">/php/</span>extensions<span class="regexp">/debug-non-zts-20131226/</span>redis.so</span><br><span class="line">$&amp;: vim <span class="regexp">/usr/</span>local<span class="regexp">/php/</span>lib/php.ini</span><br><span class="line">手工修改：查找<span class="regexp">/usr/</span>local<span class="regexp">/php/</span>lib<span class="regexp">/php.ini中的extension_dir = “./</span>”</span><br><span class="line">修改为extension_dir = “<span class="regexp">/usr/</span>local<span class="regexp">/php/</span>lib<span class="regexp">/php/</span>extensions<span class="regexp">/debug-non-zts-20131226/</span>”</span><br><span class="line">并在此行后增加以下几行，然后保存：</span><br><span class="line">extension = “redis.so”</span><br></pre></td></tr></table></figure></p>
+<p>安装PDO-mysql<br>$&amp;: cd /home/tools/<br>$&amp;: wget <a href="http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz" target="_blank" rel="external">http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz</a><br>$&amp;: tar zxvf PDO_MYSQL-1.0.2.tgz<br>package2.xml<br>PDO_MYSQL-1.0.2/config.m4<br>PDO_MYSQL-1.0.2/CREDITS<br>PDO_MYSQL-1.0.2/mysql_driver.c<br>PDO_MYSQL-1.0.2/mysql_statement.c<br>PDO_MYSQL-1.0.2/pdo_mysql.c<br>PDO_MYSQL-1.0.2/php_pdo_mysql.h<br>PDO_MYSQL-1.0.2/php_pdo_mysql_int.h<br>PDO_MYSQL-1.0.2/php_pdo_mysql_sqlstate.h<br>package.xml<br>$&amp;: cd PDO_MYSQL-1.0.2<br>$&amp;: /usr/local/php/bin/phpize<br>Configuring for:<br>PHP Api Version: 20131106<br>Zend Module Api No: 20131226<br>Zend Extension Api No: 220131226<br>$&amp;: ./configure –with-php-config=/usr/local/php/bin/php-config<br>$&amp;: make<br>执行时报错如下：<br>cc -I -I/usr/local/mysql/include -g -fabi-version=2 -fno-omit-frame-pointer -fno-strict-aliasing -I. -I/home/tools/PDO_MYSQL-1.0.2 -DPHP_ATOM_INC -I/home/tools/PDO_MYSQL-1.0.2/include -I/home/tools/PDO_MYSQL-1.0.2/main -I/home/tools/PDO_MYSQL-1.0.2 -I/usr/local/php/include/php -I/usr/local/php/include/php/main -I/usr/local/php/include/php/TSRM -I/usr/local/php/include/php/Zend -I/usr/local/php/include/php/ext -I/usr/local/php/include/php/ext/date/lib -DHAVE_CONFIG_H -g -O0 -c /home/tools/PDO_MYSQL-1.0.2/pdo_mysql.c -fPIC -DPIC -o .libs/pdo_mysql.o<br>In file included from /home/tools/PDO_MYSQL-1.0.2/pdo_mysql.c:31:0:<br>/home/tools/PDO_MYSQL-1.0.2/php_pdo_mysql_int.h:25:19: 致命错误：mysql.h：没有那个文件或目录<br>$&amp;: include <mysql.h><br>^<br>编译中断。<br>make: <em>** [pdo_mysql.lo] 错误 1<br>解决办法：<br>$&amp;:  ln -s /usr/local/mysql/include/</em> /usr/local/include/<br>$&amp;: make<br>$&amp;: make install<br>Installing shared extensions: /usr/local/php/lib/php/extensions/debug-non-zts-20131226/<br>$&amp;: vim /usr/local/php/lib/php.ini<br>在extension = “redis.so”下面增加<br>extension = “pdo_mysql.so”</mysql.h></p>
+<p><del>~</del><del>~</del><del>~</del><del>~</del><del>~</del><del>~</del>~~~<br>安装phpopenssl<br>$&amp;: cd /home/tools/php-5.6.8/ext/openssl<br>$&amp;: cp config0.m4 config.m4<br>$&amp;: /usr/local/php/bin/phpize<br>$&amp;: ./configure –with-php-config=/usr/local/php/bin/php-config<br>$&amp;: make<br>$&amp;: make install<br>Installing shared extensions: /usr/local/php/lib/php/extensions/debug-non-zts-20131226/<br>$&amp;: vim /usr/local/php/lib/php.ini<br>在extension_dir 参数下面增加extension = “openssl.so”<br>保存退出，重启php<br>＃kill -USR2 <code>cat /usr/local/php/var/run/php-fpm.pid</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/11/06/HelloHexo/" data-id="cigoq391u000l7ct4r63ii9ym" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/11/lnmp[基于contos]的服务器搭建/" data-id="cihylf39q0000j0uhdcg14irp" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
 
     </footer>
   </div>
@@ -483,6 +347,50 @@ chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
 
 
   
+    <article id="[layout]-nginx虚拟主机配置" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/10/nginx虚拟主机配置/" class="article-date">
+  <time datetime="2015-11-09T16:00:00.000Z" itemprop="datePublished">2015-11-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/10/nginx虚拟主机配置/">nginx虚拟主机的配置文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在nginx的配置文件里引入nginx虚拟主机的配置文件【也可以直接写在nginx.conf(不推荐)】<br>下边是一个写好的配置文件，作为例子引用</p>
+<p>server {<br>         listen 80;<br>         server_name www.test.cn;<br>         root /home/test/;<br>         index index.php index.html index.htm;<br>         access_log /Data/logs/nginx/doctorcms access;<br>         location / {<br>            if (!-e $request_filename) {<br>                  rewrite ^/(.<em>)$ /index.php/$1 last;<br>            }<br>         }<br>         location ~ .</em>.(gif|jpg|jpeg|png|bmp|swf)$<br>         {<br>                expires      3d;<br>                access_log off;<br>         }<br>         location ~ .*.(js|css)?$<br>         {<br>                expires      1d;<br>                access_log off;<br>          }<br>         location ~ .git/ {<br>                deny all;<br>         }<br>         location ~ .svn/ {<br>                deny all;<br>         }<br>         location ~ .php$ {<br>              fastcgi_pass   127.0.0.1:9000;<br>              fastcgi_index  index.php;<br>              include        fastcgi_params; #如果文件单独写出来的时候注意文件的位置<br>              fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>         }<br>         location /index.php {<br>                 fastcgi_pass 127.0.0.1:9000;<br>                 include        fastcgi_params;<br>         fastcgi_param SCRIPT_FILENAME $document_root/index.php;<br>         }<br>        error_page 404 /404.html;<br>   }</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/11/10/nginx虚拟主机配置/" data-id="cihykxg6d000c70uh7isfc7jh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </section>
         
@@ -494,7 +402,7 @@ chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FTP/">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/抓包/">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言/">语言</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/">apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/composer/">composer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/">laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lgit/">lgit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/抓包/">抓包</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/框架/">框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/语言/">语言</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -503,7 +411,7 @@ chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/FTP/" style="font-size: 10px;">FTP</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/抓包/" style="font-size: 10px;">抓包</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a>
+      <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/composer/" style="font-size: 10px;">composer</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/lgit/" style="font-size: 10px;">lgit</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/抓包/" style="font-size: 10px;">抓包</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a>
     </div>
   </div>
 
@@ -512,7 +420,7 @@ chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">15</span></li></ul>
     </div>
   </div>
 
@@ -524,23 +432,23 @@ chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
       <ul>
         
           <li>
-            <a href="/2015/11/06/hello-world/">Hello World</a>
+            <a href="/2015/11/14/用队列的方式解决目录遍历问题/">用队列的方式解决目录遍历问题</a>
           </li>
         
           <li>
-            <a href="/2015/11/06/1337语言/">1337语言</a>
+            <a href="/2015/11/13/git使用操作整理/">git使用操作整理</a>
           </li>
         
           <li>
-            <a href="/2015/11/06/使用charles_proxy_for_mac来抓取手机app的网络包/">使用charles proxy for Mac来抓取手机App的网络包</a>
+            <a href="/2015/11/12/在Linux中将php-fpm配置成服务的方法/">在Linux中将php-fpm配置成服务的方法</a>
           </li>
         
           <li>
-            <a href="/2015/11/06/linux，apache，php，mysql常用的查看版本信息的方法/">linux，apache，php，mysql常用的查看版本信息的方法</a>
+            <a href="/2015/11/11/lnmp[基于contos]的服务器搭建/">lnmp服务器搭建</a>
           </li>
         
           <li>
-            <a href="/2015/11/06/linux_ftp的安装与配置/">Linux FTP的安装与配置</a>
+            <a href="/2015/11/10/nginx虚拟主机配置/">nginx虚拟主机的配置文件</a>
           </li>
         
       </ul>
@@ -555,7 +463,7 @@ chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 小样儿<br>
+      &copy; 2015 xiaoyanegr<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
