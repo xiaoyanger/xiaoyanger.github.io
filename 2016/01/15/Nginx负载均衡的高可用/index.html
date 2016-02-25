@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Nginx 负载均衡的高可用 | myNote-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前期准备：123456789A服务器：192.168.1.4（主，也就是做负载均衡的服务器--nginx+keepalived）B服务器：192.168.1.201（webserver）C服务器：192.168.1.254（webserver）D服务器：192.168.1.3（从，当主服务器无法提供负载均衡服务时，则自动切换到这台服务器为用户提供负载均衡服务，全部都是自动化的--nginx+kee">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx 负载均衡的高可用">
+<meta property="og:url" content="https://xiaoyanger.github.io/2016/01/15/Nginx负载均衡的高可用/index.html">
+<meta property="og:site_name" content="myNote-Blog">
+<meta property="og:description" content="前期准备：123456789A服务器：192.168.1.4（主，也就是做负载均衡的服务器--nginx+keepalived）B服务器：192.168.1.201（webserver）C服务器：192.168.1.254（webserver）D服务器：192.168.1.3（从，当主服务器无法提供负载均衡服务时，则自动切换到这台服务器为用户提供负载均衡服务，全部都是自动化的--nginx+kee">
+<meta property="og:updated_time" content="2016-02-25T05:18:58.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nginx 负载均衡的高可用">
+<meta name="twitter:description" content="前期准备：123456789A服务器：192.168.1.4（主，也就是做负载均衡的服务器--nginx+keepalived）B服务器：192.168.1.201（webserver）C服务器：192.168.1.254（webserver）D服务器：192.168.1.3（从，当主服务器无法提供负载均衡服务时，则自动切换到这台服务器为用户提供负载均衡服务，全部都是自动化的--nginx+kee">
+  
+    <link rel="alternative" href="/atom.xml" title="myNote-Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/head.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">yangbiao</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">HOME</a></li>
+				        
+							<li><a href="/archives">ALL</a></li>
+				        
+							<li><a href="/tags/随笔">ESSAY</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://xiaoyanger.github.io/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/p/1005052393196555?is_hot=1" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yang-biao-68-83" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/composer/" style="font-size: 10px;">composer</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/keepalived/" style="font-size: 10px;">keepalived</a> <a href="/tags/laravel/" style="font-size: 12px;">laravel</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/lnmp/" style="font-size: 10px;">lnmp</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mysql/" style="font-size: 16px;">mysql</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/pdo/" style="font-size: 10px;">pdo</a> <a href="/tags/php/" style="font-size: 18px;">php</a> <a href="/tags/php7/" style="font-size: 10px;">php7</a> <a href="/tags/抓包/" style="font-size: 10px;">抓包</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">yangbiao</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/head.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">yangbiao</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">HOME</a></li>
+		        
+					<li><a href="/archives">ALL</a></li>
+		        
+					<li><a href="/tags/随笔">ESSAY</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://xiaoyanger.github.io/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/p/1005052393196555?is_hot=1" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yang-biao-68-83" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="[layout]-Nginx负载均衡的高可用" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/15/Nginx负载均衡的高可用/" class="article-date">
+  	<time datetime="2016-01-15T03:25:37.000Z" itemprop="datePublished">2016-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Nginx 负载均衡的高可用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/keepalived/">keepalived</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lnmp/">lnmp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前期准备：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">A服务器：<span class="number">192.168</span><span class="number">.1</span><span class="number">.4</span>（主，也就是做负载均衡的服务器--nginx+keepalived）</span><br><span class="line">B服务器：<span class="number">192.168</span><span class="number">.1</span><span class="number">.201</span>（webserver）</span><br><span class="line">C服务器：<span class="number">192.168</span><span class="number">.1</span><span class="number">.254</span>（webserver）</span><br><span class="line">D服务器：<span class="number">192.168</span><span class="number">.1</span><span class="number">.3</span>（从，当主服务器无法提供负载均衡服务时，则自动切换到这台服务器为用户提供负载均衡服务，全部都是自动化的--nginx+keepalived）</span><br><span class="line"></span><br><span class="line">两台接入服务器公用一个虚拟IP（VIP）：<span class="number">192.168</span><span class="number">.1</span><span class="number">.6</span>(预先留存即可，不是服务器的ip)</span><br><span class="line">~~~~~~~~~~~~~~~~~~~~~~~~~~~</span><br><span class="line"></span><br><span class="line">部署思路：</span><br></pre></td></tr></table></figure></p>
+<p>1、A服务器做为主负载均衡服务器，D服务器作为从负载服务器。域名直接解析到VIP（192.168.1.6）上，由A服务器负载均衡到B服务器（192.168.1.201）与C服务器（192.168.1.254）上。<br>2、如果A服务器出现故障，自动由D服务器接管，A服务器恢复以后，自动由A服务器接管负载均衡。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">域名解析:</span><br></pre></td></tr></table></figure></p>
+<pre><code><span class="number">1</span>、由于是测试环境，域名就随便使用一个api.zhezi.com用作测试，因为这个域名正常解析到生产环境，所以api.zhezi.com的解析要在hosts文件设置。
+<span class="number">2</span>、打开：C:\Windows\System32\drivers\etc\hosts
+<span class="number">3</span>、在末尾添加如下内容：
+<span class="number">192.168</span><span class="number">.1</span><span class="number">.6</span> api.zhezi.com
+<span class="number">4</span>、保存退出
+<span class="number">5</span>、然后打开DOS窗口（开始-运行-输入cmd-回车）
+<span class="number">5</span>、ping下看看是否已设置成功
+ps:
+<span class="number">1</span>、修改hosts文件也可以使用第三方工具修该
+<span class="number">2</span>、进入DOS窗口也可以使用windows键+R打开运行窗口，然后输入cmd-回车进行验证hosts文件修改是否生效
+</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">LNMP环境安装及项目的部署不在这里记录</span><br><span class="line">在我的博客中存在对应的部署文档</span><br><span class="line"></span><br><span class="line">安装keepalived:</span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">#yum -y install gcc pcre-devel zlib-devel openssl-devel nmap*</span></span><br><span class="line">    <span class="preprocessor">#cd /home/tools/</span></span><br><span class="line">    <span class="preprocessor">#wget http:<span class="comment">//www.keepalived.org/software/keepalived-1.2.17.tar.gz</span></span></span><br><span class="line">    <span class="preprocessor">#tar -zxvf keepalived-<span class="number">1.2</span><span class="number">.17</span>.tar.gz</span></span><br><span class="line">    <span class="preprocessor">#cd keepalived-<span class="number">1.2</span><span class="number">.17</span></span></span><br><span class="line">    <span class="preprocessor">#./configure</span></span><br><span class="line">    <span class="preprocessor">#make</span></span><br><span class="line">    <span class="preprocessor">#make install</span></span><br><span class="line">    <span class="preprocessor">#cp /usr/local/etc/rc.d/init.d/keepalived /etc/rc.d/init.d/ <span class="comment">//复制服务启动脚本到，以便可以通过service控制keepalived服务</span></span></span><br><span class="line">    <span class="preprocessor">#cp /usr/local/etc/sysconfig/keepalived /etc/sysconfig/ <span class="comment">//复制keepalived服务脚本到默认的地址，也通过修改init.d/keepalived文件中的相应配置实现</span></span></span><br><span class="line">    <span class="preprocessor">#mkdir /etc/keepalived</span></span><br><span class="line">    <span class="preprocessor">#cp /usr/local/etc/keepalived/keepalived.conf /etc/keepalived/ <span class="comment">//复制默认配置文件到默认路径，其实也可以在/etc/init.d/keepalived中设置路径</span></span></span><br><span class="line">    <span class="preprocessor">#cp /usr/local/sbin/keepalived /usr/sbin/</span></span><br><span class="line">    <span class="preprocessor">#echo <span class="string">"/usr/local/nginx/sbin/nginx"</span> &gt;&gt; /etc/rc.local</span></span><br><span class="line">    <span class="preprocessor">#echo <span class="string">"/etc/init.d/keepalived start"</span> &gt;&gt; /etc/rc.local</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">配置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">一、A服务器和D服务器nginx的配置（A服务器和D服务器的配置完全一致）主要是配置/usr/local /nginx/conf/nginx.conf。其中多域名指向是通过虚拟主机（配置http下面的server）实现；同一域名的不同虚拟目录通过每个 server下面的不同location实现；到后端的服务器在http下面配置upstream后在server或location中通过 proxypass引用。要实现前面规划的接入方式，配置如下：</span><br><span class="line"></span><br><span class="line">打开nginx.conf，文件位置在nginx安装目录的conf目录下。在http模块内加入如下内容</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    upstream api.zhezi.com &#123;</span><br><span class="line">         server <span class="number">192.168</span><span class="number">.1</span><span class="number">.201</span>:<span class="number">80</span>;</span><br><span class="line">         server <span class="number">192.168</span><span class="number">.1</span><span class="number">.254</span>:<span class="number">80</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    server&#123;</span><br><span class="line">        listen <span class="number">80</span>;</span><br><span class="line">        server_name api.zhezi.com;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http:<span class="comment">//api.zhezi.com;</span></span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">二、A服务器（master）keepalived的配置：</span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">#vim /etc/keepalived/keepalived.conf</span></span><br><span class="line">    ! Configuration File <span class="keyword">for</span> keepalived</span><br><span class="line">    </span><br><span class="line">    global_defs &#123;<span class="comment">//全局配置</span></span><br><span class="line">        notification_email &#123; <span class="comment">//#通知email，根据实际情况配置</span></span><br><span class="line">            mazhenguo@xxtao.com</span><br><span class="line">            mazhenguo88@<span class="number">163.</span>com</span><br><span class="line">        &#125;</span><br><span class="line">        notification_email_from Alexandre.Cassen@firewall.loc</span><br><span class="line">        smtp_server smtp.exmail.qq.com</span><br><span class="line">        smtp_connect_timeout <span class="number">30</span></span><br><span class="line">        router_id nginx_master <span class="comment">// #节点名标识，主要用于通知中</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    vrrp_instance VI_1 &#123;</span><br><span class="line">        state MASTER <span class="comment">//配置为主服务器</span></span><br><span class="line">        interface eth0<span class="comment">//通讯网卡（真实网卡名字）</span></span><br><span class="line">        virtual_router_id <span class="number">51</span> 路由标识</span><br><span class="line">        priority <span class="number">101</span> <span class="comment">//优先级，0-254</span></span><br><span class="line">        advert_int <span class="number">1</span> <span class="comment">//通知间隔，实际部署时可以设置小一点，减少延时</span></span><br><span class="line">        authentication &#123;</span><br><span class="line">            auth_type PASS</span><br><span class="line">            auth_pass <span class="number">1111</span> <span class="comment">//验证密码，用于通讯主机间验证</span></span><br><span class="line">        &#125;</span><br><span class="line">        virtual_ipaddress &#123;</span><br><span class="line">            <span class="number">192.168</span><span class="number">.1</span><span class="number">.6</span> <span class="comment">//虚拟ip，可以定义多个</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">其他配置项默认不变</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">三、D服务器（backup）keepalived的配置：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">#vim /etc/keepalived/keepalived.conf</span></span><br><span class="line">    ! Configuration File <span class="keyword">for</span> keepalived</span><br><span class="line">    </span><br><span class="line">    global_defs &#123;</span><br><span class="line">        notification_email &#123; <span class="comment">//通知email，根据实际情况配置</span></span><br><span class="line">            mazhenguo@xxtao.com</span><br><span class="line">            mazhenguo88@<span class="number">163.</span>com</span><br><span class="line">        &#125;</span><br><span class="line">        notification_email_from Alexandre.Cassen@firewall.loc</span><br><span class="line">        smtp_server smtp.exmail.qq.com</span><br><span class="line">        smtp_connect_timeout <span class="number">30</span></span><br><span class="line">        router_id nginx_backup <span class="comment">//节点名标识，主要用于通知中</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    vrrp_instance VI_1 &#123;</span><br><span class="line">        state BACKUP <span class="comment">//配置为从服务器</span></span><br><span class="line">        interface eno16777728 <span class="comment">//从服务器的通讯网卡</span></span><br><span class="line">        virtual_router_id <span class="number">51</span> <span class="comment">//路由标识，和主服务器相同</span></span><br><span class="line">        priority <span class="number">99</span> <span class="comment">//优先级，小于主服务器即可</span></span><br><span class="line">        advert_int <span class="number">1</span> <span class="comment">//这里是接受通知间隔，与主服务器要设置相同</span></span><br><span class="line">        authentication &#123;</span><br><span class="line">            auth_type PASS</span><br><span class="line">            auth_pass <span class="number">1111</span> <span class="comment">//验证密码，与主服务器相同</span></span><br><span class="line">        &#125;</span><br><span class="line">        virtual_ipaddress &#123;</span><br><span class="line">             <span class="number">192.168</span><span class="number">.1</span><span class="number">.6</span> <span class="comment">//虚拟IP，也要和主服务器相同</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">四、验证：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、先后在主、从服务器上启动keepalived（先启动主，后启动从）:</span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">#/etc/init.d/keepalived start</span></span><br><span class="line"><span class="number">2</span>、在主服务器上查看是否已经绑定了虚拟IP：</span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">#ip addr（主服务器）</span></span><br><span class="line">        <span class="number">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="number">65536</span> qdisc noqueue state UNKNOWN</span><br><span class="line">        link/loopback <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> brd <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">        inet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>/<span class="number">8</span> scope host lo</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 ::<span class="number">1</span>/<span class="number">128</span> scope host</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        <span class="number">2</span>: eno16777728: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="number">1500</span> qdisc pfifo_fast state UP qlen <span class="number">1000</span></span><br><span class="line">        link/ether <span class="number">00</span>:<span class="number">0</span>c:<span class="number">29</span>:a8:<span class="number">8</span>a:<span class="number">95</span> brd ff:ff:ff:ff:ff:ff</span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.1</span><span class="number">.4</span>/<span class="number">24</span> brd <span class="number">192.168</span><span class="number">.1</span><span class="number">.255</span> scope global eno16777728</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.1</span><span class="number">.6</span>/<span class="number">32</span> scope global eno16777728</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 fe80::<span class="number">20</span>c:<span class="number">29f</span>f:fea8:<span class="number">8</span>a95/<span class="number">64</span> scope link</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">    <span class="preprocessor">#ip addr (从服务器)</span></span><br><span class="line">        <span class="number">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="number">65536</span> qdisc noqueue state UNKNOWN</span><br><span class="line">        link/loopback <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> brd <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">        inet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>/<span class="number">8</span> scope host lo</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 ::<span class="number">1</span>/<span class="number">128</span> scope host</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        <span class="number">2</span>: eno16777728: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="number">1500</span> qdisc pfifo_fast state UP qlen <span class="number">1000</span></span><br><span class="line">        link/ether <span class="number">00</span>:<span class="number">0</span>c:<span class="number">29</span>:bb:e0:f9 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.1</span><span class="number">.3</span>/<span class="number">24</span> brd <span class="number">192.168</span><span class="number">.1</span><span class="number">.255</span> scope global eno16777728</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 fe80::<span class="number">20</span>c:<span class="number">29f</span>f:febb:e0f9/<span class="number">64</span> scope link</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line"><span class="number">3</span>、停止主服务器上的keepalived，然后在从服务器上查看是否已经绑定了虚拟IP:</span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">#/etc/init.d/keepalived stop （主服务器）</span></span><br><span class="line">        <span class="number">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="number">65536</span> qdisc noqueue state UNKNOWN</span><br><span class="line">        link/loopback <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> brd <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">        inet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>/<span class="number">8</span> scope host lo</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 ::<span class="number">1</span>/<span class="number">128</span> scope host</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        <span class="number">2</span>: eno16777728: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="number">1500</span> qdisc pfifo_fast state UP qlen <span class="number">1000</span></span><br><span class="line">        link/ether <span class="number">00</span>:<span class="number">0</span>c:<span class="number">29</span>:a8:<span class="number">8</span>a:<span class="number">95</span> brd ff:ff:ff:ff:ff:ff</span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.1</span><span class="number">.4</span>/<span class="number">24</span> brd <span class="number">192.168</span><span class="number">.1</span><span class="number">.255</span> scope global eno16777728</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 fe80::<span class="number">20</span>c:<span class="number">29f</span>f:fea8:<span class="number">8</span>a95/<span class="number">64</span> scope link</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">    <span class="preprocessor">#ip addr</span></span><br><span class="line">        <span class="number">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="number">65536</span> qdisc noqueue state UNKNOWN</span><br><span class="line">        link/loopback <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> brd <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">        inet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>/<span class="number">8</span> scope host lo</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 ::<span class="number">1</span>/<span class="number">128</span> scope host</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        <span class="number">2</span>: eno16777728: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="number">1500</span> qdisc pfifo_fast state UP qlen <span class="number">1000</span></span><br><span class="line">        link/ether <span class="number">00</span>:<span class="number">0</span>c:<span class="number">29</span>:bb:e0:f9 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.1</span><span class="number">.3</span>/<span class="number">24</span> brd <span class="number">192.168</span><span class="number">.1</span><span class="number">.255</span> scope global eno16777728</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.1</span><span class="number">.6</span>/<span class="number">32</span> scope global eno16777728</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 fe80::<span class="number">20</span>c:<span class="number">29f</span>f:febb:e0f9/<span class="number">64</span> scope link</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line"><span class="number">4</span>、启动主服务器上的keepalived，看看主服务器能否重新接管虚拟IP</span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">#/etc/init.d/keepalived start (主服务器)</span></span><br><span class="line">        <span class="number">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="number">65536</span> qdisc noqueue state UNKNOWN</span><br><span class="line">        link/loopback <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> brd <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">        inet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>/<span class="number">8</span> scope host lo</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 ::<span class="number">1</span>/<span class="number">128</span> scope host</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        <span class="number">2</span>: eno16777728: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="number">1500</span> qdisc pfifo_fast state UP qlen <span class="number">1000</span></span><br><span class="line">        link/ether <span class="number">00</span>:<span class="number">0</span>c:<span class="number">29</span>:a8:<span class="number">8</span>a:<span class="number">95</span> brd ff:ff:ff:ff:ff:ff</span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.1</span><span class="number">.4</span>/<span class="number">24</span> brd <span class="number">192.168</span><span class="number">.1</span><span class="number">.255</span> scope global eno16777728</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.1</span><span class="number">.6</span>/<span class="number">32</span> scope global eno16777728</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 fe80::<span class="number">20</span>c:<span class="number">29f</span>f:fea8:<span class="number">8</span>a95/<span class="number">64</span> scope link</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">    <span class="preprocessor">#ip addr（从服务器）</span></span><br><span class="line">        <span class="number">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="number">65536</span> qdisc noqueue state UNKNOWN</span><br><span class="line">        link/loopback <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> brd <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">        inet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>/<span class="number">8</span> scope host lo</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 ::<span class="number">1</span>/<span class="number">128</span> scope host</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        <span class="number">2</span>: eno16777728: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="number">1500</span> qdisc pfifo_fast state UP qlen <span class="number">1000</span></span><br><span class="line">        link/ether <span class="number">00</span>:<span class="number">0</span>c:<span class="number">29</span>:bb:e0:f9 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.1</span><span class="number">.3</span>/<span class="number">24</span> brd <span class="number">192.168</span><span class="number">.1</span><span class="number">.255</span> scope global eno16777728</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line">        inet6 fe80::<span class="number">20</span>c:<span class="number">29f</span>f:febb:e0f9/<span class="number">64</span> scope link</span><br><span class="line">        valid_lft forever preferred_lft forever</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">五、B、C服务器的配置按照正常的web服务器配置即可，这里不再做记录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">六、让keepalived监控NginX的状态（以下服务器在主服务器上操作）</span><br><span class="line"></span><br><span class="line">经过前面的配置，如果主服务器的keepalived停止服务，从服务器会自动接管VIP对外服务；一旦主服务器的keepalived恢复，会重新接管VIP。 但这并不是我们需要的，我们需要的是当NginX停止服务的时候能够自动切换。</span><br><span class="line">keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状态，如果状态不正常则进行一系列的操作，最终仍不能恢复NginX则杀掉keepalived，使得从服务器能够接管服务。</span><br><span class="line">如何监控NginX的状态</span><br><span class="line">最简单的做法是监控NginX进程，更靠谱的做法是检查NginX端口，最靠谱的做法是检查多个url能否获取到页面。</span><br><span class="line">如何尝试恢复服务</span><br><span class="line">如果发现NginX不正常，重启之。等待<span class="number">3</span>秒再次校验，仍然失败则不再尝试。</span><br><span class="line">根据上述策略很容易写出监控脚本。这里使用nmap检查nginx端口来判断nginx的状态，记得要首先安装nmap。</span><br><span class="line">https:<span class="comment">//nmap.org/dist/nmap-7.01.tar.bz2   nmap下载地址（linux无法正常解压，需要win支持，可以自己找合适的安装包）</span></span><br><span class="line">监控脚本如下:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">#mkdir /home/crontab</span></span><br><span class="line">    <span class="preprocessor">#vim /home/crontab/nginx_status.sh</span></span><br><span class="line">    </span><br><span class="line">    <span class="preprocessor">#!/bin/sh</span></span><br><span class="line">    <span class="preprocessor"># check nginx server status</span></span><br><span class="line">    NGINX=/usr/local/nginx/sbin/nginx</span><br><span class="line">    PORT=<span class="number">80</span></span><br><span class="line">    </span><br><span class="line">    nmap localhost -p $PORT | grep <span class="string">"$PORT/tcp open"</span></span><br><span class="line">    <span class="preprocessor">#echo $?</span></span><br><span class="line">    <span class="keyword">if</span> [ $? -ne <span class="number">0</span> ];then</span><br><span class="line">    $NGINX -s stop</span><br><span class="line">    $NGINX</span><br><span class="line">    sleep <span class="number">3</span></span><br><span class="line">    nmap localhost -p $PORT | grep <span class="string">"$PORT/tcp open"</span></span><br><span class="line">    [ $? -ne <span class="number">0</span> ] &amp;&amp; /etc/init.d/keepalived stop</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">   wq保存退出</span><br><span class="line"></span><br><span class="line">    <span class="preprocessor">#cd /home/crontab/</span></span><br><span class="line">    <span class="preprocessor">#chmod +x nginx_status.sh</span></span><br><span class="line">    假设上述脚本放在/home/crontab/nginx_status.sh，则keepalived.conf中增加如下配置：</span><br><span class="line">    </span><br><span class="line">    <span class="preprocessor">#vim /etc/keepalived/keepalived.conf</span></span><br><span class="line">    </span><br><span class="line">   <span class="comment">//以下内容在router_id之后首层增加</span></span><br><span class="line">   </span><br><span class="line">    vrrp_script chk_http_port &#123;</span><br><span class="line">        script <span class="string">"/home/crontab/nginx_status.sh"</span></span><br><span class="line">        interval <span class="number">2</span></span><br><span class="line">        weight <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">   <span class="comment">//以下内容在virtual_ipaddress上面增加</span></span><br><span class="line">   </span><br><span class="line">    track_script &#123;</span><br><span class="line">        chk_http_port</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">四、测试：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、将主服务器的nginx停止掉，同时去查询nginx的进程，大概<span class="number">1</span>秒钟nginx会重新启动，说明keepalived重启nginx脚本生效了</span><br><span class="line"><span class="number">2</span>、将主服务器关机，看看从服务器是否可以接管主服务器的负载均衡服务。也可以一致刷新页面，看服务是否中断，结果是正常的业务不会中断。</span><br><span class="line"><span class="number">3</span>、启动主服务器后，使用ip addr查看主服务器，发现主服务器自动接管了负载均衡服务。</span><br><span class="line">（注意）测试的时候不可以着急，keepalived进程加载可能需要半分钟的时间作为缓冲，所以，等待半分钟</span><br><span class="line">nginx负载均衡的高可用完成。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/25/MongoDB $type 操作符/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          MongoDB $type 操作符
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/09/PHP7的PHP-Redis扩展/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PHP7的PHP-Redis扩展</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 yangbiao
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
