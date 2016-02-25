@@ -4,33 +4,36 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>http请求 | myNote-Blog</title>
+  <title>mysql权限分配 | myNote-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="请求头（消息头）包含（客户机请求的服务器主机名，客户机的环境信息等）：
-Accept：用于告诉服务器，客户机支持的数据类型 （例如：Accept:text/html,image/*）
-Accept-Charset：用于告诉服务器，客户机采用的编码格式
-Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式
-Accept-Language：客户机语言环境
-Host:客户机通过这个服">
+  <meta name="description" content="授权并创建用户【命令解析-对号入座】
+grant select,insert,update,delete on laravel.* to admin@&quot;%&quot; identified by &quot;admin123&quot;
+    权限
+        select,insert,update,delete [全部权限时是：All]
+    数据库.数据表
+        laravel.*
+    用户名@&apos;登">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http请求">
-<meta property="og:url" content="https://xiaoyanger.github.io/2016/01/06/http请求/index.html">
+<meta property="og:title" content="mysql权限分配">
+<meta property="og:url" content="https://xiaoyanger.github.io/2015/12/11/Mysql权限分配/index.html">
 <meta property="og:site_name" content="myNote-Blog">
-<meta property="og:description" content="请求头（消息头）包含（客户机请求的服务器主机名，客户机的环境信息等）：
-Accept：用于告诉服务器，客户机支持的数据类型 （例如：Accept:text/html,image/*）
-Accept-Charset：用于告诉服务器，客户机采用的编码格式
-Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式
-Accept-Language：客户机语言环境
-Host:客户机通过这个服">
-<meta property="og:updated_time" content="2016-02-25T03:23:16.327Z">
+<meta property="og:description" content="授权并创建用户【命令解析-对号入座】
+grant select,insert,update,delete on laravel.* to admin@&quot;%&quot; identified by &quot;admin123&quot;
+    权限
+        select,insert,update,delete [全部权限时是：All]
+    数据库.数据表
+        laravel.*
+    用户名@&apos;登">
+<meta property="og:updated_time" content="2016-02-25T02:17:31.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http请求">
-<meta name="twitter:description" content="请求头（消息头）包含（客户机请求的服务器主机名，客户机的环境信息等）：
-Accept：用于告诉服务器，客户机支持的数据类型 （例如：Accept:text/html,image/*）
-Accept-Charset：用于告诉服务器，客户机采用的编码格式
-Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式
-Accept-Language：客户机语言环境
-Host:客户机通过这个服">
+<meta name="twitter:title" content="mysql权限分配">
+<meta name="twitter:description" content="授权并创建用户【命令解析-对号入座】
+grant select,insert,update,delete on laravel.* to admin@&quot;%&quot; identified by &quot;admin123&quot;
+    权限
+        select,insert,update,delete [全部权限时是：All]
+    数据库.数据表
+        laravel.*
+    用户名@&apos;登">
   
     <link rel="alternative" href="/atom.xml" title="myNote-Blog" type="application/atom+xml">
   
@@ -212,11 +215,11 @@ Host:客户机通过这个服">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="[layout]-http请求" class="article article-type-[layout]" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="[layout]-Mysql权限分配" class="article article-type-[layout]" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/06/http请求/" class="article-date">
-  	<time datetime="2016-01-05T16:00:00.000Z" itemprop="datePublished">2016-01-06</time>
+      <a href="/2015/12/11/Mysql权限分配/" class="article-date">
+  	<time datetime="2015-12-10T16:00:00.000Z" itemprop="datePublished">2015-12-11</time>
 </a>
     </div>
   
@@ -229,7 +232,7 @@ Host:客户机通过这个服">
         
   
     <h1 class="article-title" itemprop="name">
-      http请求
+      mysql权限分配
     </h1>
   
 
@@ -238,7 +241,7 @@ Host:客户机通过这个服">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
 	</div>
 
         
@@ -249,44 +252,24 @@ Host:客户机通过这个服">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>请求头（消息头）包含（客户机请求的服务器主机名，客户机的环境信息等）：</p>
-<pre><code>Accept：用于告诉服务器，客户机支持的数据类型 （例如：Accept:text/html,image/*）
-Accept-Charset：用于告诉服务器，客户机采用的编码格式
-Accept-Encoding：用于告诉服务器，客户机支持的数据压缩格式
-Accept-<span class="keyword">Language</span>：客户机语言环境
-Host:客户机通过这个服务器，想访问的主机名
-<span class="keyword">If</span>-Modified-Since：客户机通过这个头告诉服务器，资源的缓存时间
-Referer：客户机通过这个头告诉服务器，它（客户端）是从哪个资源来访问服务器的（防盗链）
-User-Agent：客户机通过这个头告诉服务器，客户机的软件环境（操作系统，浏览器版本等）
-Cookie：客户机通过这个头，将Coockie信息带给服务器
-Connection：告诉服务器，请求完成后，是否保持连接
-<span class="keyword">Date</span>：告诉服务器，当前请求的时间
-
-一个http响应代表服务器端向客户端回送的数据，它包括：
-一个状态行，若干个响应消息头，以及实体内容
-
-状态行： 例如： HTTP/<span class="number">1.1</span> <span class="number">200</span> OK （协议的版本号是<span class="number">1.1</span> 响应状态码为<span class="number">200</span> 响应结果为 OK）
-响应头(消息头)包含:
-
-Location：这个头配合<span class="number">302</span>状态吗，用于告诉客户端找谁
-Server：服务器通过这个头，告诉浏览器服务器的类型
-Content-Encoding：告诉浏览器，服务器的数据压缩格式
-Content-<span class="keyword">Length</span>：告诉浏览器，回送数据的长度
-Content-Type：告诉浏览器，回送数据的类型
-<span class="keyword">Last</span>-Modified：告诉浏览器当前资源缓存时间
-<span class="keyword">Refresh</span>：告诉浏览器，隔多长时间刷新
-Content-Disposition：告诉浏览器以下载的方式打开数据。例如：
-context.Response.AddHeader(<span class="string">"Content-Disposition"</span>,<span class="string">"attachment:filename=icon.jpg"</span>);
-context.Response.WriteFile(<span class="string">"icon.jpg"</span>); 
-
-
-Transfer-Encoding：告诉浏览器，传送数据的编码格式
-ETag：缓存相关的头（可以做到实时更新）
-Expries：告诉浏览器回送的资源缓存多长时间。如果是-<span class="number">1</span>或者<span class="number">0</span>，表示不缓存
-Cache-<span class="keyword">Control</span>：控制浏览器不要缓存数据 no-cache
-Pragma：控制浏览器不要缓存数据 no-cache
-Connection：响应完成后，是否断开连接。 close/Keep-Alive
-<span class="keyword">Date</span>：告诉浏览器，服务器响应时间
+        <p>授权并创建用户【命令解析-对号入座】</p>
+<pre><code><span class="operator"><span class="keyword">grant</span> <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">delete</span> <span class="keyword">on</span> laravel.* <span class="keyword">to</span> <span class="keyword">admin</span>@<span class="string">"%"</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">"admin123"</span>
+    权限
+        <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">delete</span> [全部权限时是：All]
+    数据库.数据表
+        laravel.*
+    用户名@<span class="string">'登录方式'</span>
+        <span class="keyword">admin</span>@<span class="string">"%"</span>
+    密码     
+        admin23</span>
+</code></pre><p>撤销权限</p>
+<pre><code><span class="operator"><span class="keyword">REVOKE</span> privilege <span class="keyword">ON</span> databasename.tablename <span class="keyword">FROM</span> <span class="string">'username'</span>@<span class="string">'host'</span>;</span>
+</code></pre><p>删除用户</p>
+<pre><code><span class="operator"><span class="keyword">DROP</span> <span class="keyword">USER</span> <span class="string">'username'</span>@<span class="string">'host'</span>;</span>
+</code></pre><p>更改用户密码</p>
+<pre><code><span class="operator"><span class="keyword">SET</span> <span class="keyword">PASSWORD</span> <span class="keyword">FOR</span> <span class="string">'pig'</span>@<span class="string">'%'</span> = <span class="keyword">PASSWORD</span>(<span class="string">"123456"</span>);</span>
+</code></pre><p>刷新权限</p>
+<pre><code><span class="operator"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span>
 </code></pre>
       
     </div>
@@ -296,18 +279,18 @@ Connection：响应完成后，是否断开连接。 close/Keep-Alive
     
 <nav id="article-nav">
   
-    <a href="/2016/01/07/linux下php开启pdo扩展模块步骤/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/06/http请求/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          linux下php开启pdo扩展模块步骤
+          http请求
         
       </div>
     </a>
   
   
-    <a href="/2015/12/11/Mysql权限分配/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mysql权限分配</div>
+    <a href="/2015/11/14/用队列的方式解决目录遍历问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用队列的方式解决目录遍历问题</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
