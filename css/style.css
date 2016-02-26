@@ -1797,7 +1797,7 @@ pre .css ~ * .id {
   margin-left: 74px;
   margin-top: 23px;
   position: relative;
-  width: 70px;
+  width: 200px;
   text-align: center;
 }
 .switch-btn .tips-box {
@@ -1812,31 +1812,34 @@ pre .css ~ * .id {
   opacity: 0.8;
   position: absolute;
   top: -6px;
-  left: 30px;
+  left: 35px;
 }
 .switch-btn .tips-box .tips-inner {
   padding: 5px 8px 4px 8px;
   background-color: #000;
   color: #fff;
-  width: 80px;
+  max-width: 200px;
   text-align: center;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   opacity: 0.8;
   position: absolute;
   z-index: 99;
-  left: -13px;
+  left: -53px;
 }
 .switch-btn .tips-box .tips-inner li {
   padding: 4px 0;
   cursor: pointer;
   font-size: 13px;
   color: #ddd;
+  float: left;
+  margin-left: 10px;
 }
 .switch-btn .tips-box .tips-inner li:hover {
   background: #111;
 }
 .switch-btn .icon {
+  margin-left: -135px;
   height: 32px;
   width: 32px;
   background: #cecece;
