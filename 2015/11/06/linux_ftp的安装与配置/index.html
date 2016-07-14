@@ -1,428 +1,636 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Linux FTP的安装与配置 | myNote-Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##Linux FTP的安装与配置
-ONE.安装
-# yum install vsftpd
-TWO.开启和关闭FTP
-# service vsftpd start    //开启：
-# service vsftpd stop     //关闭：
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Linux FTP的安装与配置ONE.安装1# yum install vsftpd
+TWO.开启和关闭FTP12# service vsftpd start    //开启：# service vsftpd stop     //关闭：
 THREE.在linux中添加ftp用户，并设置相应的权限，操作步骤如下
-   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3.1环境：">
+3.1环境：
+ftp为vsftp 被限制用户名为test。被限制路径为/home/te">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux FTP的安装与配置">
 <meta property="og:url" content="https://xiaoyanger.github.io/2015/11/06/linux_ftp的安装与配置/index.html">
 <meta property="og:site_name" content="myNote-Blog">
-<meta property="og:description" content="##Linux FTP的安装与配置
-ONE.安装
-# yum install vsftpd
-TWO.开启和关闭FTP
-# service vsftpd start    //开启：
-# service vsftpd stop     //关闭：
+<meta property="og:description" content="Linux FTP的安装与配置ONE.安装1# yum install vsftpd
+TWO.开启和关闭FTP12# service vsftpd start    //开启：# service vsftpd stop     //关闭：
 THREE.在linux中添加ftp用户，并设置相应的权限，操作步骤如下
-   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3.1环境：">
-<meta property="og:updated_time" content="2016-02-26T04:15:19.834Z">
+3.1环境：
+ftp为vsftp 被限制用户名为test。被限制路径为/home/te">
+<meta property="og:updated_time" content="2016-07-14T06:21:28.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux FTP的安装与配置">
-<meta name="twitter:description" content="##Linux FTP的安装与配置
-ONE.安装
-# yum install vsftpd
-TWO.开启和关闭FTP
-# service vsftpd start    //开启：
-# service vsftpd stop     //关闭：
+<meta name="twitter:description" content="Linux FTP的安装与配置ONE.安装1# yum install vsftpd
+TWO.开启和关闭FTP12# service vsftpd start    //开启：# service vsftpd stop     //关闭：
 THREE.在linux中添加ftp用户，并设置相应的权限，操作步骤如下
-   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3.1环境：">
-  
-    <link rel="alternative" href="/atom.xml" title="myNote-Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+3.1环境：
+ftp为vsftp 被限制用户名为test。被限制路径为/home/te">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://xiaoyanger.github.io/2015/11/06/linux_ftp的安装与配置/"/>
+
+  <title> Linux FTP的安装与配置 | myNote-Blog </title>
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/img/head.png" class="js-avatar">
-			
-		</a>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">yangbiao</a></h1>
-		</hgroup>
+  
 
-		
 
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>標籤</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>關於</li>
-						
-					</ul>
-				</div>
-			</div>
-		
 
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">HOME</a></li>
-				        
-							<li><a href="/archives">ALL</a></li>
-				        
-							<li><a href="/tags/随笔">ESSAY</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://xiaoyanger.github.io/" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/p/1005052393196555?is_hot=1" title="weibo">weibo</a>
-					        
-								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yang-biao-68-83" title="zhihu">zhihu</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/composer/" style="font-size: 10px;">composer</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/keepalived/" style="font-size: 10px;">keepalived</a> <a href="/tags/laravel/" style="font-size: 12px;">laravel</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/lnmp/" style="font-size: 10px;">lnmp</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mysql/" style="font-size: 16px;">mysql</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/pdo/" style="font-size: 10px;">pdo</a> <a href="/tags/php/" style="font-size: 18px;">php</a> <a href="/tags/php7/" style="font-size: 10px;">php7</a> <a href="/tags/抓包/" style="font-size: 10px;">抓包</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
 
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">myNote-Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
 </div>
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">yangbiao</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="/img/head.png" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">yangbiao</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">HOME</a></li>
-		        
-					<li><a href="/archives">ALL</a></li>
-		        
-					<li><a href="/tags/随笔">ESSAY</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://xiaoyanger.github.io/" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/p/1005052393196555?is_hot=1" title="weibo">weibo</a>
-			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yang-biao-68-83" title="zhihu">zhihu</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
-      <div class="body-wrap"><article id="[layout]-linux_ftp的安装与配置" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/06/linux_ftp的安装与配置/" class="article-date">
-  	<time datetime="2015-11-06T08:57:19.000Z" itemprop="datePublished">2015-11-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+
   
-    <h1 class="article-title" itemprop="name">
-      Linux FTP的安装与配置
-      <span id="busuanzi_container_page_pv" style='font-size:13px;color:orange;margin-left:20px;'>
-          阅读量(<span id="busuanzi_value_page_pv"></span>)
-      </span>
-    </h1>
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux FTP的安装与配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2015-11-06T16:57:19+08:00" content="2015-11-06">
+              2015-11-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/06/linux_ftp的安装与配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/06/linux_ftp的安装与配置/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
+      
 
+      
+        <h1 id="Linux-FTP的安装与配置"><a href="#Linux-FTP的安装与配置" class="headerlink" title="Linux FTP的安装与配置"></a>Linux FTP的安装与配置</h1><h2 id="ONE-安装"><a href="#ONE-安装" class="headerlink" title="ONE.安装"></a>ONE.安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum install vsftpd</span></div></pre></td></tr></table></figure>
+<h2 id="TWO-开启和关闭FTP"><a href="#TWO-开启和关闭FTP" class="headerlink" title="TWO.开启和关闭FTP"></a>TWO.开启和关闭FTP</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># service vsftpd start    //开启：</span></div><div class="line"><span class="comment"># service vsftpd stop     //关闭：</span></div></pre></td></tr></table></figure>
+<h2 id="THREE-在linux中添加ftp用户，并设置相应的权限，操作步骤如下"><a href="#THREE-在linux中添加ftp用户，并设置相应的权限，操作步骤如下" class="headerlink" title="THREE.在linux中添加ftp用户，并设置相应的权限，操作步骤如下"></a>THREE.在linux中添加ftp用户，并设置相应的权限，操作步骤如下</h2><ul>
+<li><p>3.1环境：</p>
+<pre><code>ftp为vsftp 被限制用户名为test。被限制路径为/home/test
+</code></pre></li>
+<li><p>3.2建用户：在root用户下：</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># useradd -d /home/test test //增加用户test，并制定test用户的主目录为/home/test </span></div><div class="line"><span class="comment"># passwd test //为test设置密码</span></div></pre></td></tr></table></figure>
+<ul>
+<li>3.3更改用户相应的权限设置：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># usermod -s /sbin/nologin test //限定用户test不能telnet，只能ftp </span></div><div class="line"><span class="comment"># usermod -s /sbin/bash test //用户test恢复正常 </span></div><div class="line"><span class="comment"># usermod -d /test test //更改用户test的主目录为/test</span></div></pre></td></tr></table></figure>
+<ul>
+<li>3.4限制用户只能访问/home/test，不能访问其他路径</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># /etc/vsftpd/vsftpd.conf //修改 如下：</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">chroot_list_enable=YES //限制访问自身目录</div><div class="line">//(default follows)</div><div class="line">chroot_list_file=/etc/vsftpd/vsftpd.chroot_list</div></pre></td></tr></table></figure>
+<ul>
+<li>编辑 vsftpd.chroot_list文件，将受限制的用户添加进去，每个用户名一行</li>
+<li>改完配置文件，不要忘记重启vsFTPd服务器。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># /etc/init.d/vsftpd restart</span></div></pre></td></tr></table></figure>
+<ul>
+<li>3.5如果需要允许用户修改密码，但是又没有telnet登录系统的权限</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># usermod -s /usr/bin/passwd test //用户telnet后将直接进入改密界面</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
         
 
-        <div class="clearfix"></div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/05/PHP生成excel方法/" rel="next" title="PHP生成Excel的方法">
+                <i class="fa fa-chevron-left"></i> PHP生成Excel的方法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/07/使用charles_proxy_for_mac来抓取手机app的网络包/" rel="prev" title="使用charles proxy for Mac来抓取手机App的网络包">
+                使用charles proxy for Mac来抓取手机App的网络包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/11/06/linux_ftp的安装与配置/"
+           data-title="Linux FTP的安装与配置" data-url="https://xiaoyanger.github.io/2015/11/06/linux_ftp的安装与配置/">
       </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##Linux FTP的安装与配置</p>
-<p>ONE.安装</p>
-<pre><code><span class="preprocessor"># yum install vsftpd</span>
-</code></pre><p>TWO.开启和关闭FTP</p>
-<pre><code><span class="preprocessor"># service vsftpd start    <span class="comment">//开启：</span></span>
-<span class="preprocessor"># service vsftpd stop     <span class="comment">//关闭：</span></span>
-</code></pre><p>THREE.在linux中添加ftp用户，并设置相应的权限，操作步骤如下</p>
-<p>   &nbsp;&nbsp;&nbsp;&nbsp;3.1环境：<br>        &nbsp;&nbsp;&nbsp;&nbsp;ftp为vsftp 被限制用户名为test。被限制路径为/home/test</p>
-<p>   &nbsp;&nbsp;&nbsp;&nbsp;3.2建用户：在root用户下：</p>
-<pre><code># useradd -d /home/<span class="keyword">test</span> <span class="keyword">test</span> //增加用户<span class="keyword">test</span>，并制定<span class="keyword">test</span>用户的主目录为/home/<span class="keyword">test</span> 
-# passwd <span class="keyword">test</span> //为<span class="keyword">test</span>设置密码
-</code></pre><p>   &nbsp;&nbsp;&nbsp;&nbsp;3.3更改用户相应的权限设置：</p>
-<pre><code># usermod -s /sbin/nologin <span class="keyword">test</span> <span class="comment">//限定用户test不能telnet，只能ftp </span>
-# usermod -s /sbin/bash <span class="keyword">test</span> <span class="comment">//用户test恢复正常 </span>
-# usermod -<span class="keyword">d</span> /<span class="keyword">test</span> <span class="keyword">test</span> <span class="comment">//更改用户test的主目录为/test</span>
-</code></pre><p>   &nbsp;&nbsp;&nbsp;&nbsp;3.4限制用户只能访问/home/test，不能访问其他路径</p>
-<pre><code><span class="preprocessor"># /etc/vsftpd/vsftpd.conf <span class="comment">//修改 如下：</span></span>
-    chroot_list_enable=YES <span class="comment">//限制访问自身目录</span>
-    <span class="comment">//(default follows)</span>
-    chroot_list_file=/etc/vsftpd/vsftpd.chroot_list
-</code></pre><p>   &nbsp;&nbsp;&nbsp;&nbsp;编辑 vsftpd.chroot_list文件，将受限制的用户添加进去，每个用户名一行<br>   &nbsp;&nbsp;&nbsp;&nbsp;改完配置文件，不要忘记重启vsFTPd服务器。</p>
-<pre><code><span class="preprocessor"># /etc/init.d/vsftpd restart</span>
-</code></pre><p>   &nbsp;&nbsp;&nbsp;&nbsp;3.5如果需要允许用户修改密码，但是又没有telnet登录系统的权限</p>
-<pre><code><span class="preprocessor"># usermod -s /usr/bin/passwd test <span class="comment">//用户telnet后将直接进入改密界面</span></span>
-</code></pre>
-      
-    </div>
     
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/11/07/使用charles_proxy_for_mac来抓取手机app的网络包/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
+
+
+        </div>
         
-          使用charles proxy for Mac来抓取手机App的网络包
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/head.png"
+               alt="yangbiao" />
+          <p class="site-author-name" itemprop="name">yangbiao</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-FTP的安装与配置"><span class="nav-number">1.</span> <span class="nav-text">Linux FTP的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ONE-安装"><span class="nav-number">1.1.</span> <span class="nav-text">ONE.安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TWO-开启和关闭FTP"><span class="nav-number">1.2.</span> <span class="nav-text">TWO.开启和关闭FTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THREE-在linux中添加ftp用户，并设置相应的权限，操作步骤如下"><span class="nav-number">1.3.</span> <span class="nav-text">THREE.在linux中添加ftp用户，并设置相应的权限，操作步骤如下</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2015/11/05/PHP生成excel方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PHP生成Excel的方法</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
+    </main>
 
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-</article>
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yangbiao</span>
 </div>
 
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="linux_ftp的安装与配置" data-title="Linux FTP的安装与配置" data-url="https://xiaoyanger.github.io/2015/11/06/linux_ftp的安装与配置/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"xiaoyanger"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
-
-
-
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
 </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 yangbiao
-    	</div>
-      	<div class="footer-right">
-      		<span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-            <span id="busuanzi_container_site_uv">
-              本站访客数<span id="busuanzi_value_site_uv"></span>人次
-            </span>
-      	</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
     </div>
   </div>
-</footer>
-    </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaoyanger"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
 
 
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
 
 
 
 
+  
+  
 
+  
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+  
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
+  
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  </div>
 </body>
 </html>

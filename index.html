@@ -1,843 +1,1082 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>myNote-Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="xiaoyanger" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
 <meta property="og:type" content="website">
 <meta property="og:title" content="myNote-Blog">
 <meta property="og:url" content="https://xiaoyanger.github.io/index.html">
 <meta property="og:site_name" content="myNote-Blog">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="myNote-Blog">
-<meta name="twitter:description">
-  
-    <link rel="alternative" href="/atom.xml" title="myNote-Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://xiaoyanger.github.io/"/>
+
+  <title> myNote-Blog </title>
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/img/head.png" class="js-avatar">
-			
-		</a>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">yangbiao</a></h1>
-		</hgroup>
+  
 
-		
 
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>標籤</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>關於</li>
-						
-					</ul>
-				</div>
-			</div>
-		
 
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">HOME</a></li>
-				        
-							<li><a href="/archives">ALL</a></li>
-				        
-							<li><a href="/tags/随笔">ESSAY</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://xiaoyanger.github.io/" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/p/1005052393196555?is_hot=1" title="weibo">weibo</a>
-					        
-								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yang-biao-68-83" title="zhihu">zhihu</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/composer/" style="font-size: 10px;">composer</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/keepalived/" style="font-size: 10px;">keepalived</a> <a href="/tags/laravel/" style="font-size: 12px;">laravel</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/lnmp/" style="font-size: 10px;">lnmp</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mysql/" style="font-size: 16px;">mysql</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/pdo/" style="font-size: 10px;">pdo</a> <a href="/tags/php/" style="font-size: 18px;">php</a> <a href="/tags/php7/" style="font-size: 10px;">php7</a> <a href="/tags/抓包/" style="font-size: 10px;">抓包</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
 
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">myNote-Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
 </div>
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">yangbiao</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="/img/head.png" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">yangbiao</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">HOME</a></li>
-		        
-					<li><a href="/archives">ALL</a></li>
-		        
-					<li><a href="/tags/随笔">ESSAY</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://xiaoyanger.github.io/" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/p/1005052393196555?is_hot=1" title="weibo">weibo</a>
-			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yang-biao-68-83" title="zhihu">zhihu</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="[layout]-修改php.ini报错级别" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/25/修改php.ini报错级别/" class="article-date">
-  	<time datetime="2016-02-25T05:30:09.000Z" itemprop="datePublished">2016-02-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
-      <input type="hidden" class="isFancy" />
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/修改php.ini报错级别/">修改php.ini报错级别</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>修改php.ini报错级别</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">error_reporting = E_ALL &amp; ~E_NOTICE</span><br><span class="line"></span><br><span class="line"><span class="comment">;有关error_reporting()函数：</span></span><br><span class="line"></span><br><span class="line">error_reporting() 设置 PHP 的报错级别并返回当前级别。</span><br><span class="line"></span><br><span class="line"><span class="comment">; 错误报告是按位的。或者将数字加起来得到想要的错误报告等级。</span></span><br><span class="line"><span class="comment">; E_ALL - 所有的错误和警告</span></span><br><span class="line"><span class="comment">; E_ERROR - 致命性运行时错</span></span><br><span class="line"><span class="comment">; E_WARNING - 运行时警告（非致命性错）</span></span><br><span class="line"><span class="comment">; E_PARSE - 编译时解析错误</span></span><br><span class="line"><span class="comment">; E_NOTICE - 运行时提醒(这些经常是是你的代码的bug引起的，</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;也可能是有意的行为造成的。(如：基于未初始化的变量自动初始化为一个</span></span><br><span class="line"><span class="comment">;空字符串的事实而使用一个未初始化的变量)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">; E_CORE_ERROR - 发生于PHP启动时初始化过程中的致命错误</span></span><br><span class="line"><span class="comment">; E_CORE_WARNING - 发生于PHP启动时初始化过程中的警告(非致命性错)</span></span><br><span class="line"><span class="comment">; E_COMPILE_ERROR - 编译时致命性错</span></span><br><span class="line"><span class="comment">; E_COMPILE_WARNING - 编译时警告(非致命性错)</span></span><br><span class="line"><span class="comment">; E_USER_ERROR - 用户产生的出错消息</span></span><br><span class="line"><span class="comment">; E_USER_WARNING - 用户产生的警告消息</span></span><br><span class="line"><span class="comment">; E_USER_NOTICE - 用户产生的提醒消息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">;使用方法：</span></span><br><span class="line"></span><br><span class="line">error_reporting(0)<span class="comment">;//禁用错误报告</span></span><br><span class="line">error_reporting(E_ALL ^ E_NOTICE)<span class="comment">;//显示除去 E_NOTICE 之外的所有错误信息</span></span><br><span class="line">error_reporting(E_ALL^E_WARNING^E_NOTICE)<span class="comment">;//显示除去E_WARNING E_NOTICE 之外的所有错误信息</span></span><br><span class="line">error_reporting(E_ERROR | E_WARNING | E_PARSE)<span class="comment">;//显示运行时错误，与error_reporting(E_ALL ^ E_NOTICE);效果相同。error_reporting(E_ALL);//显示所有错误</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-PHP-log日志类" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/20/PHP-log日志类/" class="article-date">
-  	<time datetime="2016-02-19T16:00:00.000Z" itemprop="datePublished">2016-02-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/20/PHP-log日志类/">PHP-log日志类</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PHP-log日志类</p>
-<pre><code>&lt;?php
-
-<span class="keyword">if</span>(!isset($_SERVER[<span class="string">'time'</span>])) {
-    $_SERVER[<span class="string">'time'</span>] = time();
-    $_SERVER[<span class="string">'time_fmt'</span>] = gmdate(<span class="string">'y-n-j H:i'</span>, time() + <span class="number">8</span> * <span class="number">3600</span>);
-}
-
-class log {
-    public static function write(<span class="variable">$s</span>, <span class="variable">$file</span> = <span class="string">'phperror.php'</span>) {
-        <span class="variable">$s</span> = self::safe_str(<span class="variable">$s</span>);
-        <span class="variable">$ip</span> = $_SERVER[<span class="string">'ip'</span>];
-        <span class="variable">$time</span> = date(<span class="string">'Y-n-d H:i'</span>, $_SERVER[<span class="string">'time'</span>]);
-        <span class="variable">$url</span> = $_SERVER[<span class="string">'REQUEST_URI'</span>];
-        <span class="variable">$url</span> = self::safe_str(<span class="variable">$url</span>);
-        <span class="variable">$s</span> = <span class="string">'&lt;?php exit;?&gt;'</span>.<span class="string">"     $time     $ip     $url     $s     \r\n"</span>;
-        self::real_write(<span class="variable">$s</span>, <span class="variable">$file</span>);
-        return TRUE;
-    }
-
-    /**
-     * 日志
-     */
-    public static function writelog(<span class="variable">$file</span>, <span class="variable">$log</span>) {
-       // global $_G;
-        //<span class="variable">$yearmonth</span> = dgmdate(TIMESTAMP, <span class="string">'Ym'</span>, $_G[<span class="string">'setting'</span>][<span class="string">'timeoffset'</span>]);
-        <span class="variable">$yearmonth</span> = date(<span class="string">'Ym'</span>, time());
-        <span class="variable">$logfile</span> = LOG_PATH.<span class="variable">$yearmonth</span>.<span class="string">'_'</span>.<span class="variable">$file</span>.<span class="string">'.php'</span>;
-        if(@filesize(<span class="variable">$logfile</span>) &gt; <span class="number">2048000</span>) {
-            <span class="variable">$dir</span> = opendir(LOG_PATH);
-            <span class="variable">$length</span> = strlen(<span class="variable">$file</span>);
-            <span class="variable">$maxid</span> = <span class="variable">$id</span> = <span class="number">0</span>;
-            while(<span class="variable">$entry</span> = readdir(<span class="variable">$dir</span>)) {
-                if(strpos(<span class="variable">$entry</span>, <span class="variable">$yearmonth</span>.<span class="string">'_'</span>.<span class="variable">$file</span>) !== false) {
-                    <span class="variable">$id</span> = intval(substr(<span class="variable">$entry</span>, <span class="variable">$length</span> + <span class="number">8</span>, -<span class="number">4</span>));
-                    <span class="variable">$id</span> &gt; <span class="variable">$maxid</span> &amp;&amp; <span class="variable">$maxid</span> = <span class="variable">$id</span>;
-                }
-            }
-            closedir(<span class="variable">$dir</span>);
-
-            <span class="variable">$logfilebak</span> = LOG_PATH.<span class="variable">$yearmonth</span>.<span class="string">'_'</span>.<span class="variable">$file</span>.<span class="string">'_'</span>.(<span class="variable">$maxid</span> + <span class="number">1</span>).<span class="string">'.php'</span>;
-            @rename(<span class="variable">$logfile</span>, <span class="variable">$logfilebak</span>);
-        }
-        if(<span class="variable">$fp</span> = @fopen(<span class="variable">$logfile</span>, <span class="string">'a'</span>)) {
-            @flock(<span class="variable">$fp</span>, <span class="number">2</span>);
-            if(!is_array(<span class="variable">$log</span>)) {
-                <span class="variable">$log</span> = array(<span class="variable">$log</span>);
-            }
-            foreach(<span class="variable">$log</span> as <span class="variable">$tmp</span>) {
-                fwrite(<span class="variable">$fp</span>, <span class="string">"&lt;?PHP exit;?&gt;\t"</span>.str_replace(array(<span class="string">'&lt;?'</span>, <span class="string">'?&gt;'</span>), <span class="string">''</span>, <span class="variable">$tmp</span>).<span class="string">"\n"</span>);
-            }
-            fclose(<span class="variable">$fp</span>);
-        }
-    }
-
-    /**
-     * 错误日志
-     */
-    public static function write_error_log(<span class="variable">$message</span>) {
-
-        <span class="variable">$message</span> = discuz_error::clear(<span class="variable">$message</span>);
-        <span class="variable">$time</span> = time();
-        <span class="variable">$file</span> =  DISCUZ_ROOT.<span class="string">'./data/log/'</span>.date(<span class="string">"Ym"</span>).<span class="string">'_errorlog.php'</span>;
-        <span class="variable">$hash</span> = md5(<span class="variable">$message</span>);
-
-        <span class="variable">$uid</span> = getglobal(<span class="string">'uid'</span>);
-        <span class="variable">$ip</span> = getglobal(<span class="string">'clientip'</span>);
-
-        <span class="variable">$user</span> = <span class="string">'&lt;b&gt;User:&lt;/b&gt; uid='</span>.intval(<span class="variable">$uid</span>).<span class="string">'; IP='</span>.<span class="variable">$ip</span>.<span class="string">'; RIP:'</span>.$_SERVER[<span class="string">'REMOTE_ADDR'</span>];
-        <span class="variable">$uri</span> = <span class="string">'Request: '</span>.dhtmlspecialchars(discuz_error::clear($_SERVER[<span class="string">'REQUEST_URI'</span>]));
-        <span class="variable">$message</span> = <span class="string">"&lt;?PHP exit;?&gt;\t{$time}\t$message\t$hash\t$user $uri\n"</span>;
-        if(<span class="variable">$fp</span> = @fopen(<span class="variable">$file</span>, <span class="string">'rb'</span>)) {
-            <span class="variable">$lastlen</span> = <span class="number">50000</span>;
-            <span class="variable">$maxtime</span> = <span class="number">60</span> * <span class="number">10</span>;
-            <span class="variable">$offset</span> = filesize(<span class="variable">$file</span>) - <span class="variable">$lastlen</span>;
-            if(<span class="variable">$offset</span> &gt; <span class="number">0</span>) {
-                fseek(<span class="variable">$fp</span>, <span class="variable">$offset</span>);
-            }
-            if(<span class="variable">$data</span> = fread(<span class="variable">$fp</span>, <span class="variable">$lastlen</span>)) {
-                <span class="variable">$array</span> = explode(<span class="string">"\n"</span>, <span class="variable">$data</span>);
-                if(is_array(<span class="variable">$array</span>)) foreach(<span class="variable">$array</span> as <span class="variable">$key</span> =&gt; <span class="variable">$val</span>) {
-                    <span class="variable">$row</span> = explode(<span class="string">"\t"</span>, <span class="variable">$val</span>);
-                    if(<span class="variable">$row</span>[<span class="number">0</span>] != <span class="string">'&lt;?PHP exit;?&gt;'</span>) continue;
-                    if(<span class="variable">$row</span>[<span class="number">3</span>] == <span class="variable">$hash</span> &amp;&amp; (<span class="variable">$row</span>[<span class="number">1</span>] &gt; <span class="variable">$time</span> - <span class="variable">$maxtime</span>)) {
-                        return;
-                    }
-                }
-            }
-        }
-        error_log(<span class="variable">$message</span>, <span class="number">3</span>, <span class="variable">$file</span>);
-    }
-
-    /**
-     * 数据库错误
-     */
-    public static function db_error(<span class="variable">$message</span>, <span class="variable">$sql</span>) {
-        global $_G;
-
-        list(<span class="variable">$showtrace</span>, <span class="variable">$logtrace</span>) = discuz_error::debug_backtrace();
-
-        <span class="variable">$title</span> = lang(<span class="string">'error'</span>, <span class="string">'db_'</span>.<span class="variable">$message</span>);
-        <span class="variable">$title</span>_msg = lang(<span class="string">'error'</span>, <span class="string">'db_error_message'</span>);
-        <span class="variable">$title</span>_sql = lang(<span class="string">'error'</span>, <span class="string">'db_query_sql'</span>);
-        <span class="variable">$title</span>_backtrace = lang(<span class="string">'error'</span>, <span class="string">'backtrace'</span>);
-        <span class="variable">$title</span>_help = lang(<span class="string">'error'</span>, <span class="string">'db_help_link'</span>);
-
-        <span class="variable">$db</span> = &amp;DB::object();
-        <span class="variable">$dberrno</span> = <span class="variable">$db-</span>&gt;errno();
-        <span class="variable">$dberror</span> = str_replace(<span class="variable">$db-</span>&gt;tablepre,  <span class="string">''</span>, <span class="variable">$db-</span>&gt;error());
-        <span class="variable">$sql</span> = dhtmlspecialchars(str_replace(<span class="variable">$db-</span>&gt;tablepre,  <span class="string">''</span>, <span class="variable">$sql</span>));
-
-        <span class="variable">$msg</span> = <span class="string">'&lt;li&gt;[Type] '</span>.<span class="variable">$title</span>.<span class="string">'&lt;/li&gt;'</span>;
-        <span class="variable">$msg</span> .= <span class="variable">$dberrno</span> ? <span class="string">'&lt;li&gt;['</span>.<span class="variable">$dberrno</span>.<span class="string">'] '</span>.<span class="variable">$dberror</span>.<span class="string">'&lt;/li&gt;'</span> : <span class="string">''</span>;
-        <span class="variable">$msg</span> .= <span class="variable">$sql</span> ? <span class="string">'&lt;li&gt;[Query] '</span>.<span class="variable">$sql</span>.<span class="string">'&lt;/li&gt;'</span> : <span class="string">''</span>;
-
-        discuz_error::show_error(<span class="string">'db'</span>, <span class="variable">$msg</span>, <span class="variable">$showtrace</span>, false);
-        unset(<span class="variable">$msg</span>, <span class="variable">$phperror</span>);
-
-        <span class="variable">$errormsg</span> = <span class="string">'&lt;b&gt;'</span>.<span class="variable">$title</span>.<span class="string">'&lt;/b&gt;'</span>;
-        <span class="variable">$errormsg</span> .= <span class="string">"[$dberrno]&lt;br /&gt;&lt;b&gt;ERR:&lt;/b&gt; $dberror&lt;br /&gt;"</span>;
-        if(<span class="variable">$sql</span>) {
-            <span class="variable">$errormsg</span> .= <span class="string">'&lt;b&gt;SQL:&lt;/b&gt; '</span>.<span class="variable">$sql</span>;
-        }
-        <span class="variable">$errormsg</span> .= <span class="string">"&lt;br /&gt;"</span>;
-        <span class="variable">$errormsg</span> .= <span class="string">'&lt;b&gt;PHP:&lt;/b&gt; '</span>.<span class="variable">$logtrace</span>;
-
-        discuz_error::write_error_log(<span class="variable">$errormsg</span>);
-        exit();
-
-    }
-
-    /**
-     * 异常错误
-     */
-    public static function exception_error(<span class="variable">$exception</span>) {
-
-        if(<span class="variable">$exception</span> instanceof DbException) {
-            <span class="variable">$type</span> = <span class="string">'db'</span>;
-        } else {
-            <span class="variable">$type</span> = <span class="string">'system'</span>;
-        }
-
-        if(<span class="variable">$type</span> == <span class="string">'db'</span>) {
-            <span class="variable">$errormsg</span> = <span class="string">'('</span>.<span class="variable">$exception-</span>&gt;getCode().<span class="string">') '</span>;
-            <span class="variable">$errormsg</span> .= self::sql_clear(<span class="variable">$exception-</span>&gt;getMessage());
-            if(<span class="variable">$exception-</span>&gt;getSql()) {
-                <span class="variable">$errormsg</span> .= <span class="string">'&lt;div class="sql"&gt;'</span>;
-                <span class="variable">$errormsg</span> .= self::sql_clear(<span class="variable">$exception-</span>&gt;getSql());
-                <span class="variable">$errormsg</span> .= <span class="string">'&lt;/div&gt;'</span>;
-            }
-        } else {
-            <span class="variable">$errormsg</span> = <span class="variable">$exception-</span>&gt;getMessage();
-        }
-
-        <span class="variable">$trace</span> = <span class="variable">$exception-</span>&gt;getTrace();
-        krsort(<span class="variable">$trace</span>);
-
-        <span class="variable">$trace</span>[] = array(<span class="string">'file'</span>=&gt;<span class="variable">$exception-</span>&gt;getFile(), <span class="string">'line'</span>=&gt;<span class="variable">$exception-</span>&gt;getLine(), <span class="string">'function'</span>=&gt; <span class="string">'break'</span>);
-        <span class="variable">$phpmsg</span> = array();
-        foreach (<span class="variable">$trace</span> as <span class="variable">$error</span>) {
-            if(!empty(<span class="variable">$error</span>[<span class="string">'function'</span>])) {
-                <span class="variable">$fun</span> = <span class="string">''</span>;
-                if(!empty(<span class="variable">$error</span>[<span class="string">'class'</span>])) {
-                    <span class="variable">$fun</span> .= <span class="variable">$error</span>[<span class="string">'class'</span>].<span class="variable">$error</span>[<span class="string">'type'</span>];
-                }
-                <span class="variable">$fun</span> .= <span class="variable">$error</span>[<span class="string">'function'</span>].<span class="string">'('</span>;
-                if(!empty(<span class="variable">$error</span>[<span class="string">'args'</span>])) {
-                    <span class="variable">$mark</span> = <span class="string">''</span>;
-                    foreach(<span class="variable">$error</span>[<span class="string">'args'</span>] as <span class="variable">$arg</span>) {
-                        <span class="variable">$fun</span> .= <span class="variable">$mark</span>;
-                        if(is_array(<span class="variable">$arg</span>)) {
-                            <span class="variable">$fun</span> .= <span class="string">'Array'</span>;
-                        } elseif(is_bool(<span class="variable">$arg</span>)) {
-                            <span class="variable">$fun</span> .= <span class="variable">$arg</span> ? <span class="string">'true'</span> : <span class="string">'false'</span>;
-                        } elseif(is_int(<span class="variable">$arg</span>)) {
-                            <span class="variable">$fun</span> .= (defined(<span class="string">'DISCUZ_DEBUG'</span>) &amp;&amp; DISCUZ_DEBUG) ? <span class="variable">$arg</span> : <span class="string">'%d'</span>;
-                        } elseif(is_float(<span class="variable">$arg</span>)) {
-                            <span class="variable">$fun</span> .= (defined(<span class="string">'DISCUZ_DEBUG'</span>) &amp;&amp; DISCUZ_DEBUG) ? <span class="variable">$arg</span> : <span class="string">'%f'</span>;
-                        } else {
-                            <span class="variable">$fun</span> .= (defined(<span class="string">'DISCUZ_DEBUG'</span>) &amp;&amp; DISCUZ_DEBUG) ? <span class="string">'\''.dhtmlspecialchars(substr(self::clear($arg), 0, 10)).(strlen($arg) &gt; 10 ? '</span> ...<span class="string">' : '').'</span>\<span class="string">''</span> : <span class="string">'%s'</span>;
-                        }
-                        <span class="variable">$mark</span> = <span class="string">', '</span>;
-                    }
-                }
-
-                <span class="variable">$fun</span> .= <span class="string">')'</span>;
-                <span class="variable">$error</span>[<span class="string">'function'</span>] = <span class="variable">$fun</span>;
-            }
-            <span class="variable">$phpmsg</span>[] = array(
-                <span class="string">'file'</span> =&gt; str_replace(array(DISCUZ_ROOT, <span class="string">'\\'</span>), array(<span class="string">''</span>, <span class="string">'/'</span>), <span class="variable">$error</span>[<span class="string">'file'</span>]),
-                <span class="string">'line'</span> =&gt; <span class="variable">$error</span>[<span class="string">'line'</span>],
-                <span class="string">'function'</span> =&gt; <span class="variable">$error</span>[<span class="string">'function'</span>],
-            );
-        }
-
-        self::show_error(<span class="variable">$type</span>, <span class="variable">$errormsg</span>, <span class="variable">$phpmsg</span>);
-        exit();
-
-    }
-    // 直接写入
-    public static function real_write(<span class="variable">$s</span>, <span class="variable">$file</span> = <span class="string">'phperror.php'</span>) {
-
-        <span class="variable">$logpath</span> = LOG_PATH;
-        <span class="variable">$logfile</span> = <span class="variable">$logpath</span>.<span class="variable">$file</span>;
-        try {
-            <span class="variable">$fp</span> = fopen(<span class="variable">$logfile</span>, <span class="string">'ab+'</span>);
-            if(!<span class="variable">$fp</span>) {
-                throw new Exception(<span class="string">'写入日志失败，可能磁盘已满，或者文件'</span>.<span class="variable">$logfile</span>.<span class="string">'不可写。'</span>);
-            }
-            fwrite(<span class="variable">$fp</span>, <span class="variable">$s</span>);
-            fclose(<span class="variable">$fp</span>);
-        } catch (Exception <span class="variable">$e</span>) {}
-        return TRUE;
-    }
-
-    public static function safe_str(<span class="variable">$s</span>) {
-        <span class="variable">$s</span> = str_replace(<span class="string">"\r\n"</span>, <span class="string">' '</span>, <span class="variable">$s</span>);
-        <span class="variable">$s</span> = str_replace(<span class="string">"\r"</span>, <span class="string">' '</span>, <span class="variable">$s</span>);
-        <span class="variable">$s</span> = str_replace(<span class="string">"\n"</span>, <span class="string">' '</span>, <span class="variable">$s</span>);
-        <span class="variable">$s</span> = str_replace(<span class="string">"\t"</span>, <span class="string">' '</span>, <span class="variable">$s</span>);
-        return <span class="variable">$s</span>;
-    }
-
-    // 跟踪变量的值
-    public static function trace(<span class="variable">$s</span>) {
-        if(!DEBUG) return;
-        <span class="variable">$processtime</span> = number_format(microtime(<span class="number">1</span>) - $_SERVER[<span class="string">'time'</span>], <span class="number">3</span>, <span class="string">'.'</span>, <span class="string">''</span>);
-        empty($_SERVER[<span class="string">'trace'</span>]) &amp;&amp; $_SERVER[<span class="string">'trace'</span>] = <span class="string">''</span>;
-        $_SERVER[<span class="string">'trace'</span>] .= <span class="string">"$s - $processtime\r\n"</span>;
-    }
-
-    // 保存 trace
-    public static function trace_save() {
-        <span class="variable">$s</span> = <span class="string">"\r\n\r\n---------------------------------------------------------------------------------\r\n&lt;?php exit;?&gt;\r\n---------------------------------------------------------------------------------\r\n$_SERVER[REQUEST_URI]\r\nPOST:"</span>.print_r($_POST, <span class="number">1</span>).<span class="string">"\r\nSQL:"</span>.print_r($_SERVER[<span class="string">'sqls'</span>], <span class="number">1</span>).<span class="string">"\r\n"</span>;
-        <span class="variable">$s</span> .= $_SERVER[<span class="string">'trace'</span>];
-        self::real_write(<span class="variable">$s</span>, <span class="string">'trace.php'</span>);
-    }
-}
-?&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-PHP判断浏览器" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/15/PHP判断浏览器/" class="article-date">
-  	<time datetime="2016-02-14T16:00:00.000Z" itemprop="datePublished">2016-02-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/14/HTTP错误代码大汇总/" itemprop="url">
+                  错误代码大汇总
+                </a>
+              
+            
+          </h1>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/15/PHP判断浏览器/">PHP判断浏览器</a>
-    </h1>
-  
 
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-07-14T15:26:14+08:00" content="2016-07-14">
+              2016-07-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/http/" itemprop="url" rel="index">
+                    <span itemprop="name">http</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/14/HTTP错误代码大汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/HTTP错误代码大汇总/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
-      
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>判断浏览器</p>
-<pre><code>&lt;?php
-    <span class="keyword">function</span> get__browser()
-    {
-        // 默认为 chrome 标准浏览器
-        <span class="variable">$browser</span> = array(
-            <span class="string">'device'</span> =&gt; <span class="string">'pc'</span>, // pc|mobile|pad
-            <span class="string">'name'</span> =&gt; <span class="string">'chrome'</span>, // chrome|firefox|ie|opera
-            <span class="string">'version'</span> =&gt; <span class="number">30</span>,
-        );
-        <span class="variable">$agent</span> = isset($_SERVER[<span class="string">'HTTP_USER_AGENT'</span>]) ? strtolower($_SERVER[<span class="string">'HTTP_USER_AGENT'</span>]) : <span class="string">''</span>;
-        // 主要判断是否为垃圾IE6789
-        if (strpos(<span class="variable">$agent</span>, <span class="string">'msie'</span>) !== FALSE || stripos(<span class="variable">$agent</span>, <span class="string">'trident'</span>) !== FALSE) {
-            <span class="variable">$browser</span>[<span class="string">'name'</span>] = <span class="string">'ie'</span>;
-            <span class="variable">$browser</span>[<span class="string">'version'</span>] = <span class="number">8</span>;
-            preg_match(<span class="string">'#MSIE\s*([\d\.]+)#is'</span>, <span class="variable">$agent</span>, <span class="variable">$m</span>);
-            if (!empty(<span class="variable">$m</span>[<span class="number">1</span>])) {
-                <span class="variable">$v</span> = intval(<span class="variable">$m</span>[<span class="number">1</span>]);
-                <span class="variable">$browser</span>[<span class="string">'version'</span>] = <span class="variable">$v</span>;
-            } else {
-                // 匹配兼容模式 Trident/<span class="number">7.0</span>，兼容模式下会有此标志 <span class="variable">$trident</span> = <span class="number">7</span>;
-                preg_match(<span class="string">'#Trident/([\d\.]+)#is'</span>, <span class="variable">$agent</span>, <span class="variable">$m</span>);
-                if (!empty(<span class="variable">$m</span>[<span class="number">1</span>])) {
-                    <span class="variable">$trident</span> = intval(<span class="variable">$m</span>[<span class="number">1</span>]);
-                    <span class="variable">$trident</span> == <span class="number">4</span> AND <span class="variable">$browser</span>[<span class="string">'version'</span>] = <span class="number">8</span>;
-                    <span class="variable">$trident</span> == <span class="number">5</span> AND <span class="variable">$browser</span>[<span class="string">'version'</span>] = <span class="number">9</span>;
-                    <span class="variable">$trident</span> &gt; <span class="number">5</span> AND <span class="variable">$browser</span>[<span class="string">'version'</span>] = <span class="number">10</span>;
-                }
-            }
-        }
 
-        if (isset($_SERVER[<span class="string">'HTTP_X_WAP_PROFILE'</span>]) || (isset($_SERVER[<span class="string">'HTTP_VIA'</span>]) &amp;&amp; stristr($_SERVER[<span class="string">'HTTP_VIA'</span>], <span class="string">"wap"</span>) || stripos(<span class="variable">$agent</span>, <span class="string">'phone'</span>) || strpos(<span class="variable">$agent</span>, <span class="string">'ipod'</span>))) {
-            <span class="variable">$browser</span>[<span class="string">'device'</span>] = <span class="string">'phone'</span>;
-        } elseif (strpos(<span class="variable">$agent</span>, <span class="string">'pad'</span>)) {
-            <span class="variable">$browser</span>[<span class="string">'device'</span>] = <span class="string">'pad'</span>;
-        } else {
-            <span class="variable">$robots</span> = array(<span class="string">'bot'</span>, <span class="string">'spider'</span>, <span class="string">'slurp'</span>);
-            foreach (<span class="variable">$robots</span> as <span class="variable">$robot</span>) {
-                if (strpos(<span class="variable">$agent</span>, <span class="variable">$robot</span>) !== FALSE) {
-                    <span class="variable">$browser</span>[<span class="string">'name'</span>] = <span class="string">'robot'</span>;
-                    return;
-                }
-            }
-        }
-        return <span class="variable">$browser</span>;
-    }
-?&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-	</div>
 
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
       
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-文件夹操作类" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/09/文件夹操作类/" class="article-date">
-  	<time datetime="2016-02-08T16:00:00.000Z" itemprop="datePublished">2016-02-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/09/文件夹操作类/">文件夹操作类</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>文件夹操作类</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="variable">$url</span> = <span class="string">"http://order.jd.com/center/list.action"</span>;</span><br><span class="line"><span class="variable">$data</span> = myfopen(<span class="variable">$url</span>);</span><br><span class="line">var_dump(<span class="variable">$data</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> myfopen(<span class="variable">$url</span>, <span class="variable">$limit</span> = <span class="number">0</span>, <span class="variable">$post</span> = <span class="string">''</span>, <span class="variable">$cookie</span> = <span class="string">''</span>, <span class="variable">$bysocket</span> = FALSE, <span class="variable">$ip</span> = <span class="string">''</span>, <span class="variable">$timeout</span> = <span class="number">15</span>, <span class="variable">$block</span> = TRUE) &#123;</span><br><span class="line">    <span class="variable">$return</span> = <span class="string">''</span>;</span><br><span class="line">    <span class="variable">$matches</span> = parse_url(<span class="variable">$url</span>);</span><br><span class="line">    <span class="variable">$host</span> = <span class="variable">$matches</span>[<span class="string">'host'</span>];</span><br><span class="line">    @<span class="variable">$path</span> = <span class="variable">$matches</span>[<span class="string">'path'</span>] ? <span class="variable">$matches</span>[<span class="string">'path'</span>].<span class="string">'?'</span>.<span class="variable">$matches</span>[<span class="string">'query'</span>].<span class="string">'#'</span>.<span class="variable">$matches</span>[<span class="string">'fragment'</span>] : <span class="string">'/'</span>;</span><br><span class="line">    <span class="variable">$port</span> = !empty(<span class="variable">$matches</span>[<span class="string">'port'</span>]) ? <span class="variable">$matches</span>[<span class="string">'port'</span>] : <span class="number">80</span>;</span><br><span class="line">    </span><br><span class="line">    if(<span class="variable">$post</span>) &#123;</span><br><span class="line">        <span class="variable">$out</span> = <span class="string">"POST $path HTTP/1.0\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Accept: */*\r\n"</span>;</span><br><span class="line">        //<span class="variable">$out</span> .= <span class="string">"Referer: $site_url\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Accept-Language: zh-cn\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Content-Type: application/x-www-form-urlencoded\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"User-Agent: $_SERVER[HTTP_USER_AGENT]\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Host: $host\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">'Content-Length: '</span>.strlen(<span class="variable">$post</span>).<span class="string">"\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Connection: Close\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Cache-Control: no-cache\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Cookie: $cookie\r\n\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="variable">$post</span>;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        <span class="variable">$out</span> = <span class="string">"GET $path HTTP/1.0\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Accept: */*\r\n"</span>;</span><br><span class="line">        //<span class="variable">$out</span> .= <span class="string">"Referer: $site_url\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Accept-Language: zh-cn\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"User-Agent: $_SERVER[HTTP_USER_AGENT]\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Host: $host\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Connection: Close\r\n"</span>;</span><br><span class="line">        <span class="variable">$out</span> .= <span class="string">"Cookie: $cookie\r\n\r\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$fp</span> = @fsockopen((<span class="variable">$ip</span> ? <span class="variable">$ip</span> : <span class="variable">$host</span>), <span class="variable">$port</span>, <span class="variable">$errno</span>, <span class="variable">$errstr</span>, <span class="variable">$timeout</span>);</span><br><span class="line">    </span><br><span class="line">    if(!<span class="variable">$fp</span>) &#123;</span><br><span class="line">        return <span class="string">''</span>;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        stream_set_blocking(<span class="variable">$fp</span>, <span class="variable">$block</span>);</span><br><span class="line">        stream_set_timeout(<span class="variable">$fp</span>, <span class="variable">$timeout</span>);</span><br><span class="line">        @fwrite(<span class="variable">$fp</span>, <span class="variable">$out</span>);</span><br><span class="line">        <span class="variable">$status</span> = stream_get_meta_data(<span class="variable">$fp</span>);</span><br><span class="line">        if(!<span class="variable">$status</span>[<span class="string">'timed_out'</span>]) &#123;</span><br><span class="line">            <span class="variable">$firstline</span>=true;</span><br><span class="line">            while (!feof(<span class="variable">$fp</span>)) &#123;</span><br><span class="line">                <span class="variable">$header</span> = @fgets(<span class="variable">$fp</span>);</span><br><span class="line">                var_dump(<span class="variable">$header</span>);exit;</span><br><span class="line">                if(<span class="variable">$firstline</span> &amp;&amp; (false===strstr(<span class="variable">$header</span>,<span class="string">'200'</span>)) )&#123;</span><br><span class="line">                    return <span class="string">''</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="variable">$firstline</span>=false;</span><br><span class="line">                if( <span class="variable">$header</span>  &amp;&amp; (<span class="variable">$header</span> == <span class="string">"\r\n"</span> ||  <span class="variable">$header</span> == <span class="string">"\n"</span>) ) &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable">$stop</span> = false;</span><br><span class="line">            while(!feof(<span class="variable">$fp</span>) &amp;&amp; !<span class="variable">$stop</span>) &#123;</span><br><span class="line">                <span class="variable">$data</span> = fread(<span class="variable">$fp</span>, (<span class="variable">$limit</span> == <span class="number">0</span> || <span class="variable">$limit</span> &gt; <span class="number">8192</span> ? <span class="number">8192</span> : <span class="variable">$limit</span>));</span><br><span class="line">                <span class="variable">$return</span> .= <span class="variable">$data</span>;</span><br><span class="line">                if(<span class="variable">$limit</span>) &#123;</span><br><span class="line">                    <span class="variable">$limit</span> -= strlen(<span class="variable">$data</span>);</span><br><span class="line">                    <span class="variable">$stop</span> = <span class="variable">$limit</span> &lt;= <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        @fclose(<span class="variable">$fp</span>);</span><br><span class="line">        return <span class="variable">$return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="[layout]-laravel使用" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/01/laravel使用/" class="article-date">
-  	<time datetime="2016-01-31T16:00:00.000Z" itemprop="datePublished">2016-02-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          
+            <p> 错误代码大汇总</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">400 无法解析此请求。 401.1 未经授权：访问由于凭据无效被拒绝。 </div><div class="line">401.2 未经授权: 访问由于服务器配置倾向使用替代身份验证方法而被拒绝。 </div><div class="line">401.3 未经授权：访问由于 ACL 对所请求资源的设置被拒绝。 </div><div class="line">401.4 未经授权：Web 服务器上安装的筛选器授权失败。 </div><div class="line">401.5 未经授权：ISAPI/CGI 应用程序授权失败。 </div><div class="line">401.7 未经授权：由于 Web 服务器上的 URL 授权策略而拒绝访问。 </div><div class="line">403 禁止访问：访问被拒绝。 </div><div class="line">403.1 禁止访问：执行访问被拒绝。 </div><div class="line">403.2 禁止访问：读取访问被拒绝。 </div><div class="line">403.3 禁止访问：写入访问被拒绝。 </div><div class="line">403.4 禁止访问：需要使用 SSL 查看该资源。 </div><div class="line">403.5 禁止访问：需要使用 SSL 128 查看该资源。 </div><div class="line">403.6 禁止访问：客户端的 IP 地址被拒绝。 </div><div class="line">403.7 禁止访问：需要 SSL 客户端证书。 </div><div class="line">403.8 禁止访问：客户端的 DNS 名称被拒绝。 </div><div class="line">403.9 禁止访问：太多客户端试图连接到 Web 服务器。 </div><div class="line">403.10 禁止访问：Web 服务器配置为拒绝执行访问。 </div><div class="line">403.11 禁止访问：密码已更改。 </div><div class="line">403.12 禁止访问：服务器证书映射器拒绝了客户端证书访问。 </div><div class="line">403.13 禁止访问：客户端证书已在 Web 服务器上吊销。 </div><div class="line">403.14 禁止访问：在 Web 服务器上已拒绝目录列表。 </div><div class="line">403.15 禁止访问：Web 服务器已超过客户端访问许可证限制。 </div><div class="line">403.16 禁止访问：客户端证书格式错误或未被 Web 服务器信任。 </div><div class="line">403.17 禁止访问：客户端证书已经到期或者尚未生效。 </div><div class="line">403.18 禁止访问：无法在当前应用程序池中执行请求的 URL。 </div><div class="line">403.19 禁止访问：无法在该应用程序池中为客户端执行 CGI。 </div><div class="line">403.20 禁止访问：Passport 登录失败。 </div><div class="line">404 找不到文件或目录。 </div><div class="line">404.1 文件或目录未找到：网站无法在所请求的端口访问。</div></pre></td></tr></table></figure>
+          
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/01/laravel使用/">laravel使用</a>
-    </h1>
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/07/JS时间转换方法/" itemprop="url">
+                  js时间转换方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-07-07T08:06:32+08:00" content="2016-07-07">
+              2016-07-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+                  . 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jquery/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/07/JS时间转换方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/07/JS时间转换方法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
-      
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>laravel使用<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">php artisan  <span class="built_in">make</span>:controller myController 新建控制器</span><br><span class="line">php artisan <span class="built_in">make</span>:console myConsole 新建控制台</span><br><span class="line">php artisan <span class="built_in">make</span>:test</span><br><span class="line">php artisan <span class="built_in">make</span>:migration</span><br><span class="line">php artisan <span class="built_in">make</span>:request</span><br><span class="line">php artisan <span class="built_in">make</span>:middleware</span><br><span class="line">php artisan <span class="built_in">make</span>:seeder</span><br><span class="line">php artisan <span class="built_in">make</span>:policy</span><br><span class="line">php artisan <span class="built_in">make</span>:job</span><br><span class="line">php artisan <span class="built_in">make</span>:event</span><br><span class="line">php artisan <span class="built_in">make</span>: listener</span><br><span class="line">php artisan <span class="built_in">make</span>:model myModel 新建model</span><br><span class="line">php artisan <span class="built_in">make</span>:command</span><br><span class="line">php artisan <span class="built_in">make</span>:provider</span><br></pre></td></tr></table></figure></p>
 
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>字符串转换时间戳<br>2016-10-10 11：11：11转换时间戳<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">strToTime</span>(<span class="params">string</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> f = string.split(<span class="string">' '</span>, <span class="number">2</span>);</div><div class="line">    <span class="keyword">var</span> d = (f[<span class="number">0</span>] ? f[<span class="number">0</span>] : <span class="string">''</span>).split(<span class="string">'-'</span>, <span class="number">3</span>);</div><div class="line">    <span class="keyword">var</span> t = (f[<span class="number">1</span>] ? f[<span class="number">1</span>] : <span class="string">''</span>).split(<span class="string">':'</span>, <span class="number">3</span>);</div><div class="line">    <span class="keyword">return</span> (<span class="keyword">new</span> <span class="built_in">Date</span>(</div><div class="line">            <span class="built_in">parseInt</span>(d[<span class="number">0</span>], <span class="number">10</span>) || <span class="literal">null</span>,</div><div class="line">            (<span class="built_in">parseInt</span>(d[<span class="number">1</span>], <span class="number">10</span>) || <span class="number">1</span>) - <span class="number">1</span>,</div><div class="line">            <span class="built_in">parseInt</span>(d[<span class="number">2</span>], <span class="number">10</span>) || <span class="literal">null</span>,</div><div class="line">            <span class="built_in">parseInt</span>(t[<span class="number">0</span>], <span class="number">10</span>) || <span class="literal">null</span>,</div><div class="line">            <span class="built_in">parseInt</span>(t[<span class="number">1</span>], <span class="number">10</span>) || <span class="literal">null</span>,</div><div class="line">            <span class="built_in">parseInt</span>(t[<span class="number">2</span>], <span class="number">10</span>) || <span class="literal">null</span></div><div class="line">        )).getTime() / <span class="number">1000</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>jquery时间戳转换时间格式<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unitToStr</span> (<span class="params">unixTime, isFull, timeZone</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> (timeZone) == <span class="string">'number'</span>)</div><div class="line">        &#123;</div><div class="line">            unixTime = <span class="built_in">parseInt</span>(unixTime) + <span class="built_in">parseInt</span>(timeZone) * <span class="number">60</span> * <span class="number">60</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(unixTime * <span class="number">1000</span>);</div><div class="line">        <span class="keyword">var</span> ymdhis = <span class="string">""</span>;</div><div class="line">        ymdhis += time.getUTCFullYear() + <span class="string">"-"</span>;</div><div class="line">        ymdhis += (time.getUTCMonth()+<span class="number">1</span>) + <span class="string">"-"</span>;</div><div class="line">        ymdhis += time.getUTCDate();</div><div class="line">        <span class="keyword">if</span> (isFull === <span class="literal">true</span>)</div><div class="line">        &#123;</div><div class="line">            ymdhis += <span class="string">" "</span> + time.getUTCHours() + <span class="string">":"</span>;</div><div class="line">            ymdhis += time.getUTCMinutes() + <span class="string">":"</span>;</div><div class="line">            ymdhis += time.getUTCSeconds();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ymdhis;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>js获取当前的时间<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> timestamp = <span class="built_in">Date</span>.parse(<span class="keyword">new</span> <span class="built_in">Date</span>());</div><div class="line"><span class="keyword">var</span> timestamp = (<span class="keyword">new</span> <span class="built_in">Date</span>()).valueOf();</div><div class="line"><span class="keyword">var</span> timestamp=<span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div></pre></td></tr></table></figure></p>
+
+          
+        
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li></ul>
-	</div>
 
+    <div>
       
-
-      
-      <div class="clearfix"></div>
     </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/01/自己写的一个数据库导出脚本/" itemprop="url">
+                  自己写的一个数据库导出脚本
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-07-01T11:06:32+08:00" content="2016-07-01">
+              2016-07-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  . 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/01/自己写的一个数据库导出脚本/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/01/自己写的一个数据库导出脚本/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#自己写的一个数据库导出脚本<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment">#auto backup mysql db</span></div><div class="line"><span class="comment">#by authors zhangsheng 2016</span></div><div class="line"><span class="comment">#define backup path</span></div><div class="line"></div><div class="line">BAK_DIR=<span class="string">"/home/wwwroot/mysqlbackup/`date +%Y%m%d`"</span></div><div class="line">MYSQLDB=<span class="built_in">test</span></div><div class="line">MYSQLUSR=root</div><div class="line">MYSQLPW=yangbiao</div><div class="line">MYSQLCMD=/usr/bin/mysqldump</div><div class="line">MySQLCHARACTERSET=<span class="string">"utf8"</span></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$UID</span> <span class="_">-ne</span> 0 ];<span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"must to be use root for exec shell"</span></div><div class="line">   <span class="built_in">exit</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> [ ! <span class="_">-d</span> <span class="variable">$BAK_DIR</span> ];<span class="keyword">then</span></div><div class="line">   mkdir -p <span class="string">"<span class="variable">$BAK_DIR</span>"</span></div><div class="line">   chmod -R 777 <span class="string">"<span class="variable">$BAK_DIR</span>"</span></div><div class="line">   <span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"\033[32mThe <span class="variable">$BAK_DIR</span> create successfully!"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"This <span class="variable">$BAK_DIR</span> is exists..."</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line"><span class="variable">$MYSQLCMD</span> -u<span class="variable">$MYSQLUSR</span> -p<span class="variable">$MYSQLPW</span> --default-character-set=<span class="variable">$MySQLCHARACTERSET</span> <span class="variable">$MYSQLDB</span> &gt; <span class="variable">$BAK_DIR</span>/<span class="variable">$MYSQLDB</span>.sql</div><div class="line"></div><div class="line"><span class="keyword">if</span> [ $? <span class="_">-eq</span> 0 ];<span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"\033[32mThe Mysql Backup <span class="variable">$MYSQLDB</span> successfull"</span></div><div class="line">   <span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"\r\n  mysql -uroot -p --default-character-set=<span class="variable">$MySQLCHARACTERSET</span> <span class="variable">$MYSQLDB</span> &lt; <span class="variable">$BAK_DIR</span>/<span class="variable">$MYSQLDB</span>.sql"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">   <span class="built_in">echo</span> <span class="_">-e</span> <span class="string">"\033[32mThe Mysql Backup <span class="variable">$MYSQLDB</span> Fail,Please check"</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/23/git-zsh快捷键/" itemprop="url">
+                  git-zsh快捷键
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-06-23T16:06:05+08:00" content="2016-06-23">
+              2016-06-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+                  . 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/git/zsh/" itemprop="url" rel="index">
+                    <span itemprop="name">zsh</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/23/git-zsh快捷键/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/23/git-zsh快捷键/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="git-zsh快捷键"><a href="#git-zsh快捷键" class="headerlink" title="git-zsh快捷键"></a>git-zsh快捷键</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> g=<span class="string">'git'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> ga=<span class="string">'git add'</span></div><div class="line"><span class="built_in">alias</span> gaa=<span class="string">'git add --all'</span></div><div class="line"><span class="built_in">alias</span> gapa=<span class="string">'git add --patch'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gb=<span class="string">'git branch'</span></div><div class="line"><span class="built_in">alias</span> gba=<span class="string">'git branch -a'</span></div><div class="line"><span class="built_in">alias</span> gbda=<span class="string">'git branch --merged | command grep -vE "^(\*|\s*master\s*$)" | command xargs -n 1 git branch -d'</span></div><div class="line"><span class="built_in">alias</span> gbl=<span class="string">'git blame -b -w'</span></div><div class="line"><span class="built_in">alias</span> gbnm=<span class="string">'git branch --no-merged'</span></div><div class="line"><span class="built_in">alias</span> gbr=<span class="string">'git branch --remote'</span></div><div class="line"><span class="built_in">alias</span> gbs=<span class="string">'git bisect'</span></div><div class="line"><span class="built_in">alias</span> gbsb=<span class="string">'git bisect bad'</span></div><div class="line"><span class="built_in">alias</span> gbsg=<span class="string">'git bisect good'</span></div><div class="line"><span class="built_in">alias</span> gbsr=<span class="string">'git bisect reset'</span></div><div class="line"><span class="built_in">alias</span> gbss=<span class="string">'git bisect start'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gc=<span class="string">'git commit -v'</span></div><div class="line"><span class="built_in">alias</span> gc!=<span class="string">'git commit -v --amend'</span></div><div class="line"><span class="built_in">alias</span> gca=<span class="string">'git commit -v -a'</span></div><div class="line"><span class="built_in">alias</span> gca!=<span class="string">'git commit -v -a --amend'</span></div><div class="line"><span class="built_in">alias</span> gcan!=<span class="string">'git commit -v -a -s --no-edit --amend'</span></div><div class="line"><span class="built_in">alias</span> gcam=<span class="string">'git commit -a -m'</span></div><div class="line"><span class="built_in">alias</span> gcb=<span class="string">'git checkout -b'</span></div><div class="line"><span class="built_in">alias</span> gcf=<span class="string">'git config --list'</span></div><div class="line"><span class="built_in">alias</span> gcl=<span class="string">'git clone --recursive'</span></div><div class="line"><span class="built_in">alias</span> gclean=<span class="string">'git clean -fd'</span></div><div class="line"><span class="built_in">alias</span> gpristine=<span class="string">'git reset --hard &amp;&amp; git clean -dfx'</span></div><div class="line"><span class="built_in">alias</span> gcm=<span class="string">'git checkout master'</span></div><div class="line"><span class="built_in">alias</span> gcmsg=<span class="string">'git commit -m'</span></div><div class="line"><span class="built_in">alias</span> gco=<span class="string">'git checkout'</span></div><div class="line"><span class="built_in">alias</span> gcount=<span class="string">'git shortlog -sn'</span></div><div class="line">compdef gcount=git</div><div class="line"><span class="built_in">alias</span> gcp=<span class="string">'git cherry-pick'</span></div><div class="line"><span class="built_in">alias</span> gcs=<span class="string">'git commit -S'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gd=<span class="string">'git diff'</span></div><div class="line"><span class="built_in">alias</span> gdca=<span class="string">'git diff --cached'</span></div><div class="line"><span class="built_in">alias</span> gdct=<span class="string">'git describe --tags `git rev-list --tags --max-count=1`'</span></div><div class="line"><span class="built_in">alias</span> gdt=<span class="string">'git diff-tree --no-commit-id --name-only -r'</span></div><div class="line"><span class="function"><span class="title">gdv</span></span>() &#123; git diff -w <span class="string">"<span class="variable">$@</span>"</span> | view - &#125;</div><div class="line">compdef _git gdv=git-diff</div><div class="line"><span class="built_in">alias</span> gdw=<span class="string">'git diff --word-diff'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gf=<span class="string">'git fetch'</span></div><div class="line"><span class="built_in">alias</span> gfa=<span class="string">'git fetch --all --prune'</span></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">gfg</span></span>() &#123; git ls-files | grep <span class="variable">$@</span> &#125;</div><div class="line">compdef gfg=grep</div><div class="line"><span class="built_in">alias</span> gfo=<span class="string">'git fetch origin'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gg=<span class="string">'git gui citool'</span></div><div class="line"><span class="built_in">alias</span> gga=<span class="string">'git gui citool --amend'</span></div><div class="line"><span class="built_in">alias</span> ggpur=<span class="string">'ggu'</span></div><div class="line"><span class="built_in">alias</span> gignore=<span class="string">'git update-index --assume-unchanged'</span></div><div class="line"><span class="built_in">alias</span> gignored=<span class="string">'git ls-files -v | grep "^[[:lower:]]"'</span></div><div class="line"><span class="built_in">alias</span> git-svn-dcommit-push=<span class="string">'git svn dcommit &amp;&amp; git push github master:svntrunk'</span></div><div class="line"><span class="built_in">alias</span> gk=<span class="string">'\gitk --all --branches'</span></div><div class="line"><span class="built_in">alias</span> gke=<span class="string">'\gitk --all $(git log -g --pretty=format:%h)'</span></div><div class="line"><span class="built_in">alias</span> gl=<span class="string">'git pull'</span></div><div class="line"><span class="built_in">alias</span> glg=<span class="string">'git log --stat'</span></div><div class="line"><span class="built_in">alias</span> glgp=<span class="string">'git log --stat -p'</span></div><div class="line"><span class="built_in">alias</span> glgg=<span class="string">'git log --graph'</span></div><div class="line"><span class="built_in">alias</span> glgga=<span class="string">'git log --graph --decorate --all'</span></div><div class="line"><span class="built_in">alias</span> glgm=<span class="string">'git log --graph --max-count=10'</span></div><div class="line"><span class="built_in">alias</span> glo=<span class="string">'git log --oneline --decorate'</span></div><div class="line"><span class="built_in">alias</span> glol=<span class="string">"git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></div><div class="line"><span class="built_in">alias</span> glola=<span class="string">"git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --all"</span></div><div class="line"><span class="built_in">alias</span> glog=<span class="string">'git log --oneline --decorate --graph'</span></div><div class="line"><span class="built_in">alias</span> glp=<span class="string">"_git_log_prettily"</span></div><div class="line">compdef _git glp=git-log</div><div class="line"></div><div class="line"><span class="built_in">alias</span> gm=<span class="string">'git merge'</span></div><div class="line"><span class="built_in">alias</span> gmom=<span class="string">'git merge origin/master'</span></div><div class="line"><span class="built_in">alias</span> gmt=<span class="string">'git mergetool --no-prompt'</span></div><div class="line"><span class="built_in">alias</span> gmtvim=<span class="string">'git mergetool --no-prompt --tool=vimdiff'</span></div><div class="line"><span class="built_in">alias</span> gmum=<span class="string">'git merge upstream/master'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gp=<span class="string">'git push'</span></div><div class="line"><span class="built_in">alias</span> gpd=<span class="string">'git push --dry-run'</span></div><div class="line"><span class="built_in">alias</span> gpoat=<span class="string">'git push origin --all &amp;&amp; git push origin --tags'</span></div><div class="line">compdef _git gpoat=git-push</div><div class="line"><span class="built_in">alias</span> gpu=<span class="string">'git push upstream'</span></div><div class="line"><span class="built_in">alias</span> gpv=<span class="string">'git push -v'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gr=<span class="string">'git remote'</span></div><div class="line"><span class="built_in">alias</span> gra=<span class="string">'git remote add'</span></div><div class="line"><span class="built_in">alias</span> grb=<span class="string">'git rebase'</span></div><div class="line"><span class="built_in">alias</span> grba=<span class="string">'git rebase --abort'</span></div><div class="line"><span class="built_in">alias</span> grbc=<span class="string">'git rebase --continue'</span></div><div class="line"><span class="built_in">alias</span> grbi=<span class="string">'git rebase -i'</span></div><div class="line"><span class="built_in">alias</span> grbm=<span class="string">'git rebase master'</span></div><div class="line"><span class="built_in">alias</span> grbs=<span class="string">'git rebase --skip'</span></div><div class="line"><span class="built_in">alias</span> grh=<span class="string">'git reset HEAD'</span></div><div class="line"><span class="built_in">alias</span> grhh=<span class="string">'git reset HEAD --hard'</span></div><div class="line"><span class="built_in">alias</span> grmv=<span class="string">'git remote rename'</span></div><div class="line"><span class="built_in">alias</span> grrm=<span class="string">'git remote remove'</span></div><div class="line"><span class="built_in">alias</span> grset=<span class="string">'git remote set-url'</span></div><div class="line"><span class="built_in">alias</span> grt=<span class="string">'cd $(git rev-parse --show-toplevel || echo ".")'</span></div><div class="line"><span class="built_in">alias</span> gru=<span class="string">'git reset --'</span></div><div class="line"><span class="built_in">alias</span> grup=<span class="string">'git remote update'</span></div><div class="line"><span class="built_in">alias</span> grv=<span class="string">'git remote -v'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gsb=<span class="string">'git status -sb'</span></div><div class="line"><span class="built_in">alias</span> gsd=<span class="string">'git svn dcommit'</span></div><div class="line"><span class="built_in">alias</span> gsi=<span class="string">'git submodule init'</span></div><div class="line"><span class="built_in">alias</span> gsps=<span class="string">'git show --pretty=short --show-signature'</span></div><div class="line"><span class="built_in">alias</span> gsr=<span class="string">'git svn rebase'</span></div><div class="line"><span class="built_in">alias</span> gss=<span class="string">'git status -s'</span></div><div class="line"><span class="built_in">alias</span> gst=<span class="string">'git status'</span></div><div class="line"><span class="built_in">alias</span> gsta=<span class="string">'git stash'</span></div><div class="line"><span class="built_in">alias</span> gstaa=<span class="string">'git stash apply'</span></div><div class="line"><span class="built_in">alias</span> gstd=<span class="string">'git stash drop'</span></div><div class="line"><span class="built_in">alias</span> gstl=<span class="string">'git stash list'</span></div><div class="line"><span class="built_in">alias</span> gstp=<span class="string">'git stash pop'</span></div><div class="line"><span class="built_in">alias</span> gsts=<span class="string">'git stash show --text'</span></div><div class="line"><span class="built_in">alias</span> gsu=<span class="string">'git submodule update'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gts=<span class="string">'git tag -s'</span></div><div class="line"><span class="built_in">alias</span> gtv=<span class="string">'git tag | sort -V'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gunignore=<span class="string">'git update-index --no-assume-unchanged'</span></div><div class="line"><span class="built_in">alias</span> gunwip=<span class="string">'git log -n 1 | grep -q -c "\-\-wip\-\-" &amp;&amp; git reset HEAD~1'</span></div><div class="line"><span class="built_in">alias</span> gup=<span class="string">'git pull --rebase'</span></div><div class="line"><span class="built_in">alias</span> gupv=<span class="string">'git pull --rebase -v'</span></div><div class="line"><span class="built_in">alias</span> glum=<span class="string">'git pull upstream master'</span></div><div class="line"></div><div class="line"><span class="built_in">alias</span> gwch=<span class="string">'git whatchanged -p --abbrev-commit --pretty=medium'</span></div><div class="line"><span class="built_in">alias</span> gwip=<span class="string">'git add -A; git rm $(git ls-files --deleted) 2&gt; /dev/null; git commit -m "--wip--"'</span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/12/php文件锁/" itemprop="url">
+                  php文件锁
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-04-12T23:55:04+08:00" content="2016-04-12">
+              2016-04-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/12/php文件锁/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/php文件锁/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>临时创建一个文件<br>当检测到这个文件是存在的，并且时间不是到达正确的时间，直接返回不继续<br>检测到文件不存在或者创建的时间在规定时间之前，则重新将文件创建一次</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> DEBUG = <span class="keyword">false</span>;</div><div class="line"><span class="comment">// 检验脚本是否正在执行</span></div><div class="line">$lock_file = <span class="keyword">__DIR__</span> . <span class="string">'/appointment_out_date_lock'</span>;</div><div class="line"><span class="comment">// 锁文件存在并且创建时间小于5Min</span></div><div class="line"><span class="keyword">if</span> (file_exists($lock_file) &amp;&amp; ! (time() &gt; filemtime($lock_file) + <span class="number">5</span> * <span class="number">60</span>)) &#123;</div><div class="line">    <span class="keyword">if</span> (DEBUG) &#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">"Into lock file.\n\n"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 创建文件锁或更新锁文件的最后修改时间为当前时间</span></div><div class="line">touch($lock_file);</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
   </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/head.png"
+               alt="yangbiao" />
+          <p class="site-author-name" itemprop="name">yangbiao</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yangbiao</span>
 </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 yangbiao
-    	</div>
-      	<div class="footer-right">
-      		<span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-            <span id="busuanzi_container_site_uv">
-              本站访客数<span id="busuanzi_value_site_uv"></span>人次
-            </span>
-      	</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
     </div>
   </div>
-</footer>
-    </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaoyanger"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
 
 
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
 
 
 
 
+  
+  
 
+  
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+  
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
+  
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  </div>
 </body>
 </html>

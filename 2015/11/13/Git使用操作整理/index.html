@@ -1,517 +1,701 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Git使用操作整理 | myNote-Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Git基本概念    a.git跟踪并管理的是文件的修改，而非文件        修改就是：新增一行，删除一行，更改某个字符甚至创建新文件等        每次的修改如果不 add 到暂存区，将不会被 commit 提交到仓库的    b.工作区(Working Directory)：就是当前你的版本库(.git文件夹)所在目录    c.版本库(Repository)：工作区有个隐藏的”.git">
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Git基本概念    a.git跟踪并管理的是文件的修改，而非文件        修改就是：新增一行，删除一行，更改某个字符甚至创建新文件等        每次的修改如果不 add 到暂存区，将不会被 commit 提交到仓库的    b.工作区(Working Directory)：就是当前你的版本库(.git文件夹)所在目录    c.版本库(Repository)：工作区有个隐藏的”.git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git使用操作整理">
 <meta property="og:url" content="https://xiaoyanger.github.io/2015/11/13/Git使用操作整理/index.html">
 <meta property="og:site_name" content="myNote-Blog">
 <meta property="og:description" content="Git基本概念    a.git跟踪并管理的是文件的修改，而非文件        修改就是：新增一行，删除一行，更改某个字符甚至创建新文件等        每次的修改如果不 add 到暂存区，将不会被 commit 提交到仓库的    b.工作区(Working Directory)：就是当前你的版本库(.git文件夹)所在目录    c.版本库(Repository)：工作区有个隐藏的”.git">
-<meta property="og:updated_time" content="2016-02-26T04:15:19.834Z">
+<meta property="og:updated_time" content="2016-07-14T06:09:35.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用操作整理">
 <meta name="twitter:description" content="Git基本概念    a.git跟踪并管理的是文件的修改，而非文件        修改就是：新增一行，删除一行，更改某个字符甚至创建新文件等        每次的修改如果不 add 到暂存区，将不会被 commit 提交到仓库的    b.工作区(Working Directory)：就是当前你的版本库(.git文件夹)所在目录    c.版本库(Repository)：工作区有个隐藏的”.git">
-  
-    <link rel="alternative" href="/atom.xml" title="myNote-Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://xiaoyanger.github.io/2015/11/13/Git使用操作整理/"/>
+
+  <title> Git使用操作整理 | myNote-Blog </title>
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/img/head.png" class="js-avatar">
-			
-		</a>
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">yangbiao</a></h1>
-		</hgroup>
+  
 
-		
 
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>標籤</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>關於</li>
-						
-					</ul>
-				</div>
-			</div>
-		
 
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">HOME</a></li>
-				        
-							<li><a href="/archives">ALL</a></li>
-				        
-							<li><a href="/tags/随笔">ESSAY</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://xiaoyanger.github.io/" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/p/1005052393196555?is_hot=1" title="weibo">weibo</a>
-					        
-								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yang-biao-68-83" title="zhihu">zhihu</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/apache/" style="font-size: 10px;">apache</a> <a href="/tags/composer/" style="font-size: 10px;">composer</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/keepalived/" style="font-size: 10px;">keepalived</a> <a href="/tags/laravel/" style="font-size: 12px;">laravel</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 20px;">linux</a> <a href="/tags/lnmp/" style="font-size: 10px;">lnmp</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/mysql/" style="font-size: 16px;">mysql</a> <a href="/tags/nginx/" style="font-size: 14px;">nginx</a> <a href="/tags/pdo/" style="font-size: 10px;">pdo</a> <a href="/tags/php/" style="font-size: 18px;">php</a> <a href="/tags/php7/" style="font-size: 10px;">php7</a> <a href="/tags/抓包/" style="font-size: 10px;">抓包</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
 
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">myNote-Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
 </div>
 
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">yangbiao</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="/img/head.png" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">yangbiao</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">HOME</a></li>
-		        
-					<li><a href="/archives">ALL</a></li>
-		        
-					<li><a href="/tags/随笔">ESSAY</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://xiaoyanger.github.io/" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/p/1005052393196555?is_hot=1" title="weibo">weibo</a>
-			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/yang-biao-68-83" title="zhihu">zhihu</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
 
-      <div class="body-wrap"><article id="[layout]-Git使用操作整理" class="article article-type-[layout]" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/13/Git使用操作整理/" class="article-date">
-  	<time datetime="2015-11-12T16:00:00.000Z" itemprop="datePublished">2015-11-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+
   
-    <h1 class="article-title" itemprop="name">
-      Git使用操作整理
-      <span id="busuanzi_container_page_pv" style='font-size:13px;color:orange;margin-left:20px;'>
-          阅读量(<span id="busuanzi_value_page_pv"></span>)
-      </span>
-    </h1>
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git使用操作整理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2015-11-13T00:00:00+08:00" content="2015-11-13">
+              2015-11-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/13/Git使用操作整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/13/Git使用操作整理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <p>Git基本概念<br>    a.git跟踪并管理的是文件的修改，而非文件<br>        修改就是：新增一行，删除一行，更改某个字符甚至创建新文件等<br>        每次的修改如果不 add 到暂存区，将不会被 commit 提交到仓库的<br>    b.工作区(Working Directory)：就是当前你的版本库(.git文件夹)所在目录<br>    c.版本库(Repository)：工作区有个隐藏的”.git”目录，这个目录不算工作区，而是Git的版本库<br>    d.版本库：<br>        暂存区：称为stage或index<br>                git add file 即为将文件的修改添加到暂存区<br>        分支：称为branch，git为我们创建第一个分支是master<br>              git commit 即为将文件提交到当前HEAD指向的分支<br>        HEAD: 指向当前分支版本的指针<br>    e.自己本地创建的分支，别人是看不见的<br>    f.通常情况下合并分支，Git会用”Fast forward”模式，这种模式下被合并的删除分支后，会丢掉分支信息<br>        如果，强制禁止”Fast forward”模式，Git就会在merge时生成一个新的commit,这样，从分支历史上就可以看出分支信息。<br>        强制禁止”Fast forward”:</p>
-<pre><code>        <span class="id">#git</span> merge --no-ff -m <span class="string">'merge info'</span> branch_name
+<pre><code>        #git merge --no-ff -m &apos;merge info&apos; branch_name
 g.禁止GIT自动换行&amp;提交时强制检测换行符
 
-    <span class="id">#git</span> config --global core<span class="class">.autocrlf</span> false    <span class="comment">// 禁止GIT自动换行</span>
-    <span class="id">#git</span> config --global core<span class="class">.safecrlf</span> true     <span class="comment">// 提交时强制检测换行符</span>
+    #git config --global core.autocrlf false    // 禁止GIT自动换行
+    #git config --global core.safecrlf true     // 提交时强制检测换行符
 </code></pre><p>1.安装完成后的基本设置</p>
-<pre><code><span class="id">#git</span> config --global user<span class="class">.name</span> <span class="string">"Your Name"</span>    <span class="comment">//设置全局的用户名</span>
-<span class="id">#git</span> config --global user<span class="class">.email</span> <span class="string">"email@example.com"</span>   <span class="comment">//设置全局的Email</span>
-<span class="id">#git</span> config --global <span class="attribute">color</span><span class="class">.ui</span> true   <span class="comment">//让bash显示颜色</span>
-<span class="id">#git</span> config --global core<span class="class">.autocrlf</span> true <span class="comment">//提交时将CRLF转换为LF,迁出代码将LF转换为CRLF</span>
-</code></pre><p>2.初始化版本库(仓库)</p>
-<pre><code><span class="id">#git</span> init
-</code></pre><p>3.将文件的修改添加到版本库的暂存区(stage/index)</p>
-<pre><code><span class="id">#git</span> <span class="tag">add</span> <span class="tag">file_name</span><span class="class">.ext</span>
-</code></pre><p>4.提交暂存区(stage/index)的所有修改内容到仓库(当前分支)</p>
-<pre><code>#git <span class="operator"><span class="keyword">commit</span> -<span class="keyword">m</span> <span class="string">"本次提交简介,最好是文件或功能的简介,因为会显示在github文件描述栏里"</span></span>
-</code></pre><p>5.查看版本库的当前状态</p>
-<pre><code><span class="id">#git</span> status
-</code></pre><p>6.diff 查看文件</p>
-<pre><code><span class="id">#git</span> <span class="tag">diff</span> <span class="tag">file_name</span><span class="class">.ext</span>
-</code></pre><p>7.查看日志(历史记录)</p>
-<pre><code><span class="variable">#git</span> <span class="keyword">log</span>
-<span class="variable">#git</span> <span class="keyword">log</span> -<span class="attribute">-pretty</span>=online : 单行显示
-</code></pre><p>8.查看每一次提交或改变版本库的命令(查看历史提交版本)</p>
-<pre><code><span class="id">#git</span> reflog
-</code></pre><p>9.Git版本号的表示</p>
-<pre><code><span class="preprocessor">#git用SHA1算法计算出来的非常大的数字,用<span class="number">16</span>进制表示</span>
-<span class="preprocessor">#git用HEAD表示当前最新提交的版本</span>
-<span class="preprocessor">#git的上一个版本就是HEAD^,上上一个版本就是HEAD^^,依次类推</span>
-    也可这样表示往上<span class="number">100</span>个版本: HEAD~<span class="number">100</span>
-</code></pre><p>10.版本回退(可以理解为重新设置HEAD指针的指向)</p>
-<pre><code><span class="id">#git</span> reset --hard HEAD^
-<span class="id">#git</span> reset --hard <span class="function"><span class="title">commit_id</span><span class="params">(版本号)</span></span>
-</code></pre><p>11.丢弃工作区(所有文件或某文件)的修改<br>    分两种情况：<br>        a.修改未被提交到暂存区(stage/index)，撤销修改将回到和当前branch版本库一模一样的状态<br>        b.修改已经提交到暂存区(stage/index)后，又进行了部分修改(此修改未提交暂存区)，<br>            撤销修改将回到添加暂存区后的状态<br>            总之，就是让这个文件回到最近一次git commit 或 git add 后的状态，即，只是丢弃工作区的修改。其实就是用版本库或暂存区里的文件替换工作区的文件</p>
-<pre><code><span class="id">#git</span> <span class="tag">checkout</span> <span class="tag">--</span> <span class="tag">file_name</span><span class="class">.ext</span>
-</code></pre><p>12.撤销已经提交暂存区的更改，重新放回工作区。<br>    其实就是将暂存区的文件用当前branch所在的版本库替换<br>    用HEAD表示当前branch的最新版本</p>
-<pre><code><span class="id">#git</span> <span class="tag">reset</span> <span class="tag">HEAD</span> <span class="tag">file_name</span><span class="class">.ext</span>
-</code></pre><p>13.删除文件(一般分三步)<br>     step 1：在资源管理器下直接删除文件，或 rm file<br>     step 2：git rm file<br>     step 3：git commit -m ‘delete info’<br>14.创建分支<br>    a. git checkout -b branch_name        创建并切换到新建的分支<br>    b. git branch branch_name             创建新分支，并未切换</p>
-<pre><code><span class="id">#git</span> checkout -<span class="tag">b</span> branch_name <span class="comment">//相当于 #git branch branch_name 和 #git checkout branch_name两条命令</span>
-</code></pre><p>15.查看分支</p>
-<pre><code><span class="id">#git</span> branch
-<span class="id">#git</span> branch -<span class="tag">a</span> : -a参数将会同时列出远端和本地分支
-    <span class="comment">//注：当前分支前面会标一个星号(*)</span>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git config --global user.name "Your Name"    //设置全局的用户名</span></div><div class="line"><span class="comment">#git config --global user.email "email@example.com"   //设置全局的Email</span></div><div class="line"><span class="comment">#git config --global color.ui true   //让bash显示颜色</span></div><div class="line"><span class="comment">#git config --global core.autocrlf true //提交时将CRLF转换为LF,迁出代码将LF转换为CRLF</span></div></pre></td></tr></table></figure>
+<p>2.初始化版本库(仓库)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git init</span></div></pre></td></tr></table></figure>
+<p>3.将文件的修改添加到版本库的暂存区(stage/index)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git add file_name.ext</span></div></pre></td></tr></table></figure>
+<p>4.提交暂存区(stage/index)的所有修改内容到仓库(当前分支)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    <span class="comment">#git commit -m "本次提交简介,最好是文件或功能的简介,因为会显示在github文件描述栏里"</span></div><div class="line">``` </div><div class="line"></div><div class="line">5.查看版本库的当前状态</div><div class="line"></div><div class="line">```sh</div><div class="line">    <span class="comment">#git status</span></div></pre></td></tr></table></figure>
+<p>6.diff 查看文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git diff file_name.ext</span></div></pre></td></tr></table></figure>
+<p>7.查看日志(历史记录)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git log</span></div><div class="line"><span class="comment">#git log --pretty=online : 单行显示</span></div></pre></td></tr></table></figure>
+<p>8.查看每一次提交或改变版本库的命令(查看历史提交版本)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git reflog</span></div></pre></td></tr></table></figure>
+<p>9.Git版本号的表示</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git用SHA1算法计算出来的非常大的数字,用16进制表示</span></div><div class="line"><span class="comment">#git用HEAD表示当前最新提交的版本</span></div><div class="line"><span class="comment">#git的上一个版本就是HEAD^,上上一个版本就是HEAD^^,依次类推</span></div><div class="line">    也可这样表示往上100个版本: HEAD~100</div></pre></td></tr></table></figure>
+<p>10.版本回退(可以理解为重新设置HEAD指针的指向)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git reset --hard HEAD^</span></div><div class="line"><span class="comment">#git reset --hard commit_id(版本号)</span></div></pre></td></tr></table></figure>
+<p>11.丢弃工作区(所有文件或某文件)的修改<br>    分两种情况：<br>        a.修改未被提交到暂存区(stage/index)，撤销修改将回到和当前branch版本库一模一样的状态<br>        b.修改已经提交到暂存区(stage/index)后，又进行了部分修改(此修改未提交暂存区)，<br>            撤销修改将回到添加暂存区后的状态<br>            总之，就是让这个文件回到最近一次git commit 或 git add 后的状态，即，只是丢弃工作区的修改。其实就是用版本库或暂存区里的文件替换工作区的文件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git checkout -- file_name.ext</span></div></pre></td></tr></table></figure>
+<p>12.撤销已经提交暂存区的更改，重新放回工作区。<br>    其实就是将暂存区的文件用当前branch所在的版本库替换<br>    用HEAD表示当前branch的最新版本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git reset HEAD file_name.ext</span></div></pre></td></tr></table></figure>
+<p>13.删除文件(一般分三步)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">step 1：在资源管理器下直接删除文件，或 rm file</div><div class="line">step 2：git rm file</div><div class="line">step 3：git commit -m <span class="string">'delete info'</span></div></pre></td></tr></table></figure>
+<p>14.创建分支</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a. git checkout -b branch_name        创建并切换到新建的分支</div><div class="line">b. git branch branch_name             创建新分支，并未切换</div><div class="line"></div><div class="line"><span class="comment">#git checkout -b branch_name //相当于 #git branch branch_name 和 #git checkout branch_name两条命令</span></div></pre></td></tr></table></figure>
+<p>15.查看分支</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git branch</span></div><div class="line"><span class="comment">#git branch -a : -a参数将会同时列出远端和本地分支</span></div></pre></td></tr></table></figure>
+<pre><code>//注：当前分支前面会标一个星号(*)
 </code></pre><p>16.切换分支</p>
-<pre><code><span class="id">#git</span> checkout branch_name    <span class="comment">//切换到branch_name分支</span>
-</code></pre><p>17.合并分支</p>
-<pre><code><span class="id">#git</span> marge branch_name   <span class="comment">//将branch_name分支合并到当前分支</span>
-
-    <span class="comment">//注：合并模式分两种</span>
-        <span class="tag">a</span>. 快进模式：直接将当前分支的指针指向branch_name分支的当前提交
-        <span class="tag">b</span> TODO.....
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git checkout branch_name    //切换到branch_name分支</span></div></pre></td></tr></table></figure>
+<p>17.合并分支</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git marge branch_name   //将branch_name分支合并到当前分支</span></div></pre></td></tr></table></figure>
+<pre><code>//注：合并模式分两种
+    a. 快进模式：直接将当前分支的指针指向branch_name分支的当前提交
+    b TODO.....
 </code></pre><p>18.删除分支</p>
-<pre><code><span class="id">#git</span> branch -d branch_name   <span class="comment">//被删除分支已经被合并</span>
-<span class="id">#git</span> branch -D branch-name   <span class="comment">//被删除分支未被合并(强行删除)</span>
-    <span class="comment">//注：未合并分支删除后将丢失修改</span>
-</code></pre><p>19.解决冲突<br>    a. 当合并分支时，会发生冲突，这样合并分支就不会是“快进模式”合并了<br>    b. Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; branch_name 来标记出不同分支的内容<br>    c. 然后手工编辑冲突<br>    注：当Git无法自动合并分支时，就必须首先解决冲突，然后再提交，合并才能完成。<br>20.查看分支合并情况</p>
-<pre><code><span class="comment">#git</span> <span class="comment">log</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">graph</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">pretty=oneline</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">abbrev</span><span class="literal">-</span><span class="comment">commit</span>
-     <span class="comment">//注：</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">graph</span> <span class="comment">伪图形化查看分支合并图</span>
-     <span class="comment">//</span>    <span class="literal">-</span><span class="literal">-</span><span class="comment">pretty=oneline</span> <span class="comment">单行省略显示(将不显示提交者和提交时间信息)</span>
-     <span class="comment">//</span>    <span class="literal">-</span><span class="literal">-</span><span class="comment">abbrev</span><span class="literal">-</span><span class="comment">commit</span>  <span class="comment">缩略显示版本ID</span>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git branch -d branch_name   //被删除分支已经被合并</span></div><div class="line"><span class="comment">#git branch -D branch-name   //被删除分支未被合并(强行删除)</span></div></pre></td></tr></table></figure>
+<pre><code>//注：未合并分支删除后将丢失修改
+</code></pre><p>19.解决冲突</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a. 当合并分支时，会发生冲突，这样合并分支就不会是“快进模式”合并了</div><div class="line">b. Git用 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; branch_name 来标记出不同分支的内容</div><div class="line">c. 然后手工编辑冲突</div></pre></td></tr></table></figure>
+<pre><code>注：当Git无法自动合并分支时，就必须首先解决冲突，然后再提交，合并才能完成。
+</code></pre><p>20.查看分支合并情况</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git log --graph --pretty=oneline --abbrev-commit</span></div></pre></td></tr></table></figure>
+<pre><code>//注： --graph 伪图形化查看分支合并图
+//    --pretty=oneline 单行省略显示(将不显示提交者和提交时间信息)
+//    --abbrev-commit  缩略显示版本ID
 </code></pre><p>21.保存当前工作现场(即,保存储藏)<br>    当有其它分支需要马上开发(比如bug修复分支)，而当前的分支工作并未完成，不能提交时，可以使用保存工作现场，等以后恢复现场后再继续工作<br>    修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除<br>    当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场</p>
-<pre><code><span class="preprocessor">#git stash<span class="comment">//保存现场：</span></span>
-<span class="preprocessor">#git stash list<span class="comment">// 查看现场：</span></span>
-<span class="preprocessor">#git stash apply<span class="comment">//恢复现场：此方法恢复现场后stash的内容并不会被删除，需要 git stash drop 手工删除</span></span>
-<span class="preprocessor">#git stash pop <span class="comment">//恢复现场：恢复现场的同时删除stash内容</span></span>
-<span class="preprocessor">#git stash drop<span class="comment">//删除现场：</span></span>
-    <span class="comment">//注：可多次stash，恢复的时候，先用 git stash list 查看，然后指定恢复的stash，用命令：</span>
-<span class="preprocessor">#git stash apply stash@{<span class="number">0</span>}</span>
-<span class="preprocessor">#git stash pop stash@{<span class="number">0</span>}</span>
-</code></pre><p>22.本地仓库关联远程仓库</p>
-<pre><code><span class="id">#git</span> remote add origin git@github<span class="class">.com</span>:wangnanphp/learngit<span class="class">.git</span>
-<span class="comment">//注：origin为远程库的名称，也可以叫别的名子，但origin更见名知意</span>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git stash//保存现场：</span></div><div class="line"><span class="comment">#git stash list// 查看现场：</span></div><div class="line"><span class="comment">#git stash apply//恢复现场：此方法恢复现场后stash的内容并不会被删除，需要 git stash drop 手工删除</span></div><div class="line"><span class="comment">#git stash pop //恢复现场：恢复现场的同时删除stash内容</span></div><div class="line"><span class="comment">#git stash drop//删除现场：</span></div><div class="line">    //注：可多次stash，恢复的时候，先用 git stash list 查看，然后指定恢复的stash，用命令：</div><div class="line"><span class="comment">#git stash apply stash@&#123;0&#125;</span></div><div class="line"><span class="comment">#git stash pop stash@&#123;0&#125;</span></div></pre></td></tr></table></figure>
+<p>22.本地仓库关联远程仓库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git remote add origin git@github.com:wangnanphp/learngit.git</span></div></pre></td></tr></table></figure>
+<pre><code>//注：origin为远程库的名称，也可以叫别的名子，但origin更见名知意
 </code></pre><p>23.推送本地仓库指定分支到远程仓库</p>
-<pre><code><span class="id">#git</span> push
-<span class="id">#git</span> push &lt;远端仓库&gt; &lt;本地仓库的分支&gt;
-<span class="id">#git</span> push -u orgin master
-    <span class="comment">//注：git push 直接将当前分支推送到远程</span>
-    <span class="comment">//    -u &lt;远端&gt; &lt;分支&gt;   (一般用于第一次推送,以后推送可以简化命令)</span>
-    <span class="comment">//       推送本地master分支的同时还将本地master和远程master关联</span>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git push</span></div><div class="line"><span class="comment">#git push &lt;远端仓库&gt; &lt;本地仓库的分支&gt;</span></div><div class="line"><span class="comment">#git push -u orgin master</span></div></pre></td></tr></table></figure>
+<pre><code>//注：git push 直接将当前分支推送到远程
+//    -u &lt;远端&gt; &lt;分支&gt;   (一般用于第一次推送,以后推送可以简化命令)
+//       推送本地master分支的同时还将本地master和远程master关联
 </code></pre><p>24.从远程库克隆</p>
-<pre><code><span class="id">#git</span> clone git@github<span class="class">.com</span>:wangnanphp/learngit<span class="class">.git</span>
-    <span class="comment">//注：默认克隆远程库的情况下，只能看到克隆到的本地master分支</span>
-        如果要克隆其他分支，请看<span class="number">27</span>条(分支抓取)
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git clone git@github.com:wangnanphp/learngit.git</span></div></pre></td></tr></table></figure>
+<pre><code>//注：默认克隆远程库的情况下，只能看到克隆到的本地master分支
+    如果要克隆其他分支，请看27条(分支抓取)
 </code></pre><p>25.查看远程库信息</p>
-<pre><code><span class="id">#git</span> remote
-<span class="id">#git</span> remote -v 显示详细信息
-    <span class="comment">//注：详细信息中显示的 "fetch" 代表可以拉取(抓取)的地址，"push" 代表可以推送的地址</span>
-        如果没有推送权限，将看不到 <span class="string">"push"</span> 的地址
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git remote</span></div><div class="line"><span class="comment">#git remote -v 显示详细信息</span></div></pre></td></tr></table></figure>
+<pre><code>//注：详细信息中显示的 &quot;fetch&quot; 代表可以拉取(抓取)的地址，&quot;push&quot; 代表可以推送的地址
+    如果没有推送权限，将看不到 &quot;push&quot; 的地址
 </code></pre><p>26.推送本地分支<br>    将指定分支上的所有本地提交(commit)，推送到远程库</p>
-<pre><code><span class="id">#git</span> push origin_depository branch_name
-    <span class="comment">//orgin_depository：远程库</span>
-    <span class="comment">//branch_name：本地分支</span>
-    <span class="comment">//eg：git push origin master</span>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git push origin_depository branch_name</span></div></pre></td></tr></table></figure>
+<pre><code>//orgin_depository：远程库
+//branch_name：本地分支
+//eg：git push origin master
 </code></pre><p>27.获取(抓取)远程分支修改</p>
-<pre><code><span class="id">#git</span> pull
-    <span class="comment">//注：必须指定当前分支与远程分支的链接关系，否则 git pull 会失败</span>
-    <span class="comment">//    git pull 回来的远端修改在没有冲突的情况下会自动合并到本地分支</span>
-    <span class="comment">//    如果远端的内容和本地的内容有冲突，则需要手工解决冲突，再commit，再push</span>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git pull</span></div></pre></td></tr></table></figure>
+<pre><code>//注：必须指定当前分支与远程分支的链接关系，否则 git pull 会失败
+//    git pull 回来的远端修改在没有冲突的情况下会自动合并到本地分支
+//    如果远端的内容和本地的内容有冲突，则需要手工解决冲突，再commit，再push
 </code></pre><p>28.创建远程分支到本地(分支抓取)<br>    抓取远程分支到本地，并切换到</p>
-<pre><code><span class="id">#git</span> checkout -<span class="tag">b</span> local_branch origin_depository/origin_branch
-    <span class="comment">//    eg：git checkout -b dev origin/dev</span>
-    <span class="comment">//注：此操作只会在本地创建和远程分支对应的分支，</span>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git checkout -b local_branch origin_depository/origin_branch</span></div></pre></td></tr></table></figure>
+<pre><code>//    eg：git checkout -b dev origin/dev
+//注：此操作只会在本地创建和远程分支对应的分支，
 </code></pre><p>29.设置本地分支与远程分支之间的链接关系(注：此参数已经弃用，有两个替代参数)</p>
-<pre><code><span class="id">#git</span> branch --set-upstream local_branch origin_depository/branch_name
-    <span class="comment">//    eg：git branch --set-upstream dev origin/dev</span>
-    <span class="comment">// 一个替代的：</span>
-<span class="id">#git</span> branch --set-upstream-to origin_depository/branch_name
-    <span class="comment">//关联本地当前分支到远端 origin_depository/branch_name 分支</span>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git branch --set-upstream local_branch origin_depository/branch_name</span></div><div class="line">    //    eg：git branch --set-upstream dev origin/dev</div><div class="line">    // 一个替代的：</div><div class="line"><span class="comment">#git branch --set-upstream-to origin_depository/branch_name</span></div></pre></td></tr></table></figure>
+<pre><code>//关联本地当前分支到远端 origin_depository/branch_name 分支
 </code></pre><p>30.创建标签</p>
-<pre><code>git <span class="keyword">tag</span> <span class="title">tag_name</span>
-    eg: git <span class="keyword">tag</span> <span class="title">v0</span>.<span class="number">1</span>
-git <span class="keyword">tag</span> <span class="title">tag_name</span> commit_id  用指定 commit_id 创建<span class="keyword">tag</span>
-<span class="title">git</span> <span class="keyword">tag</span> <span class="title">-a</span> tag_name -m <span class="string">"tag info"</span>   创建带说明信息的<span class="keyword">tag</span>  <span class="title">-a</span>：tag_name  -m <span class="string">"tag_info"</span>
-git <span class="keyword">tag</span> <span class="title">-s</span> tag_name -m <span class="string">"tag info"</span> commit_id    -s 用私钥签名一个标签
-    //注：默认标签是打在当前分支的最新commit上(HEAD)，也可以给指定commit_id打标签
-        发布一个版本时，我们通常先在版本库中打一个标签，这样，就唯一确定了打标签时刻的版本。
-        -s 签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git tag tag_name</div><div class="line">    eg: git tag v0.1</div><div class="line">git tag tag_name commit_id  用指定 commit_id 创建tag</div><div class="line">git tag <span class="_">-a</span> tag_name -m <span class="string">"tag info"</span>   创建带说明信息的tag  <span class="_">-a</span>：tag_name  -m <span class="string">"tag_info"</span></div><div class="line">git tag <span class="_">-s</span> tag_name -m <span class="string">"tag info"</span> commit_id    <span class="_">-s</span> 用私钥签名一个标签</div></pre></td></tr></table></figure>
+<pre><code>//注：默认标签是打在当前分支的最新commit上(HEAD)，也可以给指定commit_id打标签
+    发布一个版本时，我们通常先在版本库中打一个标签，这样，就唯一确定了打标签时刻的版本。
+    -s 签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错
 </code></pre><p>31.查看所有标签</p>
-<pre><code><span class="variable">#git</span> <span class="built_in">tag</span>
-    <span class="comment">//注：标签不是按时间顺序，而是按字母顺序排列的</span>
-</code></pre><p>32.查看标签信息</p>
-<pre><code><span class="variable">#git</span> show <span class="keyword">tag_name</span>
-</code></pre><p>33.删除标签</p>
-<pre><code><span class="variable">#git</span> <span class="built_in">tag</span> <span class="attribute">-d</span> <span class="keyword">tag_name</span>
-    <span class="comment">//注：因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除</span>
-</code></pre><p>34.推送本地标签</p>
-<pre><code><span class="id">#git</span> push origin tag_name    <span class="comment">//推送单个标签</span>
-<span class="id">#git</span> push origin --tags      一次性推送全部尚未推送远程的本地标签
-</code></pre><p>35.推送过远程的标签删除</p>
-<pre><code><span class="variable">#git</span> <span class="built_in">tag</span> <span class="attribute">-d</span> <span class="keyword">tag_name</span>    <span class="comment">//a. 先删除本地</span>
-<span class="variable">#git</span> push origin : refs/tags/<span class="keyword">tag_name</span>    <span class="comment">//b. 再删除远程</span>
-</code></pre><p>36.别名配置</p>
-<pre><code><span class="id">#git</span> config --global alias<span class="class">.st</span> status
-</code></pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git tag</span></div><div class="line">    //注：标签不是按时间顺序，而是按字母顺序排列的</div></pre></td></tr></table></figure>
+<p>32.查看标签信息</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git show tag_name</span></div></pre></td></tr></table></figure>
+<p>33.删除标签</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git tag -d tag_name</span></div><div class="line">    //注：因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除</div></pre></td></tr></table></figure>
+<p>34.推送本地标签</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git push origin tag_name    //推送单个标签</span></div><div class="line"><span class="comment">#git push origin --tags      一次性推送全部尚未推送远程的本地标签</span></div></pre></td></tr></table></figure>
+<p>35.推送过远程的标签删除</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git tag -d tag_name    //a. 先删除本地</span></div><div class="line"><span class="comment">#git push origin : refs/tags/tag_name    //b. 再删除远程</span></div></pre></td></tr></table></figure>
+<p>36.别名配置</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#git config --global alias.st status</span></div></pre></td></tr></table></figure>
       
     </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag">#git</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/12/在Linux中将php-fpm配置成服务的方法/" rel="next" title="在Linux中将php-fpm配置成服务的方法">
+                <i class="fa fa-chevron-left"></i> 在Linux中将php-fpm配置成服务的方法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/14/用队列的方式解决目录遍历问题/" rel="prev" title="用队列的方式解决目录遍历问题">
+                用队列的方式解决目录遍历问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/11/13/Git使用操作整理/"
+           data-title="Git使用操作整理" data-url="https://xiaoyanger.github.io/2015/11/13/Git使用操作整理/">
+      </div>
     
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/11/14/用队列的方式解决目录遍历问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
+
+
+        </div>
         
-          用队列的方式解决目录遍历问题
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/head.png"
+               alt="yangbiao" />
+          <p class="site-author-name" itemprop="name">yangbiao</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2015/11/12/在Linux中将php-fpm配置成服务的方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">在Linux中将php-fpm配置成服务的方法</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
+    </main>
 
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-</article>
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yangbiao</span>
 </div>
 
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Git使用操作整理" data-title="Git使用操作整理" data-url="https://xiaoyanger.github.io/2015/11/13/Git使用操作整理/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"xiaoyanger"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
-
-
-
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
 </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 yangbiao
-    	</div>
-      	<div class="footer-right">
-      		<span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-            <span id="busuanzi_container_site_uv">
-              本站访客数<span id="busuanzi_value_site_uv"></span>人次
-            </span>
-      	</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
     </div>
   </div>
-</footer>
-    </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaoyanger"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
 
 
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
 
 
 
 
+  
+  
 
+  
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
+  
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
+  
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-  </div>
 </body>
 </html>
