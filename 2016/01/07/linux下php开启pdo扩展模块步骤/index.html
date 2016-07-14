@@ -1,0 +1,628 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mysql,linux,pdo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="linux下php开启pdo扩展模块步骤假设php目录为/usr/local/phpmysql目录为/usr/local/mysql
+进入PHP源码包ext/pdo目录1#cd ext/pdo
+执行/usr/local/php/bin/phpize[假设PHP的安装目录为/usr/local/php]1#/usr/local/php/bin/phpize
+配置扩展pdo1#./configure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux下php开启pdo扩展模块步骤">
+<meta property="og:url" content="https://xiaoyanger.github.io/2016/01/07/linux下php开启pdo扩展模块步骤/index.html">
+<meta property="og:site_name" content="myNote-Blog">
+<meta property="og:description" content="linux下php开启pdo扩展模块步骤假设php目录为/usr/local/phpmysql目录为/usr/local/mysql
+进入PHP源码包ext/pdo目录1#cd ext/pdo
+执行/usr/local/php/bin/phpize[假设PHP的安装目录为/usr/local/php]1#/usr/local/php/bin/phpize
+配置扩展pdo1#./configure">
+<meta property="og:updated_time" content="2016-07-14T06:25:21.719Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux下php开启pdo扩展模块步骤">
+<meta name="twitter:description" content="linux下php开启pdo扩展模块步骤假设php目录为/usr/local/phpmysql目录为/usr/local/mysql
+进入PHP源码包ext/pdo目录1#cd ext/pdo
+执行/usr/local/php/bin/phpize[假设PHP的安装目录为/usr/local/php]1#/usr/local/php/bin/phpize
+配置扩展pdo1#./configure">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://xiaoyanger.github.io/2016/01/07/linux下php开启pdo扩展模块步骤/"/>
+
+  <title> linux下php开启pdo扩展模块步骤 | myNote-Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">myNote-Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                linux下php开启pdo扩展模块步骤
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-01-07T00:00:00+08:00" content="2016-01-07">
+              2016-01-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/07/linux下php开启pdo扩展模块步骤/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/07/linux下php开启pdo扩展模块步骤/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="linux下php开启pdo扩展模块步骤"><a href="#linux下php开启pdo扩展模块步骤" class="headerlink" title="linux下php开启pdo扩展模块步骤"></a>linux下php开启pdo扩展模块步骤</h1><p>假设php目录为/usr/local/php<br>mysql目录为/usr/local/mysql</p>
+<h2 id="进入PHP源码包ext-pdo目录"><a href="#进入PHP源码包ext-pdo目录" class="headerlink" title="进入PHP源码包ext/pdo目录"></a>进入PHP源码包ext/pdo目录</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#cd ext/pdo</span></div></pre></td></tr></table></figure>
+<h2 id="执行-usr-local-php-bin-phpize-假设PHP的安装目录为-usr-local-php"><a href="#执行-usr-local-php-bin-phpize-假设PHP的安装目录为-usr-local-php" class="headerlink" title="执行/usr/local/php/bin/phpize[假设PHP的安装目录为/usr/local/php]"></a>执行/usr/local/php/bin/phpize[假设PHP的安装目录为/usr/local/php]</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#/usr/local/php/bin/phpize</span></div></pre></td></tr></table></figure>
+<h2 id="配置扩展pdo"><a href="#配置扩展pdo" class="headerlink" title="配置扩展pdo"></a>配置扩展pdo</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#./configure --with-php-config=/usr/local/php/bin/php-config --enable-pdo=shared</span></div></pre></td></tr></table></figure>
+<h2 id="编译-amp-amp-安装pdo"><a href="#编译-amp-amp-安装pdo" class="headerlink" title="编译 &amp;&amp; 安装pdo"></a>编译 &amp;&amp; 安装pdo</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#make &amp;&amp; make install</span></div></pre></td></tr></table></figure>
+<p>   成功则出现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Installing shared extensions: /usr/local/php//lib/php/extensions/no-debug-non-zts-20060613/</div><div class="line">Installing header files: /usr/local/php//include/php/</div><div class="line">Installing PDO headers: /usr/local/php//include/php/ext/pdo/</div></pre></td></tr></table></figure>
+<p>   说明在/usr/local/php//lib/php/extensions/no-debug-non-zts-20060613/目录下生成了pdo.so文件</p>
+<h2 id="在PHP源码包中进入pdo-mysql"><a href="#在PHP源码包中进入pdo-mysql" class="headerlink" title="在PHP源码包中进入pdo_mysql"></a>在PHP源码包中进入pdo_mysql</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#cd ext/pdo_mysql</span></div></pre></td></tr></table></figure>
+<h2 id="usr-local-php-bin-phpize"><a href="#usr-local-php-bin-phpize" class="headerlink" title="/usr/local/php/bin/phpize"></a>/usr/local/php/bin/phpize</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#/usr/local/php/bin/phpize</span></div></pre></td></tr></table></figure>
+<h2 id="配置pdo-mysql-假设Mysql的安装目录为-usr-local-mysql"><a href="#配置pdo-mysql-假设Mysql的安装目录为-usr-local-mysql" class="headerlink" title="配置pdo_mysql[假设Mysql的安装目录为/usr/local/mysql]"></a>配置pdo_mysql[假设Mysql的安装目录为/usr/local/mysql]</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#./configure --with-php-config=/usr/local/php/bin/php-config --with-pdo-mysql=/usr/local/mysql</span></div></pre></td></tr></table></figure>
+<h2 id="编译安装pdo-mysql"><a href="#编译安装pdo-mysql" class="headerlink" title="编译安装pdo_mysql"></a>编译安装pdo_mysql</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#make &amp;&amp; make install</span></div></pre></td></tr></table></figure>
+<p>   成功则出现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    Installing shared extensions: /usr/local/php//lib/php/extensions/no-debug-non-zts-20060613/</div><div class="line">``</div><div class="line"></div><div class="line">   说明的/usr/local/php//lib/php/extensions/no-debug-non-zts-20060613/目录下生成了pdo_mysql.so文件</div><div class="line">## 在php配置文件中加上</div></pre></td></tr></table></figure>
+<pre><code>extension=&quot;/usr/local/php//lib/php/extensions/no-debug-non-zts-20060613/pdo_mysql.so&quot;;
+extension=&quot;/usr/local/php//lib/php/extensions/no-debug-non-zts-20060613/pdo.so&quot;;
+</code></pre><p>```</p>
+<h2 id="重启相关服务"><a href="#重启相关服务" class="headerlink" title="重启相关服务"></a>重启相关服务</h2><pre><code>#/etc/init.d/php-fpm restart
+</code></pre><h1 id="END"><a href="#END" class="headerlink" title="END"></a>END</h1>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag">#mysql</a>
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+            <a href="/tags/pdo/" rel="tag">#pdo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/06/http请求/" rel="next" title="http请求">
+                <i class="fa fa-chevron-left"></i> http请求
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/08/https站点的搭建/" rel="prev" title="Https站点搭建">
+                Https站点搭建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/07/linux下php开启pdo扩展模块步骤/"
+           data-title="linux下php开启pdo扩展模块步骤" data-url="https://xiaoyanger.github.io/2016/01/07/linux下php开启pdo扩展模块步骤/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/head.png"
+               alt="yangbiao" />
+          <p class="site-author-name" itemprop="name">yangbiao</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux下php开启pdo扩展模块步骤"><span class="nav-number">1.</span> <span class="nav-text">linux下php开启pdo扩展模块步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进入PHP源码包ext-pdo目录"><span class="nav-number">1.1.</span> <span class="nav-text">进入PHP源码包ext/pdo目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行-usr-local-php-bin-phpize-假设PHP的安装目录为-usr-local-php"><span class="nav-number">1.2.</span> <span class="nav-text">执行/usr/local/php/bin/phpize[假设PHP的安装目录为/usr/local/php]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置扩展pdo"><span class="nav-number">1.3.</span> <span class="nav-text">配置扩展pdo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-amp-amp-安装pdo"><span class="nav-number">1.4.</span> <span class="nav-text">编译 && 安装pdo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在PHP源码包中进入pdo-mysql"><span class="nav-number">1.5.</span> <span class="nav-text">在PHP源码包中进入pdo_mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#usr-local-php-bin-phpize"><span class="nav-number">1.6.</span> <span class="nav-text">/usr/local/php/bin/phpize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置pdo-mysql-假设Mysql的安装目录为-usr-local-mysql"><span class="nav-number">1.7.</span> <span class="nav-text">配置pdo_mysql[假设Mysql的安装目录为/usr/local/mysql]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装pdo-mysql"><span class="nav-number">1.8.</span> <span class="nav-text">编译安装pdo_mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启相关服务"><span class="nav-number">1.9.</span> <span class="nav-text">重启相关服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#END"><span class="nav-number">2.</span> <span class="nav-text">END</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yangbiao</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaoyanger"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

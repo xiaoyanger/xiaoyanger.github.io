@@ -2,84 +2,200 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faea7ba4-9a5e-4bf6-8d13-6f99d21fe1c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/01/HelloHexo/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/02/hexo主题/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/03/linux，apache，php，mysql常用的查看版本信息的方法/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/04/1337语言/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/05/PHP生成excel方法/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/06/linux_ftp的安装与配置/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/07/使用charles_proxy_for_mac来抓取手机app的网络包/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/08/contos安装laravel/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/09/linux-git下载地址/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/10/nginx虚拟主机配置/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/11/lnmp[基于contos]的服务器搭建/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/12/在Linux中将php-fpm配置成服务的方法/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/13/Git使用操作整理/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/11/14/用队列的方式解决目录遍历问题/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2015/12/11/Mysql权限分配/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/01/06/http请求/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/01/07/linux下php开启pdo扩展模块步骤/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/01/08/https站点的搭建/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/01/09/PHP7的PHP-Redis扩展/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/01/15/Nginx负载均衡的高可用/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/01/25/MongoDB $type 操作符/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/02/01/laravel使用/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/02/09/文件夹操作类/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/02/15/PHP判断浏览器/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/02/20/PHP-log日志类/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/2016/02/25/修改php.ini报错级别/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2015/11/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2015/11/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2015/11/page/3/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2015/12/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2015/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2015/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2015/page/3/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2016/01/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2016/01/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2016/02/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2016/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2016/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/2016/page/3/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/page/3/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/page/4/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/page/5/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archives/page/6/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page/3/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page/4/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page/5/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/page/6/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/MongoDB/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/Redis/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/apache/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/composer/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/excel/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/git/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/hexo/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/http/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/https/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/keepalived/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/laravel/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/layout/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/linux/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/linux/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/linux/page/3/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/lnmp/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/log/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/mysql/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/nginx/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/pdo/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/php/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/php/page/2/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/php7/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/抓包/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/框架/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tags/语言/index.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/avatar.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/placeholder.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/searchicon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/blank.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/fancybox_loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/fancybox_loading@2x.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/fancybox_overlay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/fancybox_sprite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/fancybox_sprite@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/helpers/fancybox_buttons.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/fonts/fontawesome-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/01/HelloHexo/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/01/hexo + github + 多说 来搭建免费博客/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/02/hexo主题/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/03/linux，apache，php，mysql常用的查看版本信息的方法/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/04/1337语言/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/05/PHP生成excel方法/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/06/linux_ftp的安装与配置/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/07/使用charles_proxy_for_mac来抓取手机app的网络包/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/08/contos安装laravel/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/09/linux-git下载地址/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/10/nginx虚拟主机配置/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/11/lnmp[基于contos]的服务器搭建/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/12/在Linux中将php-fpm配置成服务的方法/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/13/Git使用操作整理/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/11/14/用队列的方式解决目录遍历问题/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2015/12/11/Mysql权限分配/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/01/06/http请求/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/01/07/linux下php开启pdo扩展模块步骤/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/01/08/https站点的搭建/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/01/09/PHP7的PHP-Redis扩展/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/01/15/Nginx负载均衡的高可用/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/01/25/MongoDB $type 操作符/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/02/01/laravel使用/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/02/09/文件夹操作类/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/02/15/PHP判断浏览器/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/02/20/PHP-log日志类/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/02/25/修改php.ini报错级别/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/02/28/PHP断点续传/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/03/04/php-zip文件简单操作/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/03/11/PHP分页数据类/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/03/18/PHP文件上传/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/03/25/PHP邮件发送类/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/04/02/php验证码class扩展类/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/04/12/php文件锁/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/06/23/git-zsh快捷键/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/07/01/自己写的一个数据库导出脚本/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/07/07/JS时间转换方法/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2016/07/14/HTTP错误代码大汇总/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2015/11/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2015/11/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2015/11/page/3/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2015/12/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2015/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2015/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2015/page/3/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2015/page/4/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/01/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/01/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/02/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/02/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/03/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/04/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/06/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/07/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/page/3/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/page/4/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/2016/page/5/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/page/3/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/page/4/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/page/5/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/page/6/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/page/7/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archives/page/8/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/git/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/git/zsh/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/hexo/github/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/hexo/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/http/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/http/php/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/jquery/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/jquery/js/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/linux/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/linux/mysql/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/php/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/php/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/php/zip/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/技术/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/技术/教程/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/categories/语言/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cc-by-nc-nd.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cc-by-nc-sa.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cc-by-nc.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cc-by-nd.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cc-by-sa.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cc-by.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cc-zero.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/quote-l.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/quote-r.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/src/affix.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/src/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/src/hook-duoshuo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/src/motion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/src/post-details.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/src/schemes/pisces.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/src/scrollspy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/src/utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page/3/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page/4/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page/5/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page/6/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page/7/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/page/8/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/MongoDB/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/Redis/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/apache/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/composer/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/duoshuo/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/excel/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/git/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/github/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/hexo/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/http/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/https/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/jquery/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/js/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/keepalived/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/laravel/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/layout/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/linux/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/linux/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/linux/page/3/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/lnmp/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/log/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/mysql/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/nginx/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/pdo/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/php/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/php/page/2/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/php/page/3/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/php/page/4/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/php7/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/zip/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/zsh/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/抓包/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/框架/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/状态码/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tags/语言/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/helpers/jquery.fancybox-buttons.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/helpers/jquery.fancybox-buttons.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/helpers/jquery.fancybox-media.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/helpers/jquery.fancybox-thumbs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/jquery.fancybox.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/jquery.fancybox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fancybox/source/jquery.fancybox.pack.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fastclick/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fastclick/README.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fastclick/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fastclick/lib/fastclick.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/fastclick/lib/fastclick.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/HELP-US-OUT.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/css/font-awesome.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/css/font-awesome.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/css/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/font-awesome/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/jquery/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/jquery_lazyload/CONTRIBUTING.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/jquery_lazyload/README.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/jquery_lazyload/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/jquery_lazyload/jquery.lazyload.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/jquery_lazyload/jquery.scrollstop.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/ua-parser-js/dist/ua-parser.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/ua-parser-js/dist/ua-parser.pack.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/velocity/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/velocity/velocity.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/velocity/velocity.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/velocity/velocity.ui.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendors/velocity/velocity.ui.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xiaoyanger.github.io.iws" />
@@ -101,7 +217,18 @@
     <favorites_list name="xiaoyanger.github.io" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/2015/11/01/HelloHexo/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -153,6 +280,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xiaoyanger.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xiaoyanger.github.io" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -182,7 +319,11 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OurCode\xiaoyanger.github.io" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OurCode\xiaoyanger.github.io" />
       <recent name="D:\xiaoyanger.github.io" />
       <recent name="D:\test\xiaoyanger.github.io" />
     </key>
@@ -229,7 +370,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1449654804841</updated>
-      <workItem from="1468484056166" duration="16000" />
+      <workItem from="1468484056166" duration="185000" />
     </task>
     <task id="LOCAL-00001" summary="增加几篇文档">
       <created>1449655097151</created>
@@ -266,11 +407,18 @@
       <option name="project" value="LOCAL" />
       <updated>1456463883541</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="删除好多">
+      <created>1468484082088</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1468484082088</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16000" />
+    <option name="totallyTimeSpent" value="185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -302,7 +450,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="增加几篇文档" />
     <MESSAGE value="增加好多篇文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加好多篇文档" />
+    <MESSAGE value="删除好多" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除好多" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
