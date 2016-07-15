@@ -1,0 +1,625 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="PHP文件上传
+FileUpload.php1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP文件上传">
+<meta property="og:url" content="https://xiaoyanger.github.io/2016/03/18/PHP文件上传/index.html">
+<meta property="og:site_name" content="myNote-Blog">
+<meta property="og:description" content="PHP文件上传
+FileUpload.php1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939">
+<meta property="og:updated_time" content="2016-07-14T07:47:14.479Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP文件上传">
+<meta name="twitter:description" content="PHP文件上传
+FileUpload.php1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://xiaoyanger.github.io/2016/03/18/PHP文件上传/"/>
+
+  <title> PHP文件上传 | myNote-Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">myNote-Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP文件上传
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-03-18T15:48:04+08:00" content="2016-03-18">
+              2016-03-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/18/PHP文件上传/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/18/PHP文件上传/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>PHP文件上传</p>
+<h1 id="FileUpload-php"><a href="#FileUpload-php" class="headerlink" title="FileUpload.php"></a>FileUpload.php</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">FileUpload</span> </span>&#123;</div><div class="line">    </div><div class="line">        <span class="keyword">private</span> $filePath;     <span class="comment">//指定上传文件保存的路径</span></div><div class="line">        <span class="keyword">private</span> $allowType=<span class="keyword">array</span>(<span class="string">'gif'</span>, <span class="string">'jpg'</span>, <span class="string">'png'</span>, <span class="string">'jpeg'</span>);  <span class="comment">//充许上传文件的类型</span></div><div class="line">        <span class="keyword">private</span> $maxSize=<span class="number">1000000</span>;  <span class="comment">//允上传文件的最大长度 1M</span></div><div class="line">        <span class="keyword">private</span> $isRandName=<span class="keyword">true</span>;  <span class="comment">//是否随机重命名， true false不随机，使用原文件名</span></div><div class="line">        <span class="keyword">private</span> $originName;   <span class="comment">//源文件名称</span></div><div class="line">        <span class="keyword">private</span> $tmpFileName;   <span class="comment">//临时文件名</span></div><div class="line">        <span class="keyword">private</span> $fileType;  <span class="comment">//文件类型</span></div><div class="line">        <span class="keyword">private</span> $fileSize;  <span class="comment">//文件大小</span></div><div class="line">        <span class="keyword">private</span> $newFileName; <span class="comment">//新文件名</span></div><div class="line">        <span class="keyword">private</span> $errorNum=<span class="number">0</span>;  <span class="comment">//错误号</span></div><div class="line">        <span class="keyword">private</span> $errorMess=<span class="string">""</span>; <span class="comment">//用来提供错误报告</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//用于对上传文件初使化</span></div><div class="line">        <span class="comment">//1. 指定上传路径， 2，充许的类型， 3，限制大小， 4，是否使用随机文件名称</span></div><div class="line">        <span class="comment">//让用户可以不用按位置传参数，后面参数给值不用将前几个参数也提供值</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($options=array<span class="params">()</span>)</span></span>&#123;</div><div class="line">            <span class="keyword">foreach</span>($options <span class="keyword">as</span> $key=&gt;$val)&#123;</div><div class="line">                <span class="comment">//查看用户参数中数组的下标是否和成员属性名相同</span></div><div class="line">                <span class="keyword">if</span>(!in_array($key,get_class_vars(get_class(<span class="keyword">$this</span>))))&#123;</div><div class="line">                    <span class="keyword">continue</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="comment">//设置成员变量</span></div><div class="line">                <span class="keyword">$this</span>-&gt;setOption($key, $val);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line"></div><div class="line">        <span class="comment">//获得错误原因</span></div><div class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">getError</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="comment">//获得错误原因</span></div><div class="line">            $str=<span class="string">"上传文件&lt;font color='red'&gt;&#123;$this-&gt;originName&#125;&lt;/font&gt;时出错："</span>;</div><div class="line">            <span class="keyword">switch</span>(<span class="keyword">$this</span>-&gt;errorNum)&#123;</div><div class="line">                <span class="keyword">case</span> <span class="number">4</span>: $str .= <span class="string">"没有文件被上传"</span>; <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">3</span>: $str .= <span class="string">"文件只被部分上传"</span>; <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">2</span>: $str .= <span class="string">"上传文件超过了HTML表单中MAX_FILE_SIZE选项指定的值"</span>; <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">1</span>: $str .= <span class="string">"上传文件超过了php.ini 中upload_max_filesize选项的值"</span>; <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">-1</span>: $str .= <span class="string">"不被充许的类型"</span>; <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">-2</span>: $str .= <span class="string">"文件过大，上传文件不能超过&#123;$this-&gt;maxSize&#125;个字节"</span>; <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">-3</span>: $str .= <span class="string">"上传失败"</span>; <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">-4</span>: $str .= <span class="string">"建立存放上传文件目录失败，请重新指定上传目录"</span>; <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="number">-5</span>: $str .= <span class="string">"必须指定上传文件的路径"</span>; <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">default</span>: $str .=  <span class="string">"末知错误"</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> $str.<span class="string">'&lt;br&gt;'</span>;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">        </div><div class="line">        <span class="comment">//用来检查文件上传路径</span></div><div class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFilePath</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">empty</span>(<span class="keyword">$this</span>-&gt;filePath)) &#123;</div><div class="line">                <span class="keyword">$this</span>-&gt;setOption(<span class="string">'errorNum'</span>, <span class="number">-5</span>);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(!file_exists(<span class="keyword">$this</span>-&gt;filePath) || !is_writable(<span class="keyword">$this</span>-&gt;filePath))&#123;</div><div class="line">                <span class="keyword">if</span>(!@mkdir(<span class="keyword">$this</span>-&gt;filePath, <span class="number">0755</span>))&#123;</div><div class="line">                    <span class="keyword">$this</span>-&gt;setOption(<span class="string">'errorNum'</span>, <span class="number">-4</span>);</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">//用来检查文件上传的大小</span></div><div class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFileSize</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;fileSize &gt; <span class="keyword">$this</span>-&gt;maxSize)&#123;</div><div class="line">                <span class="keyword">$this</span>-&gt;setOPtion(<span class="string">'errorNum'</span>, <span class="string">'-2'</span>);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//用于检查文件上传类型</span></div><div class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFileType</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span>(in_array(strtolower(<span class="keyword">$this</span>-&gt;fileType), <span class="keyword">$this</span>-&gt;allowType)) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">$this</span>-&gt;setOption(<span class="string">'errorNum'</span>, <span class="number">-1</span>);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">//设置上传后的文件名称</span></div><div class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">setNewFileName</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;isRandName)&#123;</div><div class="line">                <span class="keyword">$this</span>-&gt;setOption(<span class="string">'newFileName'</span>, <span class="keyword">$this</span>-&gt;proRandName());</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">$this</span>-&gt;setOption(<span class="string">'newFileName'</span>, <span class="keyword">$this</span>-&gt;originName);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//设置随机文件名称</span></div><div class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">proRandName</span><span class="params">()</span></span>&#123;</div><div class="line">            $fileName=date(<span class="string">"YmdHis"</span>).rand(<span class="number">100</span>,<span class="number">999</span>);</div><div class="line">            <span class="keyword">return</span> $fileName.<span class="string">'.'</span>.<span class="keyword">$this</span>-&gt;fileType;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">//设置成员变量</span></div><div class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">setOption</span><span class="params">($key, $val)</span></span>&#123;</div><div class="line">            <span class="keyword">$this</span>-&gt;$key=$val;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">//用来上传一个文件</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">uploadFile</span><span class="params">($fileField)</span></span>&#123;</div><div class="line">            </div><div class="line">            <span class="keyword">echo</span> $fileField;</div><div class="line">            <span class="comment">//默认返回值为True</span></div><div class="line">            $return=<span class="keyword">true</span>;</div><div class="line">            <span class="comment">//首先检查文件上传路径</span></div><div class="line">            <span class="keyword">if</span>(!<span class="keyword">$this</span>-&gt;checkFilePath())&#123;</div><div class="line">                <span class="keyword">$this</span>-&gt;errorMess=<span class="keyword">$this</span>-&gt;getError();</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">//获得上传文件的名字</span></div><div class="line">            $name=$_FILES[$fileField][<span class="string">'name'</span>];</div><div class="line">            <span class="comment">//获得临时文件名</span></div><div class="line">            $tmp_name=$_FILES[$fileField][<span class="string">'tmp_name'</span>];</div><div class="line">            <span class="comment">//获得上传文件的大小</span></div><div class="line">            $size=$_FILES[$fileField][<span class="string">'size'</span>];</div><div class="line">            <span class="comment">//获得上传错误代号</span></div><div class="line">            $error=$_FILES[$fileField][<span class="string">'error'</span>];</div><div class="line">            </div><div class="line">            <span class="comment">//如果上传的是多个文件</span></div><div class="line">            <span class="keyword">if</span>(is_Array($name))&#123;</div><div class="line">                <span class="comment">//错误代号必须也是Array，因为一个文件对应一个错误代号</span></div><div class="line">                $errors=<span class="keyword">array</span>();</div><div class="line">                <span class="comment">//遍历检查文件</span></div><div class="line">                <span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;count($name); $i++)&#123;</div><div class="line">                    <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;setFiles($name[$i], $tmp_name[$i], $size[$i], $error[$i]))&#123;</div><div class="line">                        <span class="keyword">if</span>(!<span class="keyword">$this</span>-&gt;checkFileSize() || !<span class="keyword">$this</span>-&gt;checkFileType())&#123;</div><div class="line">                            $errors[]=<span class="keyword">$this</span>-&gt;getError();</div><div class="line">                            $return=<span class="keyword">false</span>;</div><div class="line">                        &#125;</div><div class="line">                    &#125;<span class="keyword">else</span>&#123;</div><div class="line">                        $error[]=<span class="keyword">$this</span>-&gt;getError();</div><div class="line">                        $return=<span class="keyword">false</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">if</span>(!$return)</div><div class="line">                        <span class="keyword">$this</span>-&gt;setFiles();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span>($return)&#123;</div><div class="line">                    $fileNames=<span class="keyword">array</span>();</div><div class="line">                    <span class="keyword">for</span>($i=<span class="number">0</span>; $i&lt;count($name); $i++)&#123;</div><div class="line">                        <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;setFiles($name[$i], $tmp_name[$i], $size[$i], $error[$i]))&#123;</div><div class="line">                            <span class="keyword">$this</span>-&gt;setNewFileName();</div><div class="line">                            <span class="keyword">if</span>(!<span class="keyword">$this</span>-&gt;copyFile())&#123;</div><div class="line">                                $errors=<span class="keyword">$this</span>-&gt;getError();</div><div class="line">                                $return=<span class="keyword">false</span>;</div><div class="line">                            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                                $fileNames[]=<span class="keyword">$this</span>-&gt;newFileName;</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                    <span class="comment">//是一个数组</span></div><div class="line">                    <span class="keyword">$this</span>-&gt;newFileName=$fileNames;</div><div class="line">                &#125;</div><div class="line">                <span class="comment">//赋值错误信息</span></div><div class="line">                <span class="keyword">$this</span>-&gt;errorMess=$errors;</div><div class="line">                <span class="keyword">return</span> $return;</div><div class="line">            <span class="comment">//如果是单个文件上传</span></div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;setFiles($name, $tmp_name, $size, $error))&#123;</div><div class="line">                        <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;checkFileSize() &amp;&amp; <span class="keyword">$this</span>-&gt;checkFileType())&#123;</div><div class="line">                            <span class="keyword">$this</span>-&gt;setNewFileName();</div><div class="line">                            <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;copyFile())&#123;</div><div class="line">                                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                                $return=<span class="keyword">false</span>;</div><div class="line">                            &#125;</div><div class="line">                        &#125;<span class="keyword">else</span>&#123;</div><div class="line">                            $return=<span class="keyword">false</span>;</div><div class="line">                        &#125;   </div><div class="line">                    &#125;<span class="keyword">else</span>&#123;</div><div class="line">                        $return=<span class="keyword">false</span>;</div><div class="line">                    &#125;</div><div class="line">                    </div><div class="line">                    <span class="keyword">if</span>(!$return)</div><div class="line">                        <span class="keyword">$this</span>-&gt;errorMess=<span class="keyword">$this</span>-&gt;getError();</div><div class="line"></div><div class="line"></div><div class="line">                    <span class="keyword">return</span> $return;</div><div class="line">            &#125;           </div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">//保存文件,将文件从临时路径移动到新路径</span></div><div class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">copyFile</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">if</span>(!<span class="keyword">$this</span>-&gt;errorNum)&#123;</div><div class="line">                $filePath=rtrim(<span class="keyword">$this</span>-&gt;filePath, <span class="string">'/'</span>).<span class="string">'/'</span>;</div><div class="line">                $filePath.=<span class="keyword">$this</span>-&gt;newFileName;</div><div class="line"></div><div class="line">                <span class="keyword">if</span>(@move_uploaded_file(<span class="keyword">$this</span>-&gt;tmpFileName, $filePath))  &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    <span class="keyword">$this</span>-&gt;setOption(<span class="string">'errorNum'</span>, <span class="number">-3</span>);</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">                &#125;</div><div class="line">                    </div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//设置和$_FILES有关的内容</span></div><div class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">setFiles</span><span class="params">($name=<span class="string">""</span>, $tmp_name=<span class="string">''</span>, $size=<span class="number">0</span>, $error=<span class="number">0</span>)</span></span>&#123;</div><div class="line">        </div><div class="line">            <span class="keyword">$this</span>-&gt;setOption(<span class="string">'errorNum'</span>, $error);</div><div class="line">            <span class="keyword">if</span>($error)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">$this</span>-&gt;setOption(<span class="string">'originName'</span>, $name);</div><div class="line">            <span class="keyword">$this</span>-&gt;setOption(<span class="string">'tmpFileName'</span>, $tmp_name);</div><div class="line">            <span class="comment">//分割文件名，取最后一个后缀</span></div><div class="line">            $arrStr=explode(<span class="string">'.'</span>, $name); </div><div class="line">            <span class="keyword">$this</span>-&gt;setOption(<span class="string">'fileType'</span>, strtolower($arrStr[count($arrStr)<span class="number">-1</span>]));</div><div class="line">            <span class="keyword">$this</span>-&gt;setOption(<span class="string">'fileSize'</span>, $size);    </div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;   </div><div class="line"></div><div class="line">        <span class="comment">//用于获取上传后文件的文件名</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">getNewFileName</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;newFileName;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">//上传如果失败，则调用这个方法，就可以查看错误报告</span></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">getErrorMsg</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;errorMess;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>##文件上传调用<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">    <span class="keyword">require</span> <span class="string">"FileUpload.class.php"</span>;</div><div class="line">    <span class="comment">//实例化这个对象</span></div><div class="line">    $up=<span class="keyword">new</span> FileUpload(<span class="keyword">array</span>(<span class="string">'isRandName'</span>=&gt;<span class="keyword">true</span>,<span class="string">'allowType'</span>=&gt;<span class="keyword">array</span>(<span class="string">'txt'</span>, <span class="string">'doc'</span>, <span class="string">'php'</span>, <span class="string">'gif'</span>),<span class="string">'filePath'</span>=&gt;<span class="string">'./uploads/'</span>, <span class="string">'maxSize'</span>=&gt;<span class="number">200000</span>));</div><div class="line">    <span class="keyword">echo</span> <span class="string">'&lt;pre&gt;'</span>;</div><div class="line">    <span class="comment">//调用上传文件的方法</span></div><div class="line">    <span class="keyword">if</span>($up-&gt;uploadFile(<span class="string">'upload'</span>))&#123;</div><div class="line">        print_r($up-&gt;getNewFileName());</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        print_r($up-&gt;getErrorMsg());    </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'&lt;/pre&gt;'</span>;</div></pre></td></tr></table></figure></p>
+<p>##文件上传html表单代码</p>
+<p>###多文件上传<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"upload.php"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"MAX_FILE_SIZE"</span> <span class="attr">value</span>=<span class="string">"100000000"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upload[]"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upload[]"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upload[]"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upload[]"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"sub"</span> <span class="attr">value</span>=<span class="string">"upload file"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>###单文件上传<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"upload.php"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"MAX_FILE_SIZE"</span> <span class="attr">value</span>=<span class="string">"100000000"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upload"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"sub"</span> <span class="attr">value</span>=<span class="string">"upload file"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/11/PHP分页数据类/" rel="next" title="分页数据类">
+                <i class="fa fa-chevron-left"></i> 分页数据类
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/25/PHP邮件发送类/" rel="prev" title="PHP邮件发送类">
+                PHP邮件发送类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/18/PHP文件上传/"
+           data-title="PHP文件上传" data-url="https://xiaoyanger.github.io/2016/03/18/PHP文件上传/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/img/head.png"
+               alt="yangbiao" />
+          <p class="site-author-name" itemprop="name">yangbiao</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FileUpload-php"><span class="nav-number">1.</span> <span class="nav-text">FileUpload.php</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yangbiao</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xiaoyanger"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
